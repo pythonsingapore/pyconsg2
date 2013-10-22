@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load cms_tags i18n sekizai_tags %}
 
 <!DOCTYPE html>
 <html>
@@ -15,8 +15,10 @@
     <link href="{{ STATIC_URL }}css/libs/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link href="{{ STATIC_URL }}css/libs/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
     {% block extrahead %}{% endblock %}
+    {% render_block "css" %}
 </head>
 <body>
+{% cms_toolbar %}
 <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
     <div class="navbar-header">
@@ -31,7 +33,7 @@
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li class="active">
-          <a href="/p/proto/home.html">Home</a>
+          <a href="/">Home</a>
         </li>
       </ul>
     </nav>
@@ -43,18 +45,6 @@
     <div class="row">
         <div class="col-md-12">
             {% block main %}{% endblock %}
-        </div>
-    </div>
-</div>
-{% endblock %}
-
-{% block costs_footer_container %}
-<div class="costsFooter">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                {% block costs_footer %}{% endblock %}
-            </div>
         </div>
     </div>
 </div>
@@ -72,11 +62,6 @@
 <script src="{{ STATIC_URL }}js/libs/bootstrap-modal.js"></script>
 <script src="{{ STATIC_URL }}js/libs/bootstrap-modalmanager.js"></script>
 <script src="{{ STATIC_URL }}django_libs/js/modals.js"></script>
-<script src="{{ STATIC_URL }}js/libs/holder.js"></script>
-<script src="{{ STATIC_URL }}rapid_prototyping/js/calculate_total.js"></script>
-
-{% comment %}Extra js should not be compressed{% endcomment %}
-{% block extrajs %}{% endblock %}
 
 {% comment %}Global initialisations here. Should not be compressed{% endcomment %}
 <script>
@@ -88,6 +73,7 @@
 </script>
 
 {% comment %}Further initialisations on sub pages. Should not be compressed{% endcomment %}
-{% block extra_script %}{% endblock %}
+{% block extrajs %}{% endblock %}
+{% render_block "js" %}
 </body>
 </html>

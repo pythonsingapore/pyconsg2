@@ -32,4 +32,5 @@ urlpatterns += patterns(
     '',
     url(settings.ADMIN_URL, include(admin.site.urls)),
     url(r'^admin-.+/', include('admin_honeypot.urls')),
+    url(r'^', include('cms.urls')),
 )
