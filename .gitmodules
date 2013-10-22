@@ -1,0 +1,9 @@
+[submodule "pyconsg2/submodules/bootstrap"]
+	path = pyconsg2/submodules/bootstrap
+	url = git://github.com/twbs/bootstrap.git
+[submodule "pyconsg2/submodules/bootstrap-modal"]
+	path = pyconsg2/submodules/bootstrap-modal
+	url = git://github.com/jschr/bootstrap-modal/
+[submodule "pyconsg2/submodules/bootstrap-datetimepicker"]
+	path = pyconsg2/submodules/bootstrap-datetimepicker
+	url = git://github.com/tarruda/bootstrap-datetimepicker
