@@ -16,7 +16,6 @@ EXTERNAL_APPS = [
     'honeypot_signals',
     'mailer',
     'south',
-    'rapid_prototyping',
 ]
 
 INTERNAL_APPS = [
@@ -25,5 +24,4 @@ INTERNAL_APPS = [
 
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + INTERNAL_APPS
 
-from .rapid_prototyping import *  # NOQA
 from .debug_toolbar import *  # NOQA

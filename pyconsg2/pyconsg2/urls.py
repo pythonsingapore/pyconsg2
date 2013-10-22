@@ -32,9 +32,4 @@ urlpatterns += patterns(
     '',
     url(settings.ADMIN_URL, include(admin.site.urls)),
     url(r'^admin-.+/', include('admin_honeypot.urls')),
-    url(r'^p/', include('rapid_prototyping.urls')),
-    url(r'^p/(?P<template_path>.*)$',
-        RapidPrototypingView.as_view(),
-        name='prototype'),
-    url(r'^$', RedirectView.as_view(url='/p/proto/home.html')),
 )
