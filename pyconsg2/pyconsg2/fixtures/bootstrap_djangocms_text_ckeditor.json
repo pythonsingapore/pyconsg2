@@ -1,0 +1,16 @@
+[
+{
+    "pk": 3, 
+    "model": "djangocms_text_ckeditor.text", 
+    "fields": {
+        "body": "<p>Hello World!</p>\n"
+    }
+},
+{
+    "pk": 5, 
+    "model": "djangocms_text_ckeditor.text", 
+    "fields": {
+        "body": "<p>Hello World!</p>\n"
+    }
+}
+]
