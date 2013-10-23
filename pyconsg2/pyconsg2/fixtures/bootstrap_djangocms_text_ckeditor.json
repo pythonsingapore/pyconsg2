@@ -7,7 +7,7 @@
     }
 },
 {
-    "pk": 5, 
+    "pk": 7, 
     "model": "djangocms_text_ckeditor.text", 
     "fields": {
         "body": "<p>Hello World!</p>\n"
