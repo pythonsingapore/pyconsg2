@@ -1,0 +1,78 @@
+[
+{
+    "pk": 1, 
+    "model": "multilingual_news.newsentrytranslation", 
+    "fields": {
+        "language_code": "en", 
+        "is_published": true, 
+        "master": 1, 
+        "slug": "first-news", 
+        "title": "First news"
+    }
+},
+{
+    "pk": 2, 
+    "model": "multilingual_news.newsentrytranslation", 
+    "fields": {
+        "language_code": "de", 
+        "is_published": true, 
+        "master": 1, 
+        "slug": "erste-nachricht", 
+        "title": "Erste Nachricht"
+    }
+},
+{
+    "pk": 3, 
+    "model": "multilingual_news.newsentrytranslation", 
+    "fields": {
+        "language_code": "en", 
+        "is_published": true, 
+        "master": 2, 
+        "slug": "second-news", 
+        "title": "Second news"
+    }
+},
+{
+    "pk": 4, 
+    "model": "multilingual_news.newsentrytranslation", 
+    "fields": {
+        "language_code": "de", 
+        "is_published": true, 
+        "master": 2, 
+        "slug": "zweite-nachricht", 
+        "title": "Zweite Nachricht"
+    }
+},
+{
+    "pk": 1, 
+    "model": "multilingual_news.newsentry", 
+    "fields": {
+        "author": null, 
+        "image": null, 
+        "excerpt": 16, 
+        "image_width": null, 
+        "image_float": "", 
+        "content": 17, 
+        "image_height": null, 
+        "image_source_url": "", 
+        "image_source_text": "", 
+        "pub_date": "2013-10-30T13:12:33Z"
+    }
+},
+{
+    "pk": 2, 
+    "model": "multilingual_news.newsentry", 
+    "fields": {
+        "author": null, 
+        "image": null, 
+        "excerpt": 18, 
+        "image_width": null, 
+        "image_float": "", 
+        "content": 19, 
+        "image_height": null, 
+        "image_source_url": "", 
+        "image_source_text": "", 
+        "pub_date": "2013-10-31T05:00:00Z"
+    }
+}
+]

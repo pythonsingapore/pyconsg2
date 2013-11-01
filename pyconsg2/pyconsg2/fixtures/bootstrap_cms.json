@@ -131,6 +131,38 @@
     }
 },
 {
+    "pk": 16, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "multilingnual_news_excerpt", 
+        "default_width": null
+    }
+},
+{
+    "pk": 17, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "multilingnual_news_content", 
+        "default_width": null
+    }
+},
+{
+    "pk": 18, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "multilingnual_news_excerpt", 
+        "default_width": null
+    }
+},
+{
+    "pk": 19, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "multilingnual_news_content", 
+        "default_width": null
+    }
+},
+{
     "pk": 1, 
     "model": "cms.cmsplugin", 
     "fields": {
@@ -195,6 +227,91 @@
         "tree_id": 5, 
         "position": 1, 
         "placeholder": 3, 
+        "plugin_type": "TextPlugin"
+    }
+},
+{
+    "pk": 8, 
+    "model": "cms.cmsplugin", 
+    "fields": {
+        "rght": 2, 
+        "changed_date": "2013-11-01T00:14:33.127Z", 
+        "parent": null, 
+        "language": "en", 
+        "level": 0, 
+        "creation_date": "2013-11-01T00:14:06.942Z", 
+        "lft": 1, 
+        "tree_id": 6, 
+        "position": 0, 
+        "placeholder": 17, 
+        "plugin_type": "TextPlugin"
+    }
+},
+{
+    "pk": 9, 
+    "model": "cms.cmsplugin", 
+    "fields": {
+        "rght": 2, 
+        "changed_date": "2013-11-01T00:14:49.101Z", 
+        "parent": null, 
+        "language": "de", 
+        "level": 0, 
+        "creation_date": "2013-11-01T00:14:45.721Z", 
+        "lft": 1, 
+        "tree_id": 7, 
+        "position": 0, 
+        "placeholder": 17, 
+        "plugin_type": "TextPlugin"
+    }
+},
+{
+    "pk": 10, 
+    "model": "cms.cmsplugin", 
+    "fields": {
+        "rght": 2, 
+        "changed_date": "2013-11-01T00:46:36.943Z", 
+        "parent": null, 
+        "language": "en", 
+        "level": 0, 
+        "creation_date": "2013-11-01T00:46:25.948Z", 
+        "lft": 1, 
+        "tree_id": 8, 
+        "position": 0, 
+        "placeholder": 16, 
+        "plugin_type": "TextPlugin"
+    }
+},
+{
+    "pk": 11, 
+    "model": "cms.cmsplugin", 
+    "fields": {
+        "rght": 2, 
+        "changed_date": "2013-11-01T01:03:35.705Z", 
+        "parent": null, 
+        "language": "en", 
+        "level": 0, 
+        "creation_date": "2013-11-01T01:03:23.097Z", 
+        "lft": 1, 
+        "tree_id": 9, 
+        "position": 0, 
+        "placeholder": 19, 
+        "plugin_type": "TextPlugin"
+    }
+},
+{
+    "pk": 12, 
+    "model": "cms.cmsplugin", 
+    "fields": {
+        "rght": 2, 
+        "changed_date": "2013-11-01T01:04:09.193Z", 
+        "parent": null, 
+        "language": "de", 
+        "level": 0, 
+        "creation_date": "2013-11-01T01:04:05.903Z", 
+        "lft": 1, 
+        "tree_id": 10, 
+        "position": 0, 
+        "placeholder": 19, 
         "plugin_type": "TextPlugin"
     }
 },
@@ -343,7 +460,7 @@
     "model": "cms.page", 
     "fields": {
         "rght": 2, 
-        "navigation_extenders": null, 
+        "navigation_extenders": "", 
         "site": 1, 
         "application_namespace": null, 
         "lft": 1, 
@@ -357,7 +474,7 @@
         "placeholders": [
             6
         ], 
-        "changed_date": "2013-10-23T23:16:07.041Z", 
+        "changed_date": "2013-11-01T00:19:01.776Z", 
         "limit_visibility_in_menu": null, 
         "parent": null, 
         "publisher_state": 0, 
@@ -367,7 +484,7 @@
         "publisher_public": 6, 
         "level": 0, 
         "changed_by": "admin", 
-        "application_urls": null, 
+        "application_urls": "MultilingualNewsApphook", 
         "publisher_is_draft": true, 
         "published": true, 
         "revision_id": 0
@@ -378,7 +495,7 @@
     "model": "cms.page", 
     "fields": {
         "rght": 2, 
-        "navigation_extenders": null, 
+        "navigation_extenders": "", 
         "site": 1, 
         "application_namespace": null, 
         "lft": 1, 
@@ -392,17 +509,17 @@
         "placeholders": [
             7
         ], 
-        "changed_date": "2013-10-23T23:16:06.821Z", 
+        "changed_date": "2013-11-01T00:19:01.574Z", 
         "limit_visibility_in_menu": null, 
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
-        "publication_date": "2013-10-23T23:16:01.797Z", 
+        "publication_date": "2013-10-23T23:16:02.013Z", 
         "creation_date": "2013-10-23T23:16:06.820Z", 
         "publisher_public": 5, 
         "level": 0, 
         "changed_by": "admin", 
-        "application_urls": null, 
+        "application_urls": "MultilingualNewsApphook", 
         "publisher_is_draft": false, 
         "published": true, 
         "revision_id": 0
@@ -433,7 +550,7 @@
         "publisher_state": 0, 
         "soft_root": false, 
         "publication_date": "2013-10-23T23:16:22.271Z", 
-        "creation_date": "2013-10-23T23:16:21.000Z", 
+        "creation_date": "2013-10-23T23:16:21Z", 
         "publisher_public": 8, 
         "level": 0, 
         "changed_by": "admin", 
@@ -690,6 +807,83 @@
 },
 {
     "pk": 1, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-11-01T00:11:25.754Z", 
+        "page": 1, 
+        "user": null
+    }
+},
+{
+    "pk": 2, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-11-01T00:11:25.787Z", 
+        "page": 3, 
+        "user": null
+    }
+},
+{
+    "pk": 3, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-11-01T00:19:20.178Z", 
+        "page": 5, 
+        "user": null
+    }
+},
+{
+    "pk": 4, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-11-01T00:11:25.839Z", 
+        "page": 7, 
+        "user": null
+    }
+},
+{
+    "pk": 5, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-11-01T00:11:25.860Z", 
+        "page": 9, 
+        "user": null
+    }
+},
+{
+    "pk": 6, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-11-01T00:11:25.882Z", 
+        "page": 11, 
+        "user": null
+    }
+},
+{
+    "pk": 7, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-11-01T00:11:25.903Z", 
+        "page": 13, 
+        "user": null
+    }
+},
+{
+    "pk": 1, 
     "model": "cms.title", 
     "fields": {
         "menu_title": "", 
@@ -766,7 +960,7 @@
         "language": "en", 
         "title": "News", 
         "has_url_overwrite": false, 
-        "redirect": null, 
+        "redirect": "", 
         "page": 5, 
         "path": "news", 
         "creation_date": "2013-10-23T23:16:04.497Z", 
@@ -783,7 +977,7 @@
         "language": "en", 
         "title": "News", 
         "has_url_overwrite": false, 
-        "redirect": null, 
+        "redirect": "", 
         "page": 6, 
         "path": "news", 
         "creation_date": "2013-10-23T23:16:04.497Z", 
@@ -924,6 +1118,40 @@
         "path": "venue", 
         "creation_date": "2013-10-23T23:16:54.691Z", 
         "slug": "venue"
+    }
+},
+{
+    "pk": 15, 
+    "model": "cms.title", 
+    "fields": {
+        "menu_title": "", 
+        "meta_description": "", 
+        "page_title": "", 
+        "language": "de", 
+        "title": "Nachrichten", 
+        "has_url_overwrite": false, 
+        "redirect": null, 
+        "page": 5, 
+        "path": "nachrichten", 
+        "creation_date": "2013-11-01T00:12:18.639Z", 
+        "slug": "nachrichten"
+    }
+},
+{
+    "pk": 16, 
+    "model": "cms.title", 
+    "fields": {
+        "menu_title": "", 
+        "meta_description": "", 
+        "page_title": "", 
+        "language": "de", 
+        "title": "Nachrichten", 
+        "has_url_overwrite": false, 
+        "redirect": null, 
+        "page": 6, 
+        "path": "nachrichten", 
+        "creation_date": "2013-11-01T00:12:18.639Z", 
+        "slug": "nachrichten"
     }
 }
 ]
