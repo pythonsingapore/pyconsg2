@@ -1,6 +1,7 @@
 """URLs for the pyconsg2 project."""
 from django.conf import settings
 from django.conf.urls import patterns, include, url
+from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -11,7 +12,11 @@ from django_libs.views import RapidPrototypingView
 
 admin.autodiscover()
 
-urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = patterns('',
+    url(r'^jsi18n/(?P<packages>\S+?)/$', 'django.views.i18n.javascript_catalog'),
+)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG is False and settings.SANDBOX is True:
@@ -28,7 +33,7 @@ if settings.DEBUG is False and settings.SANDBOX is True:
             {'document_root': settings.MEDIA_ROOT}),
     )
 
-urlpatterns += patterns(
+urlpatterns += i18n_patterns(
     '',
     url(settings.ADMIN_URL, include(admin.site.urls)),
     url(r'^admin-.+/', include('admin_honeypot.urls')),

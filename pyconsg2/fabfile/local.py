@@ -18,6 +18,7 @@ def dumpdata():
 
     # django-cms
     local('python2.7 ./manage.py dumpdata --indent 4 --natural cms > pyconsg2/fixtures/bootstrap_cms.json')  # NOPEP8
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural multilingual_news > pyconsg2/fixtures/bootstrap_multilingual_news.json')  # NOPEP8
     local('python2.7 ./manage.py dumpdata --indent 4 --natural djangocms_text_ckeditor > pyconsg2/fixtures/bootstrap_djangocms_text_ckeditor.json')  # NOPEP8
 
     #local('python2.7 ./manage.py dumpdata --indent 4 --natural conference > pyconsg/fixtures/bootstrap_conference.json')  # NOPEP8
@@ -31,6 +32,7 @@ def loaddata():
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_auth.json')
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_sites.json')
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_cms.json')
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_multilingual_news.json')
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_djangocms_text_ckeditor.json')
 
     #local('python2.7 manage.py loaddata bootstrap_conference.json')

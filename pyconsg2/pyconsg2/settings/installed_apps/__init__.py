@@ -15,21 +15,25 @@ EXTERNAL_APPS = [
     'admin_honeypot',
     'debug_toolbar',
     'django_libs',
+    'easy_thumbnails',
+    'hvad',
     'honeypot_signals',
     'mailer',
+    'simple_translation',
     'south',
 
     # django-cms apps
     'djangocms_text_ckeditor',  # must come before cms
     'cms',
     'cms.stacks',
-    'filer',
-    'mptt',
-    'menus',
-    'sekizai',
     'cmsplugin_filer_file',
     'cmsplugin_filer_folder',
     'cmsplugin_filer_image',
+    'filer',
+    'menus',
+    'mptt',
+    'multilingual_news',
+    'sekizai',
 ]
 
 INTERNAL_APPS = [

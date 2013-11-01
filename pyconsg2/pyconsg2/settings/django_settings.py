@@ -16,6 +16,7 @@ LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = [
     ('en', 'English'),
+    ('de', 'German'),
 ]
 
 SITE_ID = 1
@@ -88,6 +89,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
+    'simple_translation.middleware.MultilingualGenericsMiddleware',
 )
 
 ROOT_URLCONF = 'pyconsg2.urls'

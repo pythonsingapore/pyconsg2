@@ -1,0 +1,18 @@
+{% load libs_tags multilingual_news_tags placeholder_tags pyconsg2_tags thumbnail %}
+
+{% if news_entry.image %}<img src="{% thumbnail news_entry.image 100x100 crop %}" alt="" />{% endif %}
+<h2><a href="{{ news_entry.get_absolute_url }}">{{ news_entry.title }}</a></h2>
+<small class="text-muted">{% if news_entry.pub_date %}<p>{{ news_entry.pub_date }}</p>{% endif %}</small>
+{% if request.session.cms_edit %}
+    {% render_placeholder news_entry.excerpt  %}
+    {% render_placeholder news_entry.content %}
+{% else %}
+    {% if news_entry.excerpt.cmsplugin_set.all %}
+        {% render_placeholder news_entry.excerpt  %}
+    {% else %}
+        {% block_truncatewords_html %}
+            {% render_placeholder news_entry.content %}
+        {% endblocktruncatewordshtml %}
+    {% endif %}
+{% endif %}
+<hr />

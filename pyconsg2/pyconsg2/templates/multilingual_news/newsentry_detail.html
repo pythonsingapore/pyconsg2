@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load multilingual_news_tags placeholder_tags %}
+
+{% block main %}
+<h1>{{ object.title }}</h1>
+<small class="text-muted">{% if object.pub_date %}<p>{{ object.pub_date }}</p>{% endif %}</small>
+{% if request.session.cms_edit %}
+    {% render_placeholder object.excerpt %}
+    {% render_placeholder object.content %}
+{% else %}
+    {% render_placeholder object.content %}
+{% endif %}
+{% endblock %}
