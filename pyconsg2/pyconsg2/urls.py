@@ -1,7 +1,7 @@
 """URLs for the pyconsg2 project."""
 from django.conf import settings
 from django.conf.urls import patterns, include, url
-from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.i18n import patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -33,9 +33,10 @@ if settings.DEBUG is False and settings.SANDBOX is True:
             {'document_root': settings.MEDIA_ROOT}),
     )
 
-urlpatterns += i18n_patterns(
+urlpatterns += patterns(
     '',
     url(settings.ADMIN_URL, include(admin.site.urls)),
     url(r'^admin-.+/', include('admin_honeypot.urls')),
+    url(r'^', include('pyconsg2.symposion_urls')),
     url(r'^', include('cms.urls')),
 )

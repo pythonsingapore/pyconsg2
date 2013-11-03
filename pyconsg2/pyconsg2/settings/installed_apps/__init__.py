@@ -34,10 +34,29 @@ EXTERNAL_APPS = [
     'mptt',
     'multilingual_news',
     'sekizai',
+
+    # external symposion related
+    'timezones',
+    'metron',
+    'markitup',
+    'taggit',
+    'account',
+
+    # symposion
+    'symposion',
+    'symposion.sponsorship',
+    'symposion.conference',
+    'symposion.boxes',
+    'symposion.proposals',
+    'symposion.speakers',
+    'symposion.teams',
+    'symposion.reviews',
+    'symposion.schedule',
 ]
 
 INTERNAL_APPS = [
     'pyconsg2',
+    'proposals_pyconsg',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + INTERNAL_APPS
@@ -45,3 +64,5 @@ INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + INTERNAL_APPS
 from .cms import *  # NOQA
 from .debug_toolbar import *  # NOQA
 from .djangocms_text_ckeditor import *  # NOQA
+from .markitup import *  # NOQA
+from .symposion import *  # NOQA

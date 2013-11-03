@@ -1,23 +1,46 @@
+# =============================================================================
+# Django packages
+# =============================================================================
 -e git+git://github.com/pinax/django-mailer.git@919805e25fc18b06487b25414d4e5d5e05a92108#egg=mailer
 South==0.8.2
 django-admin-honeypot==0.2.3
+django-filer==0.9.5
 django-honeypot-signals==0.1.1
+django-hvad==0.3
 django-libs==1.23
 django==1.5.4
-django-filer==0.9.5
-django-hvad==0.3
-django-multilingual-news==1.0
-cmsplugin-filer==0.9.5
+
+
+# =============================================================================
+# django-cms related packages
+# =============================================================================
 -e git+https://github.com/divio/django-cms@76c7a7c57e0d29e6dd10ec0db5a9ebc5b48c6198#egg=cms
-djangocms-text-ckeditor==2.0.2
+cmsplugin-filer==0.9.5
+django-multilingual-news==1.0
 djangocms-admin-style==0.1.4
+djangocms-text-ckeditor==2.0.2
+
+
+# =============================================================================
+# symposion related packages
+# =============================================================================
+# TODO: -e https://github.com/mbrochh/symposion.git@...#egg=symposion
+Pillow==2.1.0
+django-markitup==1.0.0
+django-model-utils==1.5.0
+django-reversion==1.7.1
+django-taggit==0.9.3
+django-timezones==0.2
+django-user-accounts==1.0b7
+easy-thumbnails==1.1
+markdown==2.2.0
+metron==0.1 # 0.2.dev3
 
 
 # =============================================================================
 # Useful packages for local development
 # =============================================================================
 Fabric==1.8.0
-Pillow==2.1.0
 Sphinx==1.1.3
 coverage==3.6
 django-coverage==1.2.4

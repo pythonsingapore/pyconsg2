@@ -16,7 +16,6 @@ LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = [
     ('en', 'English'),
-    ('de', 'German'),
 ]
 
 SITE_ID = 1
