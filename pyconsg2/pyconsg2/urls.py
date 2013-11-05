@@ -9,6 +9,8 @@ from django.views.generic import RedirectView
 
 from django_libs.views import RapidPrototypingView
 
+from pyconsg2.views import AdminStacksView
+
 
 admin.autodiscover()
 
@@ -35,6 +37,7 @@ if settings.DEBUG is False and settings.SANDBOX is True:
 
 urlpatterns += patterns(
     '',
+    url(r'^admin-stacks/', AdminStacksView.as_view(), name='admin_stacks'),
     url(settings.ADMIN_URL, include(admin.site.urls)),
     url(r'^admin-.+/', include('admin_honeypot.urls')),
     url(r'^', include('pyconsg2.symposion_urls')),

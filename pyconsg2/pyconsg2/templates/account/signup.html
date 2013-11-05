@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load stack_tags i18n %}
 
 {% block head_title %}{% trans "Sign up" %}{% endblock %}
 
 {% block main_container %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <h1>{% trans "Sign up" %}</h1>
             <form class="form-horizontal" role="form" id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off">
                 {% csrf_token %}
-                {% include "partials/form.html" %}
+                {% include "partials/form.html" with label_col=3 input_col=8 %}
                 {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
@@ -21,8 +21,8 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-4">
-            {% include "account/_signup_sidebar.html" %}
+        <div class="col-md-6">
+            {% stack "signup-sidebar" %}
         </div>
     </div>
 </div>
