@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}pyconsg2 Prototype{% endblock %}</title>
+    <title>{% block head_title %}pyconsg2 Prototype{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" media="screen">
     <style>
@@ -35,6 +35,12 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
                 {% show_menu 0 100 100 100 %}
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url "account_logout" %}">{% trans "Log out" %}</a></li>
+                {% else %}
+                    <li><a href="{% url "account_signup" %}">{% trans "Sign up" %}</a></li>
+                    <li><a href="{% url "account_login" %}">{% trans "Log in" %}</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>

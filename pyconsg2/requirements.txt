@@ -7,7 +7,7 @@ django-admin-honeypot==0.2.3
 django-filer==0.9.5
 django-honeypot-signals==0.1.1
 django-hvad==0.3
-django-libs==1.23
+django-libs==1.24
 django==1.5.4
 
 
@@ -16,7 +16,7 @@ django==1.5.4
 # =============================================================================
 -e git+https://github.com/divio/django-cms@76c7a7c57e0d29e6dd10ec0db5a9ebc5b48c6198#egg=cms
 cmsplugin-filer==0.9.5
-django-multilingual-news==1.0
+django-multilingual-news==1.1
 djangocms-admin-style==0.1.4
 djangocms-text-ckeditor==2.0.2
 
