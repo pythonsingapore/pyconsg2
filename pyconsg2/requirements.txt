@@ -7,7 +7,7 @@ django-admin-honeypot==0.2.3
 django-filer==0.9.5
 django-honeypot-signals==0.1.1
 django-hvad==0.3
-django-libs==1.24
+django-libs==1.27
 django==1.5.4
 
 

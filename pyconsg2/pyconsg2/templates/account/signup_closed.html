@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign up closed" %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans "Sign up closed" %}</h1>
+    {% if code %}
+        <p>{% trans "The code you provided was not accepted." %}</p>
+    {% else %}
+        <p>{% trans "Sign up is closed to the general public." %}</p>
+    {% endif %}
+{% endblock %}

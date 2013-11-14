@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Delete Account" %}{% endblock %}
+
+{% block main %}
+    <h1>{% trans "Delete Account" %}</h1>
+
+    <p>
+        {% blocktrans with hours=ACCONT_DELETION_EXPUNGE_HOURS %}
+        If you go ahead and delete your account, your information will be
+        <b>expunged within {{ hours }} hours </b>.
+        {% endbocktrans %}
+    </p>
+
+    <form role="form" method="post" action="{% url "account_delete" %}" autocapitalize="off">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">{% trans "Delete My Account" %}</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Account" %}{% endblock %}
+
+{% block main %}
+<h1>{% trans "Account" %}</h1>
+    <form role="form" method="POST" action="{% url "account_settings" %}">
+        {% csrf_token %}
+        {% include "partials/form.html" %}
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit">{% trans "Save" %}</button>
+        </div>
+    </form>
+{% endblock %}

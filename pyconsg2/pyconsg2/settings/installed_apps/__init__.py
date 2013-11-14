@@ -41,6 +41,7 @@ EXTERNAL_APPS = [
     'markitup',
     'taggit',
     'account',
+    'reversion',
 
     # symposion
     'symposion',

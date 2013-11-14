@@ -15,8 +15,13 @@ WIKI_SLUG = r'(([\w-]{2,})(/[\w-]{2,})*)'
 
 
 urlpatterns = patterns('',
-    url(r'^account/signup/$', symposion.views.SignupView.as_view(), name='account_signup'),
-    url(r'^account/login/$', symposion.views.LoginView.as_view(), name='account_login'),
+    url(r'^account/signup/$',
+        symposion.views.SignupView.as_view(),
+        name='account_signup'),
+    url(r'^account/login/$',
+        symposion.views.LoginView.as_view(),
+        name='account_login'),
+    url(r'^account/', include('account.urls')),
     url(r'^account/', include('account.urls')),
 
     url(r'^dashboard/', symposion.views.dashboard, name='dashboard'),

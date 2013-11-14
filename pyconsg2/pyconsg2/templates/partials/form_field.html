@@ -1,15 +1,18 @@
-<div class="form-group {% if field.errors %}has-error {% endif %}">
-    <label for="{{ field.id_for_label }}" class="col-sm-{{ label_col }} control-label">{{ field.label }}</label>
+{% load libs_tags pyconsg2_tags %}
 
-    <div class="col-sm-{{ input_col }}">
-        <input class="form-control" id="{{ field.id_for_label }}" placeholder="{{ field.placeholder }}">
+{% get_form_field_type field as field_type %}
+{% if "CheckboxInput" in field_type %}
+    {% include "partials/form_field_checkbox.html" %}
+{% else %}
+    <div class="form-group {% if field.errors %}has-error {% endif %}">
+        <label for="{{ field.id_for_label }}" class="col-sm-{{ label_col }} control-label">{{ field.label }}</label>
 
-        {% if field.errors %}
-            <label class="control-label" for="{{ field.id_for_label }}">{{ field.errors }}</label>
-        {% endif %}
+        <div class="col-sm-{{ input_col }}">
+            {% add_form_widget_attr field 'class' 'form-control' as field_ %}
+            {{ field_ }}
 
-        {% if field.help_text %}
-            <span class="help-block">{{ field.help_text %}</span>
-        {% endif %}
+            {% include "partials/form_field_errors.html" %}
+            {% include "partials/form_field_help_text.html" %}
+        </div>
     </div>
-</div>
+{% endif %}

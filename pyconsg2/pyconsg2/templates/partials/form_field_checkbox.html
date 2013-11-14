@@ -1,0 +1,9 @@
+<div class="form-group {% if field.errors %}has-error {% endif %}">
+    <div class="col-md-offset-{{ label_col }} col-md-{{ input_col }}">
+        <div class="checkbox">
+            <label>
+                <input id="{{ field.id_for_label }}" name="{{ field.name }}" type="checkbox"> {{ field.label }}
+            </label>
+        </div>
+    </div>
+</div>

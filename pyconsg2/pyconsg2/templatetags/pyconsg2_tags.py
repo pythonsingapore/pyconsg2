@@ -5,7 +5,7 @@ from django import template
 register = template.Library()
 
 
-@register.simple_tag
+@register.assignment_tag
 def inspect(obj):
     import ipdb; ipdb.set_trace() # BREAKPOINT
     return obj
