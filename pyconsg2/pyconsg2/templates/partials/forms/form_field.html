@@ -1,0 +1,23 @@
+{% load libs_tags pyconsg2_tags %}
+
+{% get_form_field_type field as field_type %}
+{% if "CheckboxInput" in field_type %}
+    {% include "partials/forms/form_field_checkbox.html" %}
+{% else %}
+    <div class="form-group {% if field.errors %}has-error {% endif %}">
+        <label for="{{ field.id_for_label }}" class="col-md-{{ label_col }} control-label">{{ field.label }}</label>
+
+        <div class="col-md-{{ input_col }}">
+            {% if "ClearableFileInput" in field_type %}
+                {% add_form_widget_attr field 'class' 'image-field' as field_ %}
+            {% else %}
+                {% add_form_widget_attr field 'class' 'form-control' as field_ %}
+            {% endif %}
+
+            {{ field_ }}
+
+            {% include "partials/forms/form_field_errors.html" %}
+            {% include "partials/forms/form_field_help_text.html" %}
+        </div>
+    </div>
+{% endif %}

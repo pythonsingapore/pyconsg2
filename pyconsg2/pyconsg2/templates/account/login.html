@@ -9,7 +9,7 @@
             <h1>{% trans "Log in to an existing account" %}</h1>
             <form role="form" method="POST" action="{% url "account_login" %}" autocapitalize="off" class="form-horizontal"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                 {% csrf_token %}
-                {% include "partials/form.html" with label_col=2 input_col=6  %}
+                {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
                 {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}

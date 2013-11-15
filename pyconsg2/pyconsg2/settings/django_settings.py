@@ -9,6 +9,8 @@ AUTHENTICATION_BACKENDS = [
     'account.auth_backends.EmailAuthenticationBackend',
 ]
 
+ACCOUNT_LOGIN_REDIRECT_URL = '/dashboard/'
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.

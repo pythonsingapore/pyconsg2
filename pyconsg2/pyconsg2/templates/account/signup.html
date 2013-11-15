@@ -9,7 +9,7 @@
             <h1>{% trans "Sign up" %}</h1>
             <form class="form-horizontal" role="form" id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off">
                 {% csrf_token %}
-                {% include "partials/form.html" with label_col=3 input_col=5 %}
+                {% include "partials/forms/form.html" with label_col=3 input_col=5 %}
                 {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
