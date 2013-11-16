@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <h3>
+        {% blocktrans with proposal_title=proposal.title %}
+        Leaving {{ proposal_title }}
+        {% endblocktrans %}
+    </h3>
+    
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            {% blocktrans with proposal_title=proposal.title %}
+            Are you sure you wish to leave as a speaker on <b>{{ proposal_title }}</b>?
+            {% endblocktrans %}
+        </p>
+        <input type="submit" class="btn btn-danger" value="{% trans "I am sure" %}" />
+    </form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n markitup_tags stack_tags %}
+
+{% block page_title %}
+    {% blocktrans with kind_name=kind.name %}
+    Submit a Proposal for a {{ kind_name }}
+    {% endblocktrans %}
+{% endblock %}
+
+{% block main %}
+    {% stack "example_proposal" %}
+
+    <form role="form" method="POST" action="" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <p>
+                    You will be able to edit your proposal after it has been
+                    submitted. The program committee may ask questions, provide
+                    feedback, and even suggest changes to your proposal as part of
+                    the review processes.
+                </p>
+
+                <input class="btn btn-primary" type="submit" name="finish" value="{% trans "Save" %}" />
+                {% comment %}
+                We don't need this for PyCon SG
+                <input class="btn btn-default" type="submit" name="add-speakers" value="{% trans "Save and Add Additional Speakers" %}" />
+                {% endcomment %}
+            </div>
+        </div>
+    </form>
+{% endblock %}

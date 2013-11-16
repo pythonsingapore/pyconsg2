@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n stack_tags %}
+
+{% block page_title %}{% trans "Submit A Proposal" %}{% endblock %}
+
+{% block main %}
+    {% stack "proposal_submit" %}
+    
+    {% if kinds %}
+        <p>{% trans "Select what kind of proposal you'd like to submit" %}:</p>
+        <ul>
+            {% for kind in kinds %}
+                <li><a href="{% url "proposal_submit_kind" kind.slug %}">{{ kind }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{% trans "Proposals are not currently open for submission." %}</p>
+    {% endif %}
+{% endblock %}

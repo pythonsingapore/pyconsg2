@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <h1>{% trans "Proposal" %}: {{ proposal.title }}</h1>
+
+    <p><a href="{% url "proposal_edit" proposal.pk %}">{% trans "Edit proposal" %}</a></p>
+
+    <h2>{% trans "Current Speakers" %}</h2>
+
+    {% for speaker in speakers %}
+        {% if speaker.user %}
+            <p><b>{{ speaker.name }}</b> &mdash; {{ speaker.email }}</p>
+        {% else %}
+            <p>{{ speaker.email }} &mdash; {% trans "pending invitation" %}</p>
+        {% endif %}
+    {% endfor %}
+
+    <h2>{% trans "Add another speaker" %}</h2>
+
+    <form role="form" method="POST" action="" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        {% include "partials/forms/form.html" with form=add_speaker_form label_col=2 input_col=6 %}
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <input type="submit" value="{% trans "Add speaker" %}" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block extra_body %}
+    <script type="text/javascript">
+        $(function() {
+            $("#id_email").focus();
+        });
+    </script>
+{% endblock %}

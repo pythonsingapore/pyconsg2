@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Cancel Proposal" %}{% endblock %}
+
+{% block main %}
+    <h1>{% trans "Cancel" %}: {{ proposal.title }}</h1>
+    
+    <form role="form" method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            {% blocktrans with proposal_title=proposal.title %}
+            Are you sure you want to cancel <b>{{ proposal_title }}</b>?
+            {% endblocktrans %}
+        </p>
+        <input class="btn btn-danger" type="submit" value="{% trans "I am sure" %}" />
+        <a class="btn btn-default" href="{% url "proposal_detail" proposal.pk %}">{% trans "No, keep it for now" %}</a>
+    </form>
+{% endblock %}

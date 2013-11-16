@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block page_title %}
+    {% blocktrans with proposal_title=proposal.title %}
+    Upload Document to '{{ proposal_title }}'
+    {% endblocktrans %}
+{% endblock %}
+
+{% block main %}
+    <form role="form" method="POST" action="" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <input class="btn btn-primary" type="submit" value="{% trans "Upload" %}" />
+            </div>
+        </div>
+    </form>
+{% endblock %}
