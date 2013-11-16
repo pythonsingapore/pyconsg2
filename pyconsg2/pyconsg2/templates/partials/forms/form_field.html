@@ -17,7 +17,7 @@
             {{ field_ }}
 
             {% include "partials/forms/form_field_errors.html" %}
-            {% include "partials/forms/form_field_help_text.html" %}
+            {% if not hide_help_text %}{% include "partials/forms/form_field_help_text.html" %}{% endif %}
         </div>
     </div>
 {% endif %}

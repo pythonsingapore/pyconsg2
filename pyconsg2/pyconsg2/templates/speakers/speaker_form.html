@@ -8,7 +8,17 @@
 
     <form role="form" class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
         {% csrf_token %}
-        {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
+
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        {% include "partials/forms/form_field.html" with field=form.name label_col=2 input_col=6 %}
+        {% include "partials/forms/form_field.html" with field=form.biography label_col=2 input_col=6 hide_help_text=1 %}
+        {% include "partials/forms/form_field.html" with field=form.photo label_col=2 input_col=6 %}
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-6">
                 <input class="btn btn-primary" type="submit" value="{% trans "Save" %}" />
@@ -17,3 +27,5 @@
         </div>
     </form>
 {% endblock %}
+
+{% block markitup_media %}{% endblock %}

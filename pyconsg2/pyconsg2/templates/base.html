@@ -27,7 +27,7 @@
 
     {% comment %} Should be compressed {% endcomment %}
     <script src="{% static "js/general.js" %}"></script>
-    {% markitup_media %}
+    {% block markitup_media %}{% markitup_media %}{% endblock %}
 </head>
 <body>
 {% if request.user.is_staff %}
