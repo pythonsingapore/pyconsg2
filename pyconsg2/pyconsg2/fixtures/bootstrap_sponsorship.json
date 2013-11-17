@@ -1,0 +1,312 @@
+[
+{
+    "pk": 1, 
+    "model": "sponsorship.sponsorlevel", 
+    "fields": {
+        "conference": 1, 
+        "description": "", 
+        "cost": 5000, 
+        "name": "Platinum", 
+        "order": 0
+    }
+},
+{
+    "pk": 2, 
+    "model": "sponsorship.sponsorlevel", 
+    "fields": {
+        "conference": 1, 
+        "description": "", 
+        "cost": 3000, 
+        "name": "Gold", 
+        "order": 0
+    }
+},
+{
+    "pk": 3, 
+    "model": "sponsorship.sponsorlevel", 
+    "fields": {
+        "conference": 1, 
+        "description": "", 
+        "cost": 1000, 
+        "name": "Silver", 
+        "order": 0
+    }
+},
+{
+    "pk": 1, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "1 conference pass", 
+        "description": ""
+    }
+},
+{
+    "pk": 2, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "text", 
+        "name": "Exposure as Silver sponsor on the PyCon Singapore 2013 website", 
+        "description": ""
+    }
+},
+{
+    "pk": 3, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "Small company logo on banner in the conference venue", 
+        "description": ""
+    }
+},
+{
+    "pk": 4, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "2 conference passes", 
+        "description": ""
+    }
+},
+{
+    "pk": 5, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "Small tote bag insert (to be provided by sponsor)", 
+        "description": ""
+    }
+},
+{
+    "pk": 6, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "Exposure as Gold sponsor on the PyCon Singapore 2013 website", 
+        "description": ""
+    }
+},
+{
+    "pk": 7, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "Medium company logo on banner in the conference venue", 
+        "description": ""
+    }
+},
+{
+    "pk": 8, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "3 conference passes", 
+        "description": ""
+    }
+},
+{
+    "pk": 9, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "Large tote bag insert (to be provided by sponsor)", 
+        "description": ""
+    }
+},
+{
+    "pk": 10, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "Booth in the reception/exhibition area", 
+        "description": ""
+    }
+},
+{
+    "pk": 11, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "text", 
+        "name": "Company name on press releases and pre-event mailings", 
+        "description": ""
+    }
+},
+{
+    "pk": 12, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "simple", 
+        "name": "Exposure as Platinum sponsor on the PyCon Singapore 2013 website", 
+        "description": ""
+    }
+},
+{
+    "pk": 13, 
+    "model": "sponsorship.benefit", 
+    "fields": {
+        "type": "weblogo", 
+        "name": "Large company logo on banner in the conference venue", 
+        "description": ""
+    }
+},
+{
+    "pk": 1, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 8, 
+        "max_words": null, 
+        "level": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 9, 
+        "max_words": null, 
+        "level": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 10, 
+        "max_words": null, 
+        "level": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 11, 
+        "max_words": null, 
+        "level": 1
+    }
+},
+{
+    "pk": 5, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 12, 
+        "max_words": null, 
+        "level": 1
+    }
+},
+{
+    "pk": 6, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 13, 
+        "max_words": null, 
+        "level": 1
+    }
+},
+{
+    "pk": 7, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 4, 
+        "max_words": null, 
+        "level": 2
+    }
+},
+{
+    "pk": 8, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 5, 
+        "max_words": null, 
+        "level": 2
+    }
+},
+{
+    "pk": 9, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 10, 
+        "max_words": null, 
+        "level": 2
+    }
+},
+{
+    "pk": 10, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 11, 
+        "max_words": null, 
+        "level": 2
+    }
+},
+{
+    "pk": 11, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 6, 
+        "max_words": null, 
+        "level": 2
+    }
+},
+{
+    "pk": 12, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 7, 
+        "max_words": null, 
+        "level": 2
+    }
+},
+{
+    "pk": 13, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 1, 
+        "max_words": null, 
+        "level": 3
+    }
+},
+{
+    "pk": 14, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 10, 
+        "max_words": null, 
+        "level": 3
+    }
+},
+{
+    "pk": 15, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 2, 
+        "max_words": null, 
+        "level": 3
+    }
+},
+{
+    "pk": 16, 
+    "model": "sponsorship.benefitlevel", 
+    "fields": {
+        "other_limits": "", 
+        "benefit": 3, 
+        "max_words": null, 
+        "level": 3
+    }
+}
+]

@@ -1,0 +1,47 @@
+[
+{
+    "pk": 1, 
+    "model": "proposals.proposalsection", 
+    "fields": {
+        "start": "2013-11-16T06:00:00Z", 
+        "section": 1, 
+        "end": "2014-02-28T06:00:00Z", 
+        "closed": false, 
+        "published": true
+    }
+},
+{
+    "pk": 1, 
+    "model": "proposals.proposalkind", 
+    "fields": {
+        "section": 1, 
+        "name": "Talk", 
+        "slug": "talk"
+    }
+},
+{
+    "pk": 2, 
+    "model": "proposals.proposalkind", 
+    "fields": {
+        "section": 1, 
+        "name": "Tutorial", 
+        "slug": "tutorial"
+    }
+},
+{
+    "pk": 1, 
+    "model": "proposals.proposalbase", 
+    "fields": {
+        "kind": 2, 
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.", 
+        "title": "Test Tutorial", 
+        "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.", 
+        "_abstract_rendered": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</p>", 
+        "submitted": "2013-11-17T06:07:12.246Z", 
+        "additional_notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.", 
+        "speaker": 1, 
+        "cancelled": false, 
+        "_additional_notes_rendered": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</p>"
+    }
+}
+]

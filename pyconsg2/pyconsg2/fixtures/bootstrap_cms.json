@@ -187,6 +187,46 @@
     }
 },
 {
+    "pk": 23, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "speaker-profile", 
+        "default_width": null
+    }
+},
+{
+    "pk": 24, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "signup-sidebar", 
+        "default_width": null
+    }
+},
+{
+    "pk": 25, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "speaker-profile", 
+        "default_width": null
+    }
+},
+{
+    "pk": 26, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "proposal_submit", 
+        "default_width": null
+    }
+},
+{
+    "pk": 27, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "example_proposal", 
+        "default_width": null
+    }
+},
+{
     "pk": 1, 
     "model": "cms.cmsplugin", 
     "fields": {

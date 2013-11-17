@@ -1,0 +1,23 @@
+[
+{
+    "pk": 1, 
+    "model": "conference.conference", 
+    "fields": {
+        "timezone": "Asia/Singapore", 
+        "start_date": "2014-06-18", 
+        "end_date": "2014-06-20", 
+        "title": "PyCon Singapore 2014"
+    }
+},
+{
+    "pk": 1, 
+    "model": "conference.section", 
+    "fields": {
+        "conference": 1, 
+        "start_date": "2014-06-18", 
+        "name": "Main Section", 
+        "end_date": "2014-06-20", 
+        "slug": "main-section"
+    }
+}
+]

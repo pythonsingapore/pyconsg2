@@ -21,24 +21,28 @@ def dumpdata():
     local('python2.7 ./manage.py dumpdata --indent 4 --natural multilingual_news > pyconsg2/fixtures/bootstrap_multilingual_news.json')  # NOPEP8
     local('python2.7 ./manage.py dumpdata --indent 4 --natural djangocms_text_ckeditor > pyconsg2/fixtures/bootstrap_djangocms_text_ckeditor.json')  # NOPEP8
 
-    #local('python2.7 ./manage.py dumpdata --indent 4 --natural conference > pyconsg/fixtures/bootstrap_conference.json')  # NOPEP8
-    #local('python2.7 ./manage.py dumpdata --indent 4 --natural speakers > pyconsg/fixtures/bootstrap_speakers.json')  # NOPEP8
-    #local('python2.7 ./manage.py dumpdata --indent 4 --natural proposals > pyconsg/fixtures/bootstrap_proposals.json')  # NOPEP8
-    #local('python2.7 ./manage.py dumpdata --indent 4 --natural proposals_pyconsg > proposals_pyconsg/fixtures/bootstrap_proposals_pyconsg.json')  # NOPEP8
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural conference > pyconsg2/fixtures/bootstrap_conference.json')  # NOPEP8
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural speakers > pyconsg2/fixtures/bootstrap_speakers.json')  # NOPEP8
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural proposals > pyconsg2/fixtures/bootstrap_proposals.json')  # NOPEP8
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural proposals_pyconsg > pyconsg2/fixtures/bootstrap_proposals_pyconsg.json')  # NOPEP8
+    # local('python2.7 ./manage.py dumpdata --indent 4 --natural schedule > pyconsg2/fixtures/bootstrap_schedule.json')  # NOPEP8
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural sponsorship > pyconsg2/fixtures/bootstrap_sponsorship.json')  # NOPEP8
 
 
 def loaddata():
     """Loads available fixtures."""
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_auth.json')
-    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_sites.json')
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_sites.json')  # NOPEP8
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_cms.json')
-    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_multilingual_news.json')
-    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_djangocms_text_ckeditor.json')
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_multilingual_news.json')  # NOPEP8
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_djangocms_text_ckeditor.json')  # NOPEP8
 
-    #local('python2.7 manage.py loaddata bootstrap_conference.json')
-    #local('python2.7 manage.py loaddata bootstrap_speakers.json')
-    #local('python2.7 manage.py loaddata bootstrap_proposals.json')
-    #local('python2.7 manage.py loaddata bootstrap_proposals_pyconsg.json')
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_conference.json')  # NOPEP8
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_speakers.json')  # NOPEP8
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_proposals.json')  # NOPEP8
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_proposals_pyconsg.json')  # NOPEP8
+    # local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_schedule.json')  # NOPEP8
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_sponsorship.json')  # NOPEP8
 
 
 def rebuild():
