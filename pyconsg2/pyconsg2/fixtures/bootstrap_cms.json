@@ -163,6 +163,30 @@
     }
 },
 {
+    "pk": 20, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "signup-sidebar", 
+        "default_width": null
+    }
+},
+{
+    "pk": 21, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "speaker-profile", 
+        "default_width": null
+    }
+},
+{
+    "pk": 22, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "proposal_submit", 
+        "default_width": null
+    }
+},
+{
     "pk": 1, 
     "model": "cms.cmsplugin", 
     "fields": {
@@ -312,6 +336,23 @@
         "tree_id": 10, 
         "position": 0, 
         "placeholder": 19, 
+        "plugin_type": "TextPlugin"
+    }
+},
+{
+    "pk": 13, 
+    "model": "cms.cmsplugin", 
+    "fields": {
+        "rght": 2, 
+        "changed_date": "2013-11-05T05:27:24.461Z", 
+        "parent": null, 
+        "language": "en", 
+        "level": 0, 
+        "creation_date": "2013-11-05T05:26:43.193Z", 
+        "lft": 1, 
+        "tree_id": 11, 
+        "position": 0, 
+        "placeholder": 20, 
         "plugin_type": "TextPlugin"
     }
 },
