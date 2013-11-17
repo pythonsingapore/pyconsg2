@@ -6,10 +6,12 @@
 {% block body_class %}auth{% endblock %}
 
 {% block main %}
-    <div class="dashboard-panel">
-        <div class="dashboard-panel-header">
-            <h3><i class="glyphicon glyphicon-bullhorn"></i> {% trans "Speaking" %}</h3>
-            <div class="pull-right header-actions">
+    <div class="row" style="padding-top:1em;">
+        <div class="col-md-6">
+            <h3 style="margin-top:0px;"><i class="glyphicon glyphicon-bullhorn"></i> {% trans "Speaking" %}</h3>
+        </div>
+        <div class="col-md-6">
+            <div class="pull-right">
                 {% if not user.speaker_profile %}
                     <a href="{% url "speaker_create" %}" class="btn btn-primary">
                         <i class="glyphicon glyphicon-plus-sign"></i> Create a speaker profile
@@ -24,67 +26,69 @@
                 {% endif %}
             </div>
         </div>
-        
-        <div class="dashboard-panel-content">
-            {% if not user.speaker_profile %}
-                <p>To submit a proposal, you must first <a href="{% url "speaker_create" %}">create a speaker profile</a>.</p>
-            {% else %}
-                <h4>Your Proposals</h4>
-                {% if user.speaker_profile.proposals.exists %}
-                    <table class="table">
-                        <tr>
-                            <th>Title</th>
-                            <th>Session type</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                        {% for proposal in user.speaker_profile.proposals.all %}
-                            {% include "proposals/_proposal_row.html" %}
-                        {% endfor %}
-                    </table>
-                {% else %}
-                    <p>No proposals submitted yet.</p>
-                {% endif %}
-            
-                {% associated_proposals as associated_proposals %}
-                {% if associated_proposals %}
-                    <h4>Proposals you have joined as an additional speaker</h4>
-                    <table class="table">
-                        <tr>
-                            <th>Title</th>
-                            <th>Session type</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                        {% for proposal in associated_proposals %}
-                            {% include "proposals/_proposal_row.html" %}
-                        {% endfor %}
-                    </table>
-                {% endif %}
-                
-                {% pending_proposals as pending_proposals %}
-                {% if pending_proposals %}
-                    <h4>Proposals you have been invited to join</h4>
-                    <table class="table">
-                        <tr>
-                            <th>Title</th>
-                            <th>Session type</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                        {% for proposal in pending_proposals %}
-                            {% include "proposals/_pending_proposal_row.html" %}
-                        {% endfor %}
-                    </table>
-                {% endif %}
-            {% endif %}
-        </div>
     </div>
-    
-    <div class="dashboard-panel">
-        <div class="dashboard-panel-header">
-            <h3><i class="glyphicon glyphicon-briefcase"></i> {% trans "Sponsorship" %}</h3>
-            <div class="pull-right header-actions">
+
+    {% if not user.speaker_profile %}
+        <p>To submit a proposal, you must first <a href="{% url "speaker_create" %}">create a speaker profile</a>.</p>
+    {% else %}
+        <h4>Your Proposals</h4>
+        {% if user.speaker_profile.proposals.exists %}
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Session type</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                {% for proposal in user.speaker_profile.proposals.all %}
+                    {% include "proposals/_proposal_row.html" %}
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No proposals submitted yet.</p>
+        {% endif %}
+
+        {% associated_proposals as associated_proposals %}
+        {% if associated_proposals %}
+            <h4>Proposals you have joined as an additional speaker</h4>
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Session type</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                {% for proposal in associated_proposals %}
+                    {% include "proposals/_proposal_row.html" %}
+                {% endfor %}
+            </table>
+        {% endif %}
+
+        {% pending_proposals as pending_proposals %}
+        {% if pending_proposals %}
+            <h4>Proposals you have been invited to join</h4>
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Session type</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                {% for proposal in pending_proposals %}
+                    {% include "proposals/_pending_proposal_row.html" %}
+                {% endfor %}
+            </table>
+        {% endif %}
+    {% endif %}
+
+    <hr />
+
+    <div class="row" style="padding-top:1em;">
+        <div class="col-md-6">
+            <h3 style="margin-top:0px;"><i class="glyphicon glyphicon-briefcase"></i> {% trans "Sponsorship" %}</h3>
+        </div>
+        <div class="col-md-6">
+            <div class="pull-right">
                 {% if not user.sponsorships.exists %}
                     <a href="{% url "sponsor_apply" %}" class="btn btn-primary">
                         <i class="glyphicon glyphicon-plus-sign"></i> Apply to be a sponsor
@@ -92,43 +96,41 @@
                 {% endif %}
             </div>
         </div>
-        
-        <div class="dashboard-panel-content">
-            {% if not user.sponsorships.exists %}
-                <p>If you or your organization would be interested in sponsorship opportunities, <a href="{% url "sponsor_apply" %}">use our online form to apply to be a sponsor</a>.
-            {% else %}
-                <h4>Your Sponsorship</h4>
-                <ul>
-                    {% for sponsorship in user.sponsorships.all %}
-                        <li>
-                            <a href="{% url "sponsor_detail" sponsorship.pk %}"><b>{{ sponsorship.name }}</b></a>
-                            ({{ sponsorship.level }})
-                            {% if not sponsorship.active %}
-                                <span class="label label-warning">awaiting approval</span>
-                            {% endif %}
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            {% if user.is_staff %}
-                <p>
-                    As staff, you can directly <a href="{% url "sponsor_add" %}">add a sponsor</a> if the organization isn't
-                    applying themselves.
-                </p>
-            {% endif %}
-        </div>
     </div>
-        
+
+    {% if not user.sponsorships.exists %}
+        <p>If you or your organization would be interested in sponsorship opportunities, <a href="{% url "sponsor_apply" %}">use our online form to apply to be a sponsor</a>.
+    {% else %}
+        <h4>Your Sponsorship</h4>
+        <ul>
+            {% for sponsorship in user.sponsorships.all %}
+                <li>
+                    <a href="{% url "sponsor_detail" sponsorship.pk %}"><b>{{ sponsorship.name }}</b></a>
+                    ({{ sponsorship.level }})
+                    {% if not sponsorship.active %}
+                        <span class="label label-warning">awaiting approval</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if user.is_staff %}
+        <p>
+            As staff, you can directly <a href="{% url "sponsor_add" %}">add a sponsor</a> if the organization isn't
+            applying themselves.
+        </p>
+    {% endif %}
+
     {% if review_sections %}
         <div class="dashboard-panel">
             <div class="dashboard-panel-header">
                 <i class="glyphicon glyphicon-briefcase"></i>
                 <h3>{% trans "Reviews" %}</h3>
             </div>
-            
+
             <div class="dashboard-panel-content">
                 <h4>Reviews by Section</h4>
-                
+
                 <ul>
                     {% for section in review_sections %}
                         <h5>{{ section }}</h5>
