@@ -1,4 +1,4 @@
-{% load cms_tags i18n markitup_tags menu_tags sekizai_tags staticfiles %}
+{% load cms_tags i18n markitup_tags sekizai_tags static %}
 
 <!DOCTYPE html>
 <html>
@@ -30,51 +30,29 @@
     {% block markitup_media %}{% markitup_media %}{% endblock %}
 </head>
 <body>
-{% if request.user.is_staff %}
-    {% cms_toolbar %}
-{% endif %}
-<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a href="/" class="navbar-brand">PyCon SG 2014</a>
+    {% if request.user.is_staff %}
+        {% cms_toolbar %}
+    {% endif %}
+
+    {% include "partials/menu.html" %}
+
+    {% block main_container %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% block main %}{% endblock %}
+                </div>
+            </div>
         </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            <ul class="nav navbar-nav">
-                {% show_menu 0 100 100 100 %}
-                {% if request.user.is_authenticated %}
-                    <li><a href="{% url "account_logout" %}">{% trans "Log out" %}</a></li>
-                {% else %}
-                    <li><a href="{% url "account_signup" %}">{% trans "Sign up" %}</a></li>
-                    <li><a href="{% url "account_login" %}">{% trans "Log in" %}</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    </div>
-</header>
+    {% endblock %}
 
-{% block main_container %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            {% block main %}{% endblock %}
-        </div>
-    </div>
-</div>
-{% endblock %}
+    <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
 
-<div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
+    {% comment %}Libs that will change and should be compressed{% endcomment %}
+    <script src="{% static "django_libs/js/modals.js" %}></script>
 
-{% comment %}Libs that will change and should be compressed{% endcomment %}
-<script src="{% static "django_libs/js/modals.js" %}></script>
-
-{% comment %}Further initialisations on sub pages. Should not be compressed{% endcomment %}
-{% block extrajs %}{% endblock %}
-{% render_block "js" %}
+    {% comment %}Further initialisations on sub pages. Should not be compressed{% endcomment %}
+    {% block extrajs %}{% endblock %}
+    {% render_block "js" %}
 </body>
 </html>
