@@ -1,0 +1,15 @@
+{% extends "reviews/base.html" %}
+{% load i18n %}
+
+{% block main %}
+	<h3>{{ section }}</h3>
+	{% if reviewed == 'all_reviews' %}
+    <h4>{% trans "All proposals" %}</h4>
+    {% elif reviewed == 'user_reviewed' %}
+    <h4>{% trans "Proposals you have reviewed" %}</h4>
+    {% else %}
+    <h4>{% trans "Proposals you have not yet reviewed" %}</h4>
+    {% endif %}
+
+    {% include "reviews/_review_table.html" %}
+{% endblock %}
