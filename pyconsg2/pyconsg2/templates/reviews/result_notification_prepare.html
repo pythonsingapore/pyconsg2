@@ -38,7 +38,7 @@
                 {% include "reviews/_result_notification_prepare_help.html" %}
 
                 <button type="submit" class="btn btn-primary">{% trans "Send" %} {{ proposals|length }} {% trans "Email" %}{{ proposals|length|pluralize }}</button>
-                <a class="btn" href="{% url "result_notification" section_slug status %}">{% trans "Cancel" %}</a>
+                <a class="btn btn-default" href="{% url "result_notification" section_slug status %}">{% trans "Cancel" %}</a>
             </form>
         </div>
     </form>

@@ -51,7 +51,7 @@
                                     <td>
                                         <form style="margin: 0;" method="post" action="{% url "proposal_document_delete" document.pk %}">
                                             {% csrf_token %}
-                                            <button type="submit" class="btn btn-danger btn-mini">{% trans 'Delete' %}</button>
+                                            <button type="submit" class="btn btn-danger btn-sm">{% trans 'Delete' %}</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -60,7 +60,7 @@
                     {% else %}
                         <p>{% trans "No supporting documents attached to this proposal." %}</p>
                     {% endif %}
-                    <a class="btn btn-primary btn-small{% if proposal.cancelled %} btn-disabled{% endif %}" href="{% url "proposal_document_create" proposal.pk %}"><i class="glyphicon glyphicon-upload"></i> {% trans "Add Document" %}</a>
+                    <a class="btn btn-primary btn-sm{% if proposal.cancelled %} btn-disabled{% endif %}" href="{% url "proposal_document_create" proposal.pk %}"><i class="glyphicon glyphicon-upload"></i> {% trans "Add Document" %}</a>
                 </div>
             {% endif %}
 
