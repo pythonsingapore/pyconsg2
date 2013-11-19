@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n stack_tags %}
+
+{% block head_title %}{% trans "Apply to be a Sponsor" %}{% endblock %}
+
+{% block body_class %}sponsorships{% endblock %}
+
+{% block main %}
+    <h1>{% trans "Apply to Be a Sponsor" %}</h1>
+    {% stack "sponsorship-apply" %}
+    <form role="form" method="POST" action="" class="form-horizontal">
+        {% csrf_token %}
+        {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <input class="btn btn-primary" type="submit" value="{% trans "Apply" %}" />
+                <a class="btn btn-default" href="{% url "dashboard" %}">{% trans "Cancel" %}</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}

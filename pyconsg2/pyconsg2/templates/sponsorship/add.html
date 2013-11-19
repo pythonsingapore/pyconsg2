@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Add a Sponsor" %}{% endblock %}
+
+{% block body_class %}sponsorships{% endblock %}
+
+{% block main %}
+    <h1>{% trans "Add a Sponsor" %}</h1>
+    <form role="form" method="POST" action="{% url "sponsor_add" %}" class="form-horizontal">
+        {% csrf_token %}
+        {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <input class="btn btn-primary" type="submit" value="{% trans "Add" %}" />
+                <a class="btn btn-default" href="{% url "dashboard" %}">{% trans "Cancel" %}</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}
