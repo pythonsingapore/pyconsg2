@@ -1,1 +1,1 @@
-{% load account_tags %}New message on "{{ proposal.title }}" from {% user_display message.user %}
+New message on "{{ proposal.title }}" from {{ message.user.email }}

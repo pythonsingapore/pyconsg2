@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n libs_tags %}
 
 {% block head_title %}{{ sponsor }}{% endblock %}
 
@@ -12,19 +12,22 @@
         {% csrf_token %}
         {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
 
-        <h3>{{ sponsor.level }} {% trans "Sponsor Benefits" %}</h3>
+        <h3>{{ sponsor.level }} {% trans "Sponsor Benefit Details" %}</h3>
 
         {{ formset.management_form }}
         {{ formset.non_form_errors }}
 
         {% for form in formset.forms %}
-            <div class="control-group">
-                <label class="control-label">{{ form.instance.benefit }}</label>
-                <div class="controls">
-                    {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
-                    <p class="help-block">{{ form.instance.benefit.description }}</p>
-                </div>
-            </div>
+            {% if form.fields|length > 1 %}
+                {% for field in form.hidden_fields %}
+                    {{ field }}
+                {% endfor %}
+                {% for field in form.visible_fields %}
+                    {% include "partials/forms/form_field.html" with label_col=2 input_col=6 label=form.instance.benefit %}
+                {% endfor %}
+            {% else %}
+                {{ form }}
+            {% endif %}
         {% endfor %}
 
         <div class="form-group">

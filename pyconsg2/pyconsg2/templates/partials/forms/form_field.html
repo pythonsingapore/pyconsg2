@@ -5,11 +5,17 @@
     {% include "partials/forms/form_field_checkbox.html" %}
 {% else %}
     <div class="form-group {% if field.errors %}has-error {% endif %}">
-        <label for="{{ field.id_for_label }}" class="col-md-{{ label_col }} control-label">{{ field.label }}</label>
+        <label for="{{ field.id_for_label }}" class="col-md-{{ label_col }} control-label">
+            {% if field.label %}
+                {{ field.label }}
+            {% else %}
+                {{ label }}
+            {% endif %}
+        </label>
 
         <div class="col-md-{{ input_col }}">
-            {% if "ClearableFileInput" in field_type %}
-                {% add_form_widget_attr field 'class' 'image-field' as field_ %}
+            {% if "ClearableFileInput" in field_type or "AdminFileWidget" in field_type %}
+                {% add_form_widget_attr field 'class' 'image-field btn btn-default' as field_ %}
             {% else %}
                 {% add_form_widget_attr field 'class' 'form-control' as field_ %}
             {% endif %}

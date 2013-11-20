@@ -1,0 +1,1 @@
+"{{ proposal.title }}" has been updated by {{ user.email }}

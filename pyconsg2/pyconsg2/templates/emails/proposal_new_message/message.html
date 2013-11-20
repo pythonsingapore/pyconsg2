@@ -1,7 +1,6 @@
-{% load account_tags %}
 <p>
     <b>
-        {% user_display message.user %}</b> has added a message on <b>{{ proposal.title }}
+        {{ message.user.email }}</b> has added a message on <b>{{ proposal.title }}
     </b>.
 </p>
 <blockquote>

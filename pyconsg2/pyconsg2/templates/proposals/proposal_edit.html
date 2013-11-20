@@ -10,7 +10,7 @@
 {% block main %}
     <h1>
         {% blocktrans with proposal_title=proposal.title %}
-            Edit: {{ proposal.title }}
+            Edit: {{ proposal_title }}
         {% endblocktrans %}
     </h1>
 
@@ -19,7 +19,7 @@
     <p><a href="{% url "proposal_speaker_manage" proposal.pk %}">{% trans "Manage speakers" %}</a></p>
     {% endcomment %}
 
-    <form role="form" class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+    <form role="form" class="form-horizontal" method="POST" action="." enctype="multipart/form-data">
         {% csrf_token %}
         {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
         <div class="form-group">
