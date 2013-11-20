@@ -1,0 +1,1 @@
+{% load i18n %}{% blocktrans with username=user.email %}{{ username}} has applied to to join "{{ team }}"{% endblocktrans %}
