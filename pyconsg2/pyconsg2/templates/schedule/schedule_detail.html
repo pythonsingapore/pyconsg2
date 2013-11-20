@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load cache i18n stacks_tags %}
+
+{% block head_title %}{% trans "Conference Schedule" %}{% endblock %}
+
+{% block body_class %}full{% endblock %}
+
+{% block main %}
+    <h1>{{ schedule.section }} Schedule</h1>
+    {% stack "schedule_top_"|add:schedule.section.name|slugify %}
+    
+    {% cache 600 "schedule-table" schedule.section %}
+        {% for timetable in days %}
+            <h3>{{ timetable.day.date }}</h3>
+            {% include "schedule/_grid.html" %}
+        {% endfor %}
+    {% endcache %}
+
+    {% stack "schedule_bottom" %}
+{% endblock %}
