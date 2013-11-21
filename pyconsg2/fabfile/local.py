@@ -25,7 +25,7 @@ def dumpdata():
     local('python2.7 ./manage.py dumpdata --indent 4 --natural speakers > pyconsg2/fixtures/bootstrap_speakers.json')  # NOPEP8
     local('python2.7 ./manage.py dumpdata --indent 4 --natural proposals > pyconsg2/fixtures/bootstrap_proposals.json')  # NOPEP8
     local('python2.7 ./manage.py dumpdata --indent 4 --natural proposals_pyconsg > pyconsg2/fixtures/bootstrap_proposals_pyconsg.json')  # NOPEP8
-    # local('python2.7 ./manage.py dumpdata --indent 4 --natural schedule > pyconsg2/fixtures/bootstrap_schedule.json')  # NOPEP8
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural schedule > pyconsg2/fixtures/bootstrap_schedule.json')  # NOPEP8
     local('python2.7 ./manage.py dumpdata --indent 4 --natural sponsorship > pyconsg2/fixtures/bootstrap_sponsorship.json')  # NOPEP8
 
 
@@ -41,7 +41,7 @@ def loaddata():
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_speakers.json')  # NOPEP8
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_proposals.json')  # NOPEP8
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_proposals_pyconsg.json')  # NOPEP8
-    # local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_schedule.json')  # NOPEP8
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_schedule.json')  # NOPEP8
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_sponsorship.json')  # NOPEP8
 
 

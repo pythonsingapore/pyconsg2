@@ -34,6 +34,24 @@
 },
 {
     "pk": 1, 
+    "model": "sponsorship.sponsor", 
+    "fields": {
+        "added": "2013-11-19T03:34:55.927Z", 
+        "name": "Sponsor Name", 
+        "level": 1, 
+        "sponsor_logo": null, 
+        "applicant": [
+            "4d42f50e4040fd3d04eb006372655"
+        ], 
+        "contact_email": "user1@example.com", 
+        "active": false, 
+        "contact_name": "User One", 
+        "annotation": "", 
+        "external_url": "http://www.example.com/"
+    }
+},
+{
+    "pk": 1, 
     "model": "sponsorship.benefit", 
     "fields": {
         "type": "simple", 
@@ -307,6 +325,84 @@
         "benefit": 3, 
         "max_words": null, 
         "level": 3
+    }
+},
+{
+    "pk": 1, 
+    "model": "sponsorship.sponsorbenefit", 
+    "fields": {
+        "text": "", 
+        "other_limits": "", 
+        "upload": "", 
+        "benefit": 13, 
+        "sponsor": 1, 
+        "active": true, 
+        "max_words": null
+    }
+},
+{
+    "pk": 2, 
+    "model": "sponsorship.sponsorbenefit", 
+    "fields": {
+        "text": "", 
+        "other_limits": "", 
+        "upload": "", 
+        "benefit": 12, 
+        "sponsor": 1, 
+        "active": true, 
+        "max_words": null
+    }
+},
+{
+    "pk": 3, 
+    "model": "sponsorship.sponsorbenefit", 
+    "fields": {
+        "text": "Test Co. Pte. Ltd.", 
+        "other_limits": "", 
+        "upload": "", 
+        "benefit": 11, 
+        "sponsor": 1, 
+        "active": true, 
+        "max_words": null
+    }
+},
+{
+    "pk": 4, 
+    "model": "sponsorship.sponsorbenefit", 
+    "fields": {
+        "text": "", 
+        "other_limits": "", 
+        "upload": "", 
+        "benefit": 10, 
+        "sponsor": 1, 
+        "active": true, 
+        "max_words": null
+    }
+},
+{
+    "pk": 5, 
+    "model": "sponsorship.sponsorbenefit", 
+    "fields": {
+        "text": "", 
+        "other_limits": "", 
+        "upload": "", 
+        "benefit": 9, 
+        "sponsor": 1, 
+        "active": true, 
+        "max_words": null
+    }
+},
+{
+    "pk": 6, 
+    "model": "sponsorship.sponsorbenefit", 
+    "fields": {
+        "text": "", 
+        "other_limits": "", 
+        "upload": "", 
+        "benefit": 8, 
+        "sponsor": 1, 
+        "active": true, 
+        "max_words": null
     }
 }
 ]

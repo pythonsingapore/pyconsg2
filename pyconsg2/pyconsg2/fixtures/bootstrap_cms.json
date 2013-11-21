@@ -227,6 +227,30 @@
     }
 },
 {
+    "pk": 28, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "sponsorship-apply", 
+        "default_width": null
+    }
+},
+{
+    "pk": 29, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "schedule_top", 
+        "default_width": null
+    }
+},
+{
+    "pk": 30, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "schedule_bottom", 
+        "default_width": null
+    }
+},
+{
     "pk": 1, 
     "model": "cms.cmsplugin", 
     "fields": {
@@ -751,12 +775,12 @@
     "model": "cms.page", 
     "fields": {
         "rght": 2, 
-        "navigation_extenders": null, 
+        "navigation_extenders": "", 
         "site": 1, 
         "application_namespace": null, 
         "lft": 1, 
         "in_navigation": true, 
-        "reverse_id": null, 
+        "reverse_id": "sponsorship", 
         "login_required": false, 
         "created_by": "admin", 
         "publication_end_date": null, 
@@ -765,17 +789,17 @@
         "placeholders": [
             12
         ], 
-        "changed_date": "2013-10-23T23:16:49.612Z", 
+        "changed_date": "2013-11-19T03:32:49.216Z", 
         "limit_visibility_in_menu": null, 
         "parent": null, 
-        "publisher_state": 0, 
+        "publisher_state": 1, 
         "soft_root": false, 
         "publication_date": "2013-10-23T23:16:44.579Z", 
         "creation_date": "2013-10-23T23:16:46.015Z", 
         "publisher_public": 12, 
         "level": 0, 
         "changed_by": "admin", 
-        "application_urls": null, 
+        "application_urls": "", 
         "publisher_is_draft": true, 
         "published": true, 
         "revision_id": 0
@@ -1143,7 +1167,7 @@
         "language": "en", 
         "title": "Sponsorship", 
         "has_url_overwrite": false, 
-        "redirect": null, 
+        "redirect": "", 
         "page": 11, 
         "path": "sponsorship", 
         "creation_date": "2013-10-23T23:16:46.098Z", 

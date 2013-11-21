@@ -1,2 +1,216 @@
 [
+{
+    "pk": 1, 
+    "model": "schedule.schedule", 
+    "fields": {
+        "section": 1, 
+        "hidden": false, 
+        "published": true
+    }
+},
+{
+    "pk": 1, 
+    "model": "schedule.day", 
+    "fields": {
+        "date": "2014-06-18", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "schedule.day", 
+    "fields": {
+        "date": "2014-06-19", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "schedule.day", 
+    "fields": {
+        "date": "2014-06-20", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 1, 
+    "model": "schedule.room", 
+    "fields": {
+        "order": 1, 
+        "name": "Room1", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "schedule.room", 
+    "fields": {
+        "order": 2, 
+        "name": "Room2", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "schedule.room", 
+    "fields": {
+        "order": 3, 
+        "name": "Room3", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "schedule.room", 
+    "fields": {
+        "order": 4, 
+        "name": "Room4", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 1, 
+    "model": "schedule.slotkind", 
+    "fields": {
+        "label": "registration", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "schedule.slotkind", 
+    "fields": {
+        "label": "lightning-talk", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "schedule.slotkind", 
+    "fields": {
+        "label": "keynote", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "schedule.slotkind", 
+    "fields": {
+        "label": "talk", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 5, 
+    "model": "schedule.slotkind", 
+    "fields": {
+        "label": "break", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 6, 
+    "model": "schedule.slotkind", 
+    "fields": {
+        "label": "tutorial", 
+        "schedule": 1
+    }
+},
+{
+    "pk": 1, 
+    "model": "schedule.slot", 
+    "fields": {
+        "_content_override_rendered": "", 
+        "kind": 6, 
+        "end": "12:30:00", 
+        "content_override": "", 
+        "start": "09:00:00", 
+        "day": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "schedule.slot", 
+    "fields": {
+        "_content_override_rendered": "", 
+        "kind": 6, 
+        "end": "12:30:00", 
+        "content_override": "", 
+        "start": "09:00:00", 
+        "day": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "schedule.slot", 
+    "fields": {
+        "_content_override_rendered": "", 
+        "kind": 6, 
+        "end": "12:30:00", 
+        "content_override": "", 
+        "start": "09:00:00", 
+        "day": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "schedule.slot", 
+    "fields": {
+        "_content_override_rendered": "", 
+        "kind": 6, 
+        "end": "12:30:00", 
+        "content_override": "", 
+        "start": "09:00:00", 
+        "day": 1
+    }
+},
+{
+    "pk": 1, 
+    "model": "schedule.slotroom", 
+    "fields": {
+        "slot": 1, 
+        "room": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "schedule.slotroom", 
+    "fields": {
+        "slot": 2, 
+        "room": 2
+    }
+},
+{
+    "pk": 3, 
+    "model": "schedule.slotroom", 
+    "fields": {
+        "slot": 3, 
+        "room": 3
+    }
+},
+{
+    "pk": 4, 
+    "model": "schedule.slotroom", 
+    "fields": {
+        "slot": 4, 
+        "room": 4
+    }
+},
+{
+    "pk": 1, 
+    "model": "schedule.presentation", 
+    "fields": {
+        "slot": null, 
+        "_description_rendered": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</p>", 
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.", 
+        "title": "Test Tutorial", 
+        "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.", 
+        "additional_speakers": [], 
+        "_abstract_rendered": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</p>", 
+        "proposal_base": 1, 
+        "speaker": 1, 
+        "cancelled": false, 
+        "section": 1
+    }
+}
 ]

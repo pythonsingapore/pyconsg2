@@ -3,7 +3,7 @@
     "pk": 1, 
     "model": "proposals_pyconsg.tutorialproposal", 
     "fields": {
-        "recording_release": true, 
+        "recording_release": false, 
         "audience_level": 1
     }
 }
