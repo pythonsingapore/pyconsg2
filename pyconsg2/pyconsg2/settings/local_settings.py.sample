@@ -98,3 +98,22 @@ EMAIL_BACKEND = 'mailer.backend.DbBackend'
 # DEFAULT_FROM_EMAIL = FROM_EMAIL
 # SERVER_EMAIL = FROM_EMAIL
 # EMAIL_USE_TLS = True
+
+
+=============================================================================
+# PAYPAL SETTINGS
+# =============================================================================
+
+# Uncomment this when developing locally
+# Install localtunnel and set your HOSTNAME accordingly when testing the
+# checkout view in your browser locally.
+# HOSTNAME = 'http://XXXX.localtunnel.com'
+
+# PAYPAL_API_URL = 'https://api-3t.sandbox.paypal.com/nvp'
+# PAYPAL_LOGIN_URL = (
+#     'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token='
+# )
+
+# PAYPAL_USER = 'username'
+# PAYPAL_PWD = 'password'
+# PAYPAL_SIGNATURE = 'signature'

@@ -40,6 +40,14 @@ urlpatterns += patterns(
     url(r'^admin-stacks/', AdminStacksView.as_view(), name='admin_stacks'),
     url(settings.ADMIN_URL, include(admin.site.urls)),
     url(r'^admin-.+/', include('admin_honeypot.urls')),
+
+    url(r'^checkout/group/', include('paypal_pyconsg.group_checkout_urls')),
+    # url(r'^checkout/',
+    #    TemplateView.as_view(template_name='checkout_closed.html'),
+    #    name='paypal_checkout'),
+    url(r'^checkout/', include('paypal_express_checkout.urls')),
+    # url(r'^dashboard/checkout-choices/', include('paypal_pyconsg.urls')),
+
     url(r'^', include('pyconsg2.symposion_urls')),
     url(r'^', include('cms.urls')),
 )

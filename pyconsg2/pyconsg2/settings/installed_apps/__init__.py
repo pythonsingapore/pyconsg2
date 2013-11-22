@@ -21,6 +21,8 @@ EXTERNAL_APPS = [
     'mailer',
     'simple_translation',
     'south',
+    'paypal_express_checkout',
+    'paypal_pyconsg',
 
     # django-cms apps
     'djangocms_text_ckeditor',  # must come before cms
@@ -66,4 +68,5 @@ from .cms import *  # NOQA
 from .debug_toolbar import *  # NOQA
 from .djangocms_text_ckeditor import *  # NOQA
 from .markitup import *  # NOQA
+from .paypal_express_checkout import *  # NOQA
 from .symposion import *  # NOQA
