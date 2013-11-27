@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <h1>{% trans "Payment confirmation" %}</h1>
+    <form method="post" action=".">
+        {% csrf_token %}
+        <p>{% trans "Please confirm the payment of" %} S${{ value }}</p>
+        <input id="payPalButton" class="btn btn-primary" type="submit" name="METHOD" value="{% trans "Confirm payment" %}" />
+        <input type="hidden" name="token" value="{{ token }}" />
+        <input type="hidden" name="payerID" value="{{ payerid }}" />
+    </form>
+{% endblock %}
