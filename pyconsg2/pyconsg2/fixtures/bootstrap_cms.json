@@ -543,7 +543,7 @@
     "model": "cms.page", 
     "fields": {
         "rght": 2, 
-        "navigation_extenders": null, 
+        "navigation_extenders": "", 
         "site": 1, 
         "application_namespace": null, 
         "lft": 1, 
@@ -557,17 +557,17 @@
         "placeholders": [
             4
         ], 
-        "changed_date": "2013-10-23T23:15:52.754Z", 
+        "changed_date": "2013-11-27T04:33:46.351Z", 
         "limit_visibility_in_menu": null, 
         "parent": null, 
-        "publisher_state": 0, 
+        "publisher_state": 1, 
         "soft_root": false, 
         "publication_date": "2013-10-23T23:15:47.725Z", 
         "creation_date": "2013-10-23T23:15:50.036Z", 
         "publisher_public": 4, 
         "level": 0, 
         "changed_by": "admin", 
-        "application_urls": null, 
+        "application_urls": "", 
         "publisher_is_draft": true, 
         "published": true, 
         "revision_id": 0
@@ -1187,6 +1187,17 @@
     }
 },
 {
+    "pk": 9, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-11-21T03:59:09.994Z", 
+        "page": 16, 
+        "user": null
+    }
+},
+{
     "pk": 1, 
     "model": "cms.title", 
     "fields": {
@@ -1230,7 +1241,7 @@
         "language": "en", 
         "title": "Tickets", 
         "has_url_overwrite": false, 
-        "redirect": null, 
+        "redirect": "/checkout/", 
         "page": 3, 
         "path": "tickets", 
         "creation_date": "2013-10-23T23:15:50.125Z", 

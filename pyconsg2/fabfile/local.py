@@ -28,6 +28,8 @@ def dumpdata():
     local('python2.7 ./manage.py dumpdata --indent 4 --natural schedule > pyconsg2/fixtures/bootstrap_schedule.json')  # NOPEP8
     local('python2.7 ./manage.py dumpdata --indent 4 --natural sponsorship > pyconsg2/fixtures/bootstrap_sponsorship.json')  # NOPEP8
 
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural paypal_express_checkout > pyconsg2/fixtures/bootstrap_paypal_express_checkout.json')  # NOPEP8
+
 
 def loaddata():
     """Loads available fixtures."""
@@ -43,6 +45,8 @@ def loaddata():
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_proposals_pyconsg.json')  # NOPEP8
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_schedule.json')  # NOPEP8
     local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_sponsorship.json')  # NOPEP8
+
+    local('python2.7 manage.py loaddata pyconsg2/fixtures/bootstrap_paypal_express_checkout.json')  # NOPEP8
 
 
 def rebuild():

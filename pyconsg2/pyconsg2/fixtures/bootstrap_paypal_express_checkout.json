@@ -1,0 +1,79 @@
+[
+{
+    "pk": 1, 
+    "model": "paypal_express_checkout.item", 
+    "fields": {
+        "currency": "SGD", 
+        "identifier": "tutorial-early", 
+        "name": "Tutorial Ticket", 
+        "value": "50.00", 
+        "description": "PyCon Singapore 2014 Tutorial Ticket (Early Bird)"
+    }
+},
+{
+    "pk": 2, 
+    "model": "paypal_express_checkout.item", 
+    "fields": {
+        "currency": "SGD", 
+        "identifier": "conference-student-early", 
+        "name": "Conference Ticket", 
+        "value": "50.00", 
+        "description": "PyCon Singapore 2014 Conference (Early Bird Student Rate)"
+    }
+},
+{
+    "pk": 3, 
+    "model": "paypal_express_checkout.item", 
+    "fields": {
+        "currency": "SGD", 
+        "identifier": "tutorial", 
+        "name": "Tutorial Ticket", 
+        "value": "70.00", 
+        "description": "PyCon Singapore 2014 Tutorial Ticket"
+    }
+},
+{
+    "pk": 4, 
+    "model": "paypal_express_checkout.item", 
+    "fields": {
+        "currency": "SGD", 
+        "identifier": "conference-student", 
+        "name": "Conference Ticket", 
+        "value": "80.00", 
+        "description": "PyCon Singapore 2014 Conference Ticket (Student Rate)"
+    }
+},
+{
+    "pk": 5, 
+    "model": "paypal_express_checkout.item", 
+    "fields": {
+        "currency": "SGD", 
+        "identifier": "conference-early", 
+        "name": "Conference Ticket", 
+        "value": "150.00", 
+        "description": "PyCon Singapore 2014 Conference Ticket (Early Bird)"
+    }
+},
+{
+    "pk": 6, 
+    "model": "paypal_express_checkout.item", 
+    "fields": {
+        "currency": "SGD", 
+        "identifier": "conference-early", 
+        "name": "Conference Ticket", 
+        "value": "150.00", 
+        "description": "PyCon Singapore 2014 Conference Ticket (Early Bird)"
+    }
+},
+{
+    "pk": 7, 
+    "model": "paypal_express_checkout.item", 
+    "fields": {
+        "currency": "SGD", 
+        "identifier": "conference", 
+        "name": "Conference Ticket", 
+        "value": "200.00", 
+        "description": "PyCon Singapore 2014 Conference Ticket"
+    }
+}
+]
