@@ -557,10 +557,10 @@
         "placeholders": [
             4
         ], 
-        "changed_date": "2013-11-27T04:33:46.351Z", 
+        "changed_date": "2013-11-29T00:51:28.191Z", 
         "limit_visibility_in_menu": null, 
         "parent": null, 
-        "publisher_state": 1, 
+        "publisher_state": 0, 
         "soft_root": false, 
         "publication_date": "2013-10-23T23:15:47.725Z", 
         "creation_date": "2013-10-23T23:15:50.036Z", 
@@ -578,7 +578,7 @@
     "model": "cms.page", 
     "fields": {
         "rght": 2, 
-        "navigation_extenders": null, 
+        "navigation_extenders": "", 
         "site": 1, 
         "application_namespace": null, 
         "lft": 1, 
@@ -592,17 +592,17 @@
         "placeholders": [
             5
         ], 
-        "changed_date": "2013-10-23T23:15:52.539Z", 
+        "changed_date": "2013-11-29T00:51:28.008Z", 
         "limit_visibility_in_menu": null, 
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
-        "publication_date": "2013-10-23T23:15:47.512Z", 
+        "publication_date": "2013-10-23T23:15:47.725Z", 
         "creation_date": "2013-10-23T23:15:52.539Z", 
         "publisher_public": 3, 
         "level": 0, 
         "changed_by": "admin", 
-        "application_urls": null, 
+        "application_urls": "", 
         "publisher_is_draft": false, 
         "published": true, 
         "revision_id": 0
@@ -1110,17 +1110,6 @@
     }
 },
 {
-    "pk": 2, 
-    "model": "cms.pagemoderatorstate", 
-    "fields": {
-        "action": "ADD", 
-        "message": "", 
-        "created": "2013-11-01T00:11:25.787Z", 
-        "page": 3, 
-        "user": null
-    }
-},
-{
     "pk": 3, 
     "model": "cms.pagemoderatorstate", 
     "fields": {
@@ -1240,10 +1229,10 @@
         "page_title": "", 
         "language": "en", 
         "title": "Tickets", 
-        "has_url_overwrite": false, 
-        "redirect": "/checkout/", 
+        "has_url_overwrite": true, 
+        "redirect": "", 
         "page": 3, 
-        "path": "tickets", 
+        "path": "checkout", 
         "creation_date": "2013-10-23T23:15:50.125Z", 
         "slug": "tickets"
     }
@@ -1257,10 +1246,10 @@
         "page_title": "", 
         "language": "en", 
         "title": "Tickets", 
-        "has_url_overwrite": false, 
-        "redirect": null, 
+        "has_url_overwrite": true, 
+        "redirect": "", 
         "page": 4, 
-        "path": "tickets", 
+        "path": "checkout", 
         "creation_date": "2013-10-23T23:15:50.125Z", 
         "slug": "tickets"
     }

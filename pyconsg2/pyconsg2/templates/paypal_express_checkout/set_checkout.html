@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n libs_tags %}
 
 {% block main %}
     <h1>{% trans "Your PyCon Singapore 2013 Ticket" %}</h1>
@@ -18,61 +18,44 @@
                     </div>
                 {% endif %}
 
-                <div class="control-group">
-                    <label class="control-label" for="inputEmail">{{ form.student_rate.label }}</label>
-                    <div class="controls">
-                        {{ form.student_rate }}
-                    </div>
-                </div>
+                {% include "partials/forms/form_field.html" with field=form.student_rate label_col=4 input_col=8 %}
 
-                <div class="control-group">
-                    <label class="control-label" for="inputEmail">{{ form.conference_ticket.label }}</label>
-                    <div class="controls">
-                        {{ form.conference_ticket }} <span id="conferencePrice">S${{ form.conference_item.value }}</span><span id="conferencePriceStudent" style="display:none;">S${{ form.student_item.value }}</span>
+                <div class="form-group {% if form.conference_ticket.errors %}has-error {% endif %}">
+                    <label for="{{ form.conference_ticket.id_for_label }}" class="col-md-4 control-label">
+                        {{ form.conference_ticket.label }}
+                    </label>
+
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            {% add_form_widget_attr form.conference_ticket 'style' 'margin:0px;margin-left:-26px;' as field_ %}
+                            {{ field_ }} <span id="conferencePrice">S${{ form.conference_item.value }}</span><span id="conferencePriceStudent" style="display:none;">S${{ form.student_item.value }}</span>
+                        </div>
                     </div>
                 </div>
 
                 <hr />
 
-                <div class="control-group">
-                    <label class="control-label" for="inputEmail">{% trans "Tutorial price:" %}</label>
-                    <div class="controls">
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="inputEmail">{% trans "Tutorial price:" %}</label>
+                    <div class="col-md-8" style="padding-top:7px;">
                         <span id="tutorialPrice">S$0.00</span>
                         <span>(Each session @ S${{ form.tutorial_item.value }})</span>
                     </div>
                 </div>
 
-                <div class="control-group">
-                    <label class="control-label" for="inputEmail">{{ form.tutorial_morning.label }}</label>
-                    <div class="controls">
-                        {{ form.tutorial_morning }}
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label" for="inputEmail">{{ form.tutorial_afternoon.label }}</label>
-                    <div class="controls">
-                        {{ form.tutorial_afternoon }}
-                    </div>
-                </div>
+                {% include "partials/forms/form_field.html" with field=form.tutorial_morning label_col=4 input_col=8 %}
+                {% include "partials/forms/form_field.html" with field=form.tutorial_afternoon label_col=4 input_col=8 %}
 
                 <hr />
 
-                <div class="control-group">
-                    <label class="control-label" for="inputEmail">{{ form.tshirt_size.label }}</label>
-                    <div class="controls">
-                        {{ form.tshirt_size }}
+                {% include "partials/forms/form_field.html" with field=form.tshirt_size label_col=4 input_col=8 %}
+                {% include "partials/forms/form_field.html" with field=form.food_choice label_col=4 input_col=8 %}
+
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-10">
+                        <input class="btn btn-primary" id="payPalButton" type="submit" name="METHOD" value="{% trans "Checkout with PayPal" %}" />
                     </div>
                 </div>
-
-                <div class="control-group">
-                    <label class="control-label" for="inputEmail">{{ form.food_choice.label }}</label>
-                    <div class="controls">
-                        {{ form.food_choice }}
-                    </div>
-                </div>
-
-            <input class="btn btn-primary" id="payPalButton" type="submit" name="METHOD" value="{% trans "Checkout with PayPal" %}" />
             </form>
         </div>
 
@@ -87,7 +70,7 @@
     </div>
 {% endblock %}
 
-{% block extra_script %}
+{% block extrajs %}
 <script>
     $('#id_student_rate').click(function() {
         if($(this).is(':checked')) {
