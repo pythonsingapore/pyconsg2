@@ -1,6 +1,6 @@
-{% load i18n menu_tags %}
+{% load i18n menu_tags static %}
 
-<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+<header class="navbar navbar-fixed-top bs-docs-nav" role="banner">
     <div class="container">
         <div class="navbar-header">
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -9,7 +9,7 @@
             <span class="glyphicon glyphicon-bar"></span>
             <span class="glyphicon glyphicon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">PyCon SG 2014</a>
+        <a href="/" class="navbar-brand"><img src="{% static "img/pyconsg-logo.jpg" %}" style="width:200px;margin-top:-8px;" /></a>
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">

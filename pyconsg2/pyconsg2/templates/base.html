@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block head_title %}pyconsg2 Prototype{% endblock %}</title>
+    <title>{% block head_title %}PyCon Singapore 2014{% endblock %} - pycon.sg</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen">
     <style>
@@ -37,13 +37,23 @@
     {% include "partials/menu.html" %}
 
     {% block main_container %}
-        <div class="container">
+        <div class="container" style="margin-top:1em;">
             <div class="row">
                 <div class="col-md-12">
                     {% block main %}{% endblock %}
                 </div>
             </div>
         </div>
+    {% endblock %}
+
+    {% block footer_container %}
+        <footer class="bs-footer">
+            <div class="container">
+                {% block footer %}
+                    {% include "partials/footer.html" %}
+                {% endblock %}
+            </div>
+        </footer>
     {% endblock %}
 
     <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
