@@ -1,4 +1,4 @@
-{% load libs_tags multilingual_news_tags placeholder_tags pyconsg2_tags thumbnail %}
+{% load cms_tags libs_tags multilingual_news_tags pyconsg2_tags thumbnail %}
 
 {% if news_entry.image %}<img src="{% thumbnail news_entry.image 100x100 crop %}" alt="" />{% endif %}
 <h2><a href="{{ news_entry.get_absolute_url }}">{{ news_entry.title }}</a></h2>

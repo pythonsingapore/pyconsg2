@@ -12,14 +12,12 @@ DJANGO_APPS = [
 
 EXTERNAL_APPS = [
     # normal apps, sorted alphabetically
-    'admin_honeypot',
     'debug_toolbar',
     'django_libs',
     'easy_thumbnails',
     'hvad',
-    'honeypot_signals',
     'mailer',
-    'simple_translation',
+    # 'simple_translation',
     'south',
     'paypal_express_checkout',
     'paypal_pyconsg',

@@ -5,7 +5,7 @@ URLs needed by the symposion app.
 See https://github.com/pinax/pinax-project-symposion/blob/master/project_name/urls.py
 
 """
-from django.conf.urls.defaults import include, patterns, url
+from django.conf.urls import include, patterns, url
 
 
 import symposion.views

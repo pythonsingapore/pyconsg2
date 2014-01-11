@@ -1,0 +1,79 @@
+---
+- hosts: webservers
+  vars_files:
+    - external_vars.yml
+  remote_user: vagrant
+  tasks:
+    - name: Update package information
+      sudo: yes
+      apt: update_cache=yes cache_valid_time=43200
+    - name: Install packages which we need to add PPAs
+      sudo: yes
+      apt: pkg=python-software-properties
+    - name: Add nodejs PPA
+      sudo: yes
+      raw: add-apt-repository ppa:chris-lea/node.js -y
+    - name: Update package information
+      sudo: yes
+      apt: update_cache=yes cache_valid_time=43200
+    - name: Install required packages
+      sudo: yes
+      apt: pkg={{ item }}
+      with_items:
+        - g++
+        - make
+        - curl
+        - libssl-dev
+        - apache2-utils
+        - python-setuptools
+        - python-dev
+        - git-core
+        - mercurial
+        - sqlite3
+        - libsqlite3-dev
+        - postgresql-9.1
+        - postgresql-contrib-9.1
+        - postgresql-common
+        - pgadmin3
+        - python-psycopg2
+        - postgresql-server-dev-9.1
+        - libpq-dev
+        - nodejs
+    - name: Install build-dep for some packages
+      sudo: yes
+      command: apt-get -y build-dep {{ item }}
+      with_items:
+        - python-imaging
+    - name: Install lessc
+      sudo: yes
+      raw: npm install -g less
+    - name: Install system global pip
+      sudo: yes
+      easy_install: name=pip==1.3
+    - name: Install system global virtualenvwrapper
+      sudo: yes
+      pip: name=virtualenvwrapper
+    - name: Remove build folder from previously failed provisionings
+      command: rm -rf /home/vagrant/Envs/{{ project_name }}/build
+    - name: Configure virtualenvwrapper
+      lineinfile: dest=/home/vagrant/.bashrc line="{{ item }}"
+      with_items:
+        - export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+        - export WORKON_HOME=$HOME/Envs
+        - export PIP_VIRTUALENV_BASE=$WORKON_HOME
+        - export PIP_RESPECT_VIRTUALENV=true
+        - source /usr/local/bin/virtualenvwrapper.sh
+    - name: Source .bashrc
+      raw: source /home/vagrant/.bashrc
+    - name: Create venv with pip==1.3
+      pip: virtualenv=/home/vagrant/Envs/{{ project_name }} name=pip==1.3
+    - name: Install virtual environment
+      pip: virtualenv=/home/vagrant/Envs/{{ project_name }} requirements=/vagrant/{{ project_name }}/requirements.txt
+    - name: Install gems needed by obsrvr
+      sudo: yes
+      gem: name={{ item }}
+      with_items:
+        - rev
+        - obsrvr
+    - name: Symlink vagrant folder
+      raw: ln -sf /vagrant/ $HOME/project

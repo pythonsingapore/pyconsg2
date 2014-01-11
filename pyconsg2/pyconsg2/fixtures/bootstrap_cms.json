@@ -12,294 +12,6 @@
 },
 {
     "pk": 1, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "clipboard", 
-        "default_width": null
-    }
-},
-{
-    "pk": 2, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 3, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 4, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 5, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 6, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 7, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 8, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 9, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 10, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 11, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 12, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 13, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 14, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 15, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 16, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "multilingnual_news_excerpt", 
-        "default_width": null
-    }
-},
-{
-    "pk": 17, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "multilingnual_news_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 18, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "multilingnual_news_excerpt", 
-        "default_width": null
-    }
-},
-{
-    "pk": 19, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "multilingnual_news_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 20, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "signup-sidebar", 
-        "default_width": null
-    }
-},
-{
-    "pk": 21, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "speaker-profile", 
-        "default_width": null
-    }
-},
-{
-    "pk": 22, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "proposal_submit", 
-        "default_width": null
-    }
-},
-{
-    "pk": 23, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "speaker-profile", 
-        "default_width": null
-    }
-},
-{
-    "pk": 24, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "signup-sidebar", 
-        "default_width": null
-    }
-},
-{
-    "pk": 25, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "speaker-profile", 
-        "default_width": null
-    }
-},
-{
-    "pk": 26, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "proposal_submit", 
-        "default_width": null
-    }
-},
-{
-    "pk": 27, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "example_proposal", 
-        "default_width": null
-    }
-},
-{
-    "pk": 28, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "sponsorship-apply", 
-        "default_width": null
-    }
-},
-{
-    "pk": 29, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "schedule_top", 
-        "default_width": null
-    }
-},
-{
-    "pk": 30, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "schedule_bottom", 
-        "default_width": null
-    }
-},
-{
-    "pk": 31, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "schedule_top", 
-        "default_width": null
-    }
-},
-{
-    "pk": 32, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "schedule_bottom", 
-        "default_width": null
-    }
-},
-{
-    "pk": 33, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 34, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 35, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 36, 
-    "model": "cms.placeholder", 
-    "fields": {
-        "slot": "default_content", 
-        "default_width": null
-    }
-},
-{
-    "pk": 1, 
     "model": "cms.cmsplugin", 
     "fields": {
         "rght": 2, 
@@ -469,6 +181,23 @@
     }
 },
 {
+    "pk": 14, 
+    "model": "cms.cmsplugin", 
+    "fields": {
+        "rght": 2, 
+        "changed_date": "2014-01-11T07:25:56.826Z", 
+        "parent": null, 
+        "language": "en", 
+        "level": 0, 
+        "creation_date": "2014-01-11T07:25:50.462Z", 
+        "lft": 1, 
+        "tree_id": 12, 
+        "position": 0, 
+        "placeholder": 11, 
+        "plugin_type": "TextPlugin"
+    }
+},
+{
     "pk": 1, 
     "model": "cms.page", 
     "fields": {
@@ -487,16 +216,17 @@
         "placeholders": [
             2
         ], 
-        "changed_date": "2013-10-23T23:20:21.032Z", 
+        "changed_date": "2014-01-11T07:22:35.073Z", 
         "limit_visibility_in_menu": null, 
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": true, 
         "publication_date": "2013-10-23T22:57:36.267Z", 
         "creation_date": "2013-10-23T22:57:37.286Z", 
         "publisher_public": 2, 
         "level": 0, 
-        "changed_by": "admin", 
+        "changed_by": "script", 
         "application_urls": null, 
         "publisher_is_draft": true, 
         "published": true, 
@@ -522,16 +252,17 @@
         "placeholders": [
             3
         ], 
-        "changed_date": "2013-10-23T23:20:20.603Z", 
+        "changed_date": "2014-01-11T07:22:35.120Z", 
         "limit_visibility_in_menu": null, 
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": true, 
         "publication_date": "2013-10-23T22:57:36.267Z", 
         "creation_date": "2013-10-23T22:57:41.082Z", 
         "publisher_public": 1, 
         "level": 0, 
-        "changed_by": "admin", 
+        "changed_by": "script", 
         "application_urls": null, 
         "publisher_is_draft": false, 
         "published": true, 
@@ -562,6 +293,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:15:47.725Z", 
         "creation_date": "2013-10-23T23:15:50.036Z", 
         "publisher_public": 4, 
@@ -597,6 +329,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:15:47.725Z", 
         "creation_date": "2013-10-23T23:15:52.539Z", 
         "publisher_public": 3, 
@@ -632,6 +365,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:02.013Z", 
         "creation_date": "2013-10-23T23:16:04.386Z", 
         "publisher_public": 6, 
@@ -667,6 +401,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:02.013Z", 
         "creation_date": "2013-10-23T23:16:06.820Z", 
         "publisher_public": 5, 
@@ -702,6 +437,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:22.271Z", 
         "creation_date": "2013-10-23T23:16:21Z", 
         "publisher_public": 8, 
@@ -737,6 +473,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:22.059Z", 
         "creation_date": "2013-10-23T23:16:27.080Z", 
         "publisher_public": 7, 
@@ -772,6 +509,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:35.292Z", 
         "creation_date": "2013-10-23T23:16:34.850Z", 
         "publisher_public": 10, 
@@ -807,6 +545,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:35.051Z", 
         "creation_date": "2013-10-23T23:16:40.075Z", 
         "publisher_public": 9, 
@@ -842,6 +581,7 @@
         "parent": null, 
         "publisher_state": 1, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:44.579Z", 
         "creation_date": "2013-10-23T23:16:46.015Z", 
         "publisher_public": 12, 
@@ -877,6 +617,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:44.380Z", 
         "creation_date": "2013-10-23T23:16:49.401Z", 
         "publisher_public": 11, 
@@ -912,6 +653,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:52.411Z", 
         "creation_date": "2013-10-23T23:16:54.600Z", 
         "publisher_public": 14, 
@@ -947,6 +689,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-10-23T23:16:52.208Z", 
         "creation_date": "2013-10-23T23:16:57.229Z", 
         "publisher_public": 13, 
@@ -982,6 +725,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-11-21T03:50:25.540Z", 
         "creation_date": "2013-11-21T03:49:52.200Z", 
         "publisher_public": 17, 
@@ -1017,6 +761,7 @@
         "parent": 15, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-11-21T03:50:30.629Z", 
         "creation_date": "2013-11-21T03:50:12.733Z", 
         "publisher_public": 18, 
@@ -1052,6 +797,7 @@
         "parent": null, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-11-21T03:50:25.322Z", 
         "creation_date": "2013-11-21T03:50:30.349Z", 
         "publisher_public": 15, 
@@ -1087,6 +833,7 @@
         "parent": 17, 
         "publisher_state": 0, 
         "soft_root": false, 
+        "is_home": false, 
         "publication_date": "2013-11-21T03:50:30.629Z", 
         "creation_date": "2013-11-21T03:50:35.429Z", 
         "publisher_public": 16, 
@@ -1106,6 +853,17 @@
         "message": "", 
         "created": "2013-11-01T00:11:25.754Z", 
         "page": 1, 
+        "user": null
+    }
+},
+{
+    "pk": 2, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2014-01-11T07:22:34.596Z", 
+        "page": 3, 
         "user": null
     }
 },

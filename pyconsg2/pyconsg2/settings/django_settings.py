@@ -96,7 +96,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
-    'simple_translation.middleware.MultilingualGenericsMiddleware',
+    # 'simple_translation.middleware.MultilingualGenericsMiddleware',
 )
 
 ROOT_URLCONF = 'pyconsg2.urls'

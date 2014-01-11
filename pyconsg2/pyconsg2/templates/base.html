@@ -30,9 +30,7 @@
     {% block markitup_media %}{% markitup_media %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
-    {% if request.user.is_staff %}
-        {% cms_toolbar %}
-    {% endif %}
+    {% cms_toolbar %}
 
     {% include "partials/menu.html" %}
 

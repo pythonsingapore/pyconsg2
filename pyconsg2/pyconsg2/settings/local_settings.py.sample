@@ -9,10 +9,10 @@ SANDBOX = True
 TEMPLATE_DEBUG = DEBUG
 
 # For local development
-# ADMIN_URL = 'admin/'
+ADMIN_URL = 'admin/'
 
 # For your server
-ADMIN_URL = 'admin-XXXX/'
+# ADMIN_URL = 'admin-XXXX/'
 
 # Needed by debug_toolbar. Set it to None to disable the toolbar.
 INTERNAL_IPS = ('127.0.0.1',)
@@ -34,17 +34,18 @@ MANAGERS = ADMINS
 # > create extension postgis;
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pyconsg2',
-        'USER': 'pyconsg2',
-        'PASSWORD': 'pyconsg2',
-        'HOST': 'localhost',
-        'PORT': '',
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'pyconsg2.sqlite',
+        #'USER': 'pyconsg2',
+        #'PASSWORD': 'pyconsg2',
+        #'HOST': 'localhost',
+        #'PORT': '',
     }
 }
 
 # Set this to your OS username if you are working with Postgres.app on OSX
-# LOCAL_PG_ADMIN_ROLE = 'martin'
+# LOCAL_PG_ADMIN_ROLE = 'username'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -64,20 +65,19 @@ STATIC_ROOT = os.path.join(DJANGO_PROJECT_ROOT, '../../pyconsg2_static')
 SECRET_KEY = 'http://www.miniwebtool.com/django-secret-key-generator/'
 
 
-EMAIL_BACKEND = 'mailer.backend.DbBackend'
 # ================================
 # Local Development Email Settings
 # ================================
-# MAILER_EMAIL_BACKEND = 'django_libs.test_email_backend.EmailBackend'
-# TEST_EMAIL_BACKEND_RECIPIENTS = ADMINS
+MAILER_EMAIL_BACKEND = 'django_libs.test_email_backend.EmailBackend'
+TEST_EMAIL_BACKEND_RECIPIENTS = ADMINS
 
-# FROM_EMAIL = ADMINS[0][1]
-# EMAIL_SUBJECT_PREFIX = '[dev pyconsg2] '
+FROM_EMAIL = ADMINS[0][1]
+EMAIL_SUBJECT_PREFIX = '[dev pyconsg2] '
 
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = FROM_EMAIL
-# EMAIL_HOST_PASSWORD = "yourpassword"
-# EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = FROM_EMAIL
+EMAIL_HOST_PASSWORD = "yourpassword"
+EMAIL_PORT = 587
 
 
 # ==========================
@@ -95,9 +95,10 @@ EMAIL_BACKEND = 'mailer.backend.DbBackend'
 # ===========================
 # More general email settings
 # ===========================
-# DEFAULT_FROM_EMAIL = FROM_EMAIL
-# SERVER_EMAIL = FROM_EMAIL
-# EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'mailer.backend.DbBackend'
+DEFAULT_FROM_EMAIL = FROM_EMAIL
+SERVER_EMAIL = FROM_EMAIL
+EMAIL_USE_TLS = True
 
 
 =============================================================================
