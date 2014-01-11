@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n markitup_tags stack_tags %}
+{% load i18n markitup_tags cms_tags %}
 
 {% block page_title %}
     {% blocktrans with kind_name=kind.name %}
@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block main %}
-    {% stack "example_proposal" %}
+    {% static_placeholder "example_proposal" %}
 
     <form role="form" method="POST" action="" enctype="multipart/form-data" class="form-horizontal">
         {% csrf_token %}

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% load stack_tags i18n %}
+{% load cms_tags i18n %}
 
 {% block main %}
     <h1>{% block main_title %}{% endblock %}</h1>
 
-    {% stack "speaker-profile" %}
+    {% static_placeholder "speaker-profile" %}
 
     <form role="form" class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
         {% csrf_token %}

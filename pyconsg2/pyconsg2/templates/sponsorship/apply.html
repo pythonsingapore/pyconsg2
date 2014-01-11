@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n stack_tags %}
+{% load i18n cms_tags %}
 
 {% block head_title %}{% trans "Apply to be a Sponsor" %}{% endblock %}
 
@@ -7,7 +7,7 @@
 
 {% block main %}
     <h1>{% trans "Apply to Be a Sponsor" %}</h1>
-    {% stack "sponsorship-apply" %}
+    {% static_placeholder "sponsorship-apply" %}
     <form role="form" method="POST" action="" class="form-horizontal">
         {% csrf_token %}
         {% include "partials/forms/form.html" with label_col=2 input_col=6 %}

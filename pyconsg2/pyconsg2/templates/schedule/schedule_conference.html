@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cache i18n stack_tags %}
+{% load cache i18n cms_tags %}
 
 {% block head_title %}{% trans "Conference Schedule" %}{% endblock %}
 
@@ -7,7 +7,7 @@
 
 {% block main %}
     <h1>{% trans "Conference Schedule" %}</h1>
-    {% stack "schedule_top" %}
+    {% static_placeholder "schedule_top" %}
     
     {% for section in sections %}
         {% cache 600 "schedule-table" section.schedule.section %}
@@ -18,5 +18,5 @@
         {% endcache %}
     {% endfor %}
     
-    {% stack "schedule_bottom" %}
+    {% static_placeholder "schedule_bottom" %}
 {% endblock %}

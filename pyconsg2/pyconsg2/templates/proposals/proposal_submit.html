@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% load i18n stack_tags %}
+{% load i18n cms_tags %}
 
 {% block page_title %}{% trans "Submit A Proposal" %}{% endblock %}
 
 {% block main %}
-    {% stack "proposal_submit" %}
+    {% static_placeholder "proposal_submit" %}
     
     {% if kinds %}
         <p>{% trans "Select what kind of proposal you'd like to submit" %}:</p>

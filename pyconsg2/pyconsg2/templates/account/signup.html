@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load stack_tags i18n %}
+{% load cms_tags i18n %}
 
 {% block head_title %}{% trans "Sign up" %}{% endblock %}
 
@@ -21,7 +21,7 @@
             </form>
         </div>
         <div class="col-md-6">
-            {% stack "signup-sidebar" %}
+            {% static_placeholder "signup-sidebar" %}
         </div>
     </div>
 {% endblock %}

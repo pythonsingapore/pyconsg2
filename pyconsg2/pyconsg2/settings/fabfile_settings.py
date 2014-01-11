@@ -1,10 +1,12 @@
 """Settings for the project's fabfile."""
 import os
 
+from fabric.api import env
+
+
 # ============================================================================
 # General settings
 # ============================================================================
-
 # This should be the folder name of your Django project
 PROJECT_NAME = 'pyconsg2'
 
@@ -34,10 +36,10 @@ LOCAL_COVERAGE_PATH = os.path.join(os.path.dirname(__file__), '../../coverage')
 # ============================================================================
 
 # This should be the name of your user that has sudo access on the server
-LOGIN_USER = 'pyconsg'
+LOGIN_USER_PROD = 'pyconsg'
 HOST_DEV = None
 HOST_STAGE = None
-HOST_PROD = '{0}.webfactional.com'.format(LOGIN_USER)
+HOST_PROD = '{0}.webfactional.com'.format(LOGIN_USER_PROD)
 
 RSYNC_EXCLUDES = [
     'local_settings.py',
@@ -45,24 +47,45 @@ RSYNC_EXCLUDES = [
 
 # These are some paths that, by convention, you set on your servers.
 # You should keep them identical for all tiers (dev, stage, prod).
-SERVER_APACHE_BIN_DIR = '/home/{0}/webapps/{1}_django/apache2/bin/'.format(
-    LOGIN_USER, PROJECT_NAME)
-SERVER_REPO_ROOT = '/home/{0}/src/{1}/'.format(LOGIN_USER, PROJECT_NAME)
+def get_fab_setting(setting_name):
+    if setting_name == 'SERVER_APACHE_BIN_DIR':
+        return '/home/{0}/webapps/{1}_django/apache2/bin/'.format(
+            env.user, PROJECT_NAME)
+    if setting_name == 'SERVER_REPO_ROOT':
+        return '/home/{0}/src/{1}/'.format(env.user, PROJECT_NAME)
 
-# This must have no trailing slash because of rsync
-SERVER_REPO_PROJECT_ROOT = '{0}{1}'.format(SERVER_REPO_ROOT, PROJECT_NAME)
+    if setting_name == 'SERVER_REPO_PROJECT_ROOT':
+        # This must have no trailing slash because of rsync
+        return '{0}{1}'.format(
+            get_fab_setting('SERVER_REPO_ROOT'), PROJECT_NAME)
 
-SERVER_APP_ROOT = '/home/{0}/webapps/{1}_django/'.format(
-    LOGIN_USER, PROJECT_NAME)
+    if setting_name == 'SERVER_APP_ROOT':
+        return '/home/{0}/webapps/{1}_django/'.format(
+            env.user, PROJECT_NAME)
 
-SERVER_PROJECT_ROOT = '{0}{1}/'.format(SERVER_APP_ROOT, PROJECT_NAME)
-SERVER_REQUIREMENTS_PATH = '{0}/requirements.txt'.format(
-    SERVER_REPO_PROJECT_ROOT)
+    if setting_name == 'SERVER_PROJECT_ROOT':
+        return '{0}{1}/'.format(
+            get_fab_setting('SERVER_APP_ROOT'), PROJECT_NAME)
 
-SERVER_MEDIA_ROOT = '/home/{0}/webapps/{1}_media/'.format(
-    LOGIN_USER, PROJECT_NAME)
-SERVER_DB_BACKUP_DIR = '/home/{0}/backups/{1}/postgres/'.format(
-    LOGIN_USER, PROJECT_NAME)
-SERVER_MEDIA_BACKUP_DIR = '/home/{0}/backups/media/'.format(LOGIN_USER)
-SERVER_WSGI_FILE = '{0}{1}/wsgi.py'.format(
-    SERVER_PROJECT_ROOT, PROJECT_NAME)
+    if setting_name == 'SERVER_REQUIREMENTS_PATH':
+        return '{0}/requirements.txt'.format(
+            get_fab_setting('SERVER_REPO_PROJECT_ROOT'))
+
+    if setting_name == 'SERVER_MEDIA_ROOT':
+        return '/home/{0}/webapps/{1}_media/'.format(
+            env.user, PROJECT_NAME)
+
+    if setting_name == 'SERVER_DB_BACKUP_DIR':
+        return '/home/{0}/backups/{1}/postgres/'.format(
+            env.user, PROJECT_NAME)
+
+    if setting_name == 'SERVER_MEDIA_BACKUP_DIR':
+        return '/home/{0}/backups/{1}/media/'.format(
+            env.user, PROJECT_NAME)
+
+    if setting_name == 'SERVER_WSGI_FILE':
+        return '{0}{1}/wsgi.py'.format(
+            get_fab_setting('SERVER_PROJECT_ROOT'), PROJECT_NAME)
+
+
+FAB_SETTING = lambda x: get_fab_setting(x)
