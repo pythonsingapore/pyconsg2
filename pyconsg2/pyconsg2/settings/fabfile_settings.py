@@ -34,7 +34,7 @@ LOCAL_COVERAGE_PATH = os.path.join(os.path.dirname(__file__), '../../coverage')
 # ============================================================================
 
 # This should be the name of your user that has sudo access on the server
-LOGIN_USER = PROJECT_NAME
+LOGIN_USER = 'pyconsg'
 HOST_DEV = None
 HOST_STAGE = None
 HOST_PROD = '{0}.webfactional.com'.format(LOGIN_USER)
@@ -51,6 +51,7 @@ SERVER_REPO_ROOT = '/home/{0}/src/{1}/'.format(LOGIN_USER, PROJECT_NAME)
 
 # This must have no trailing slash because of rsync
 SERVER_REPO_PROJECT_ROOT = '{0}{1}'.format(SERVER_REPO_ROOT, PROJECT_NAME)
+
 SERVER_APP_ROOT = '/home/{0}/webapps/{1}_django/'.format(
     LOGIN_USER, PROJECT_NAME)
 
