@@ -1,4 +1,5 @@
 """Settings for the cms app."""
 CMS_TEMPLATES = (
-    ('default.html', 'Defautl Template'),
+    ('default.html', 'Default Template'),
+    ('home.html', 'Home Template'),
 )

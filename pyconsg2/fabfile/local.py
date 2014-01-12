@@ -1,6 +1,8 @@
+from django.conf import settings
+
 from fabric.api import hide, lcd, local
 
-from development_fabfile.fabfile import drop_db, create_db
+from development_fabfile.fabfile import create_db, drop_db, lessc
 from development_fabfile.fabfile import rebuild as rebuild_orig
 
 
@@ -30,6 +32,12 @@ def dumpdata():
     local('python2.7 ./manage.py dumpdata --indent 4 --natural sponsorship > pyconsg2/fixtures/bootstrap_sponsorship.json')  # NOPEP8
 
     local('python2.7 ./manage.py dumpdata --indent 4 --natural paypal_express_checkout > pyconsg2/fixtures/bootstrap_paypal_express_checkout.json')  # NOPEP8
+
+
+def lessc():
+    """Compiles the less files."""
+    local('lessc {0}/static/css/bootstrap.less'
+          ' {0}/static/css/bootstrap.css'.format(settings.PROJECT_NAME))
 
 
 def loaddata():

@@ -1,0 +1,20 @@
+@navbar-padding: 10px;
+
+.navbar {
+    background: url('../img/bg1.jpg');
+    .navbar-brand {
+        padding: 0px;
+        img {
+            margin-top: 2px;
+        }
+    }
+    .navbar-nav li {
+        a {
+            padding-left: @navbar-padding;
+            padding-right: @navbar-padding;
+        }
+    }
+    li.selected {
+        background: @brand-primary;
+    }
+}
