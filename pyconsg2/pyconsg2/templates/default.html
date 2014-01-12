@@ -2,5 +2,6 @@
 {% load cms_tags %}
 
 {% block main %}
+<h1 class="topmost-element">{% page_attribute "page_title" %}</h1>
 {% placeholder default_content %}
 {% endblock %}

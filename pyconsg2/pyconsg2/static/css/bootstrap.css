@@ -6049,16 +6049,28 @@ td.visible-print {
   font-size: 28px;
 }
 .font-navbar {
-  font: 'Droid Serif', Georgia, Times, serif !important;
+  font-family: 'Droid Serif', Georgia, Times, serif;
+}
+h1 {
+  font-family: Prociono, Georgia, Times, serif;
 }
 .image-field {
   margin-top: 1em;
+}
+.container-box {
+  background-color: #ffffff;
+  border: 1px solid #d9d9d9;
+  padding: 15px;
+}
+.container-box h1:first-child {
+  margin-top: 0px;
 }
 .navbar {
   background: url('../img/bg1.jpg');
 }
 .navbar .navbar-brand {
   padding: 0px;
+  margin-left: 0px !important;
 }
 .navbar .navbar-brand img {
   margin-top: 2px;
