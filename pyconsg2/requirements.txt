@@ -9,7 +9,7 @@ django-filer==0.9.5
 # Need to wait for the next release for django 1.6 compatibility
 -e git+https://github.com/KristianOellegaard/django-hvad@0e2101f15404eaf9611cd6cf843bfc424117b227#egg=hvad
 
-django-libs==1.35.1
+django-libs==1.35.2
 django==1.6.1
 django-paypal-express-checkout==1.5
 

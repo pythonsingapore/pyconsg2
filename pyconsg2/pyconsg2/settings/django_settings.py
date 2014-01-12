@@ -97,6 +97,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
     # 'simple_translation.middleware.MultilingualGenericsMiddleware',
+    'django_libs.middleware.ErrorMiddleware',
 )
 
 ROOT_URLCONF = 'pyconsg2.urls'
