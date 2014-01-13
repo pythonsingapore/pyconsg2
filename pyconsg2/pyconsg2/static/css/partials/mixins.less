@@ -1,0 +1,14 @@
+.content-box() {
+    padding: @content-padding;
+    h1:first-child {
+        margin-top: 0px;
+    }
+}
+
+.responsive-full-width-bg-image(@horizontal_position, @vertical_position) {
+    background-repeat: no-repeat; background-position: @horizontal_position @vertical_position;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

@@ -1,5 +1,20 @@
 {% extends "base.html" %}
-{% load cms_tags %}
+{% load cms_tags static %}
+
+{% block main_header %}
+<div class="home-header">
+    <div class="container">
+        <div class="col-md-6">
+            <div class="header-box">
+                {% static_placeholder "home_header1" %}
+            </div>
+            <div class="header-box">
+                {% static_placeholder "home_header2" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
 {% block main %}
 {% placeholder default_content %}

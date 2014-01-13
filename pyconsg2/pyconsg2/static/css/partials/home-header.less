@@ -1,0 +1,17 @@
+.header-box {
+    background-color: rgba(255,255,255,.80);
+    .content-box();
+    margin-top: @box-margin;
+}
+
+.home-header {
+    position: relative;
+    background: url(../img/header.jpg);
+    .responsive-full-width-bg-image(center, -260px);
+    border-top: 1px solid @white;
+    margin-top: -9px;
+    min-height: 350px;
+    @media (max-width: @grid-float-breakpoint) {
+        background: @header-bg;
+    }
+}

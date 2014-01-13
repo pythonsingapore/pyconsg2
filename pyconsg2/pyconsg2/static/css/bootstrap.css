@@ -6008,6 +6008,9 @@ td.visible-print {
     display: none !important;
   }
 }
+.margin-top {
+  margin-top: 30px;
+}
 @font-face {
   font-family: 'Prociono';
   src: url('../fonts/Prociono-Regular-webfont.eot');
@@ -6057,10 +6060,36 @@ h1 {
 .image-field {
   margin-top: 1em;
 }
+.header-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  margin-top: 30px;
+}
+.header-box h1:first-child {
+  margin-top: 0px;
+}
+.home-header {
+  position: relative;
+  background: url(../img/header.jpg);
+  background-repeat: no-repeat;
+  background-position: center -260px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-top: 1px solid #ffffff;
+  margin-top: -9px;
+  min-height: 350px;
+}
+@media (max-width: 992px) {
+  .home-header {
+    background: #f5e9af;
+  }
+}
 .container-box {
+  padding: 15px;
   background-color: #ffffff;
   border: 1px solid #d9d9d9;
-  padding: 15px;
 }
 .container-box h1:first-child {
   margin-top: 0px;
