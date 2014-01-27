@@ -35,6 +35,15 @@ if settings.DEBUG is False and settings.SANDBOX is True:
             {'document_root': settings.MEDIA_ROOT}),
     )
 
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += patterns(
+        '',
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    )
+
+
 urlpatterns += patterns(
     '',
     url(r'^admin-stacks/', AdminStacksView.as_view(), name='admin_stacks'),
@@ -50,9 +59,3 @@ urlpatterns += patterns(
     url(r'^', include('pyconsg2.symposion_urls')),
     url(r'^', include('cms.urls')),
 )
-
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns += patterns('',
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    )

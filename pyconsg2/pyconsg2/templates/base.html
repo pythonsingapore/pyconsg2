@@ -38,9 +38,11 @@
             <div class="container" style="margin-top:1em;">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="container-box">
-                            {% block main %}{% endblock %}
-                        </div>
+                        {% block main_container_box %}
+                            <div class="container-box">
+                                {% block main %}{% endblock %}
+                            </div>
+                        {% endblock %}
                     </div>
                 </div>
             </div>
