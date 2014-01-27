@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n thumbnail %}
 
 <dl class="dl-horizontal">
     <dt>{% trans "Submitted by" %}</dt>
@@ -37,6 +37,9 @@
     <dt>{% trans "Speaker Bio" %}</dt>
     <dd>{{ proposal.speaker.biography|safe }}&nbsp;</dd>
     
+    <dt>{% trans "Speaker Photo" %}</dt>
+    <dd><a href="{{ proposal.speaker.photo.url }}" target="_blank"><img src="{% thumbnail proposal.speaker.photo 128x128 crop upscale %}" /></a></dd>
+ 
     <dt>{% trans "Documents" %}</dt>
     <dd>
         {% if proposal.supporting_documents.exists %}
