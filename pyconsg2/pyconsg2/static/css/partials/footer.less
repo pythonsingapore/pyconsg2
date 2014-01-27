@@ -1,0 +1,21 @@
+.bs-footer {
+    background: url('../img/bg1.jpg');
+    padding-top: 2em;
+    padding-bottom: 3em;
+    hr {
+        border-top-color: @gray;
+        margin: 2em 0px;
+    }
+    ul li {
+        margin-bottom: 0.5em;
+    }
+}
+
+.wrap {
+    // This is a little hack to get a footer that is always at the bottom
+    // For this to work, body and html must have height 100% and no padding
+    // and margin - see layout.less
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}

@@ -1,7 +1,7 @@
 # =============================================================================
 # Django packages
 # =============================================================================
--e git+git://github.com/pinax/django-mailer.git@919805e25fc18b06487b25414d4e5d5e05a92108#egg=mailer
+-e git+https://github.com/pinax/django-mailer@44641b814660a9deef907ad9049d571cb1709901#egg=mailer
 South==0.8.4
 django-filer==0.9.5
 
@@ -18,7 +18,7 @@ django-paypal-express-checkout==1.5
 # django-cms related packages
 # =============================================================================
 django-mptt==0.6
--e git+https://github.com/divio/django-cms@08a396fd95c31e54504bd67ab5252e1a7c1c2a63#egg=cms
+-e git+https://github.com/divio/django-cms@639afa118545917aa636ff3bff4fb0660adda463#egg=cms
 cmsplugin-filer==0.9.5
 django-multilingual-news==1.2
 djangocms-admin-style==0.1.4
@@ -28,12 +28,13 @@ djangocms-text-ckeditor==2.0.5
 # =============================================================================
 # symposion related packages
 # =============================================================================
--e git+https://github.com/mbrochh/symposion.git@5c07d3e9454b2c8454058ef7598010855a540053#egg=symposion
+-e git+https://github.com/mbrochh/symposion@5c07d3e9454b2c8454058ef7598010855a540053#egg=symposion
 Pillow==2.3.0
 django-markitup==2.1
 django-model-utils==2.0
 
 # django-reversion<1.8
+# use commits from the django-1.6 branch!!
 -e git+https://github.com/etianen/django-reversion@f3d20edf96adbb15a1970d3826d6ce8a82021048#egg=reversion
 
 django-taggit==0.11.2

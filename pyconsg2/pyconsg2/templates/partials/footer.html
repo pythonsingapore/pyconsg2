@@ -1,16 +1,21 @@
-{% load i18n %}
-<hr />
+{% load cms_tags i18n %}
 <div class="row">
     <div class="col-md-3">
-        <h4>{% trans "About" %}</h4>
+        <h4>{% static_placeholder "footer_column1_title" or %}{% trans "About" %}{% endstatic_placeholder %}</h4>
+        {% static_placeholder "footer_column1_content" or %}TODO: Add content here{% endstatic_placeholder %}
+        <hr class="visible-xs visible-sm" />
     </div>
     <div class="col-md-3">
-        <h4>{% trans "Latest News" %}</h4>
+        <h4>{% static_placeholder "footer_column2_title" or %}{% trans "When & Where" %}{% endstatic_placeholder %}</h4>
+        {% static_placeholder "footer_column2_content" or %}TODO: Add content here{% endstatic_placeholder %}
+        <hr class="visible-xs visible-sm" />
     </div>
     <div class="col-md-3">
-        <h4>{% trans "When and Where" %}</h4>
+        <h4>{% static_placeholder "footer_column3_title" or %}{% trans "Latest News" %}{% endstatic_placeholder %}</h4>
+        <hr class="visible-xs visible-sm" />
     </div>
     <div class="col-md-3">
-        <h4>{% trans "Get Social" %}</h4>
+        <h4>{% static_placeholder "footer_column4_title" or %}{% trans "Get social" %}{% endstatic_placeholder %}</h4>
+        {% static_placeholder "footer_column4_content" or %}TODO: Add content here{% endstatic_placeholder %}
     </div>
 </div>

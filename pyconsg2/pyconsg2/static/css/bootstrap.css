@@ -6008,6 +6008,10 @@ td.visible-print {
     display: none !important;
   }
 }
+html,
+body {
+  height: 100%;
+}
 .margin-top {
   margin-top: 30px;
 }
@@ -6054,6 +6058,15 @@ td.visible-print {
 .font-navbar {
   font-family: 'Droid Serif', Georgia, Times, serif;
 }
+footer {
+  color: #d9d9d9;
+}
+footer a {
+  color: #eeeeee;
+}
+footer p {
+  color: #999999;
+}
 h1 {
   font-family: Prociono, Georgia, Times, serif;
 }
@@ -6063,6 +6076,7 @@ h1 {
 .header-box {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 15px;
+  margin-bottom: 1em;
   margin-top: 30px;
 }
 .header-box h1:first-child {
@@ -6088,6 +6102,7 @@ h1 {
 }
 .container-box {
   padding: 15px;
+  margin-bottom: 1em;
   background-color: #ffffff;
   border: 1px solid #d9d9d9;
 }
@@ -6110,4 +6125,21 @@ h1 {
 }
 .navbar li.selected {
   background: #207cca;
+}
+.bs-footer {
+  background: url('../img/bg1.jpg');
+  padding-top: 2em;
+  padding-bottom: 3em;
+}
+.bs-footer hr {
+  border-top-color: #555555;
+  margin: 2em 0px;
+}
+.bs-footer ul li {
+  margin-bottom: 0.5em;
+}
+.wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
 }
