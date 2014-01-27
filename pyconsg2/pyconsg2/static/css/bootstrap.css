@@ -6073,6 +6073,10 @@ h1 {
 .image-field {
   margin-top: 1em;
 }
+.radio ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
 .header-box {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 15px;

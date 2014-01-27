@@ -1,0 +1,19 @@
+{% load libs_tags %}
+
+<div class="form-group {% if field.errors %}has-error {% endif %}">
+    <label for="{{ field.id_for_label }}" class="col-md-{{ label_col }} control-label">
+        {% if field.label %}
+            {{ field.label }}
+        {% else %}
+            {{ label }}
+        {% endif %}
+    </label>
+
+    <div class="col-md-{{ input_col }}">
+        <div class="radio">
+            <label>
+                {{ field }}
+            </label>
+        </div>
+    </div>
+</div>

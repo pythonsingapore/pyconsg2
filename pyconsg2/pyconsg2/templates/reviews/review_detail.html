@@ -96,23 +96,22 @@
                     </tbody>
                 </table>
 
-                <hr />
-
                 {% if review_form %}
-                    <form method="POST" action="" class="review-form">
-                        <legend>{% trans "Submit Review" %}</legend>
-                        <p>
-                        {% blocktrans %}
-                        Enter your vote and any comment to go along with it.
-                        You can revise your vote or comment multiple times with
-                        an existing vote (your previously recorded score will
-                        be replaced during calculations). <b>Your vote and
-                        comments are not public and will only be viewable by
-                        other reviewers.</b>
-                        {% endblocktrans %}
-                        </p>
+                    <h4>{% trans "Submit Review" %}</h4>
+                    <p>
+                    {% blocktrans %}
+                    Enter your vote and any comment to go along with it.
+                    You can revise your vote or comment multiple times with
+                    an existing vote (your previously recorded score will
+                    be replaced during calculations). <b>Your vote and
+                    comments are not public and will only be viewable by
+                    other reviewers.</b>
+                    {% endblocktrans %}
+                    </p>
+
+                    <form method="POST" action="" class="form-horizontal" role="form">
                         {% csrf_token %}
-                        {% include "partials/forms/form.html" with form=review_form label_col=2 input_col=6 %}
+                        {% include "partials/forms/form.html" with form=review_form label_col=2 input_col=8 %}
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-6">
                                 <input type="submit" class="btn btn-primary" name="vote_submit" value="{% trans "Submit Review" %}" />
@@ -128,7 +127,7 @@
                     {% for review in reviews %}
                         <div class="review-box">
                             <div class="vote pull-left">
-                                <span>{{ review.vote }}</span>
+                                <span>{{ review.vote }} &nbsp;</span>
                             </div>
                             {% if is_manager %}
                                 <div class="pull-right">
@@ -139,7 +138,7 @@
                                 </div>
                             {% endif %}
                             <div class="review-content">
-                                <b>{% user_display review.user %}</b>
+                                <b>{{ review.user.email }} ({{ review.user.first_name }} {{ review.user.last_name }})</b>
                                 {% blocktrans with time_ago=review.submitted_at|timesince %}
                                 {{ time_ago }} ago
                                 {% endblocktrans %}
@@ -169,15 +168,16 @@
                     <hr />
                 {% endif %}
 
-                <form role="form" action="" method="POST"accept-charset="utf-8">
-                    <legend>{% trans "Send a message" %}</legend>
-                    <p>
-                        {% blocktrans %}
-                        If you'd like to communicate with the submitter, use
-                        the following form and he or she will be notified and
-                        given the opportunity to respond.
-                        {% endblocktrans %}
-                    </p>
+                <h4>{% trans "Send a message" %}</h4>
+                <p>
+                    {% blocktrans %}
+                    If you'd like to communicate with the submitter, use
+                    the following form and he or she will be notified and
+                    given the opportunity to respond.
+                    {% endblocktrans %}
+                </p>
+
+                <form role="form" class="form-horizontal" action="" method="POST"accept-charset="utf-8">
                     {% csrf_token %}
                     {% include "partials/forms/form.html" with form=message_form label_col=2 input_col=6 %}
                     <div class="form-group">
