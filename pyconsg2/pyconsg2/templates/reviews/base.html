@@ -77,7 +77,7 @@
                     </ul>
                 {% endblock %}
             </div>
-            <div class="span10">
+            <div class="col-md-10">
                 {% block main %}{% endblock %}
             </div>
         </div>
@@ -92,16 +92,12 @@
         $(function() {
             $(".tip").tooltip();
             $("table.table-reviews").dataTable({
-                "sDom": "<'row'<'span3'l><'span3'T><'span4'f>r>t<'row'<'span3'i><'span5'p>>",
+                "sDom": "<'row'<'col-md-3'l><'col-md-5'T><'col-md-4'f>r>t<'row'<'col-md-3'i><'col-md-5'p>>",
                 "sPaginationType": "bootstrap",
                 "bStateSave": true,
                 "oTableTools": {
                     "aButtons": [
-                        "copy",
-                        "csv",
-                        "print"
-                    ],
-                    "sSwfPath": "{{ STATIC_URL }}tabletools/swf/copy_csv_xls.swf"
+                    ]
                 }
             });
         });
