@@ -13,6 +13,7 @@ DJANGO_APPS = [
 EXTERNAL_APPS = [
     # normal apps, sorted alphabetically
     'debug_toolbar',
+    'django_extensions',
     'django_libs',
     'easy_thumbnails',
     'hvad',
