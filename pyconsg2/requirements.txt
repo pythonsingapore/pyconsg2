@@ -18,9 +18,9 @@ django-paypal-express-checkout==1.5
 # django-cms related packages
 # =============================================================================
 django-mptt==0.6
--e git+https://github.com/divio/django-cms@639afa118545917aa636ff3bff4fb0660adda463#egg=cms
+-e git+https://github.com/divio/django-cms@b86de7d09a8e47f2d0ae55e6a1e7f29353fe53dc#egg=cms
 cmsplugin-filer==0.9.5
-django-multilingual-news==1.2
+django-multilingual-news==1.3
 djangocms-admin-style==0.1.4
 djangocms-text-ckeditor==2.0.5
 

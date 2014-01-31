@@ -67,6 +67,7 @@ from .account import *  # NOQA
 from .cms import *  # NOQA
 from .debug_toolbar import *  # NOQA
 from .djangocms_text_ckeditor import *  # NOQA
+from .easy_thumbnails import *  # NOQA
 from .markitup import *  # NOQA
 from .paypal_express_checkout import *  # NOQA
 from .symposion import *  # NOQA

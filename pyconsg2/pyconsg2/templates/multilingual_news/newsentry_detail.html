@@ -2,7 +2,7 @@
 {% load cms_tags multilingual_news_tags %}
 
 {% block main %}
-<h1>{{ object.title }}</h1>
+<h1>{% render_model object "title" %}</h1>
 <small class="text-muted">{% if object.pub_date %}<p>{{ object.pub_date }}</p>{% endif %}</small>
 {% if request.session.cms_edit %}
     {% render_placeholder object.excerpt %}

@@ -1,4 +1,4 @@
-{% load cms_tags i18n %}
+{% load cms_tags i18n multilingual_news_tags %}
 <div class="row">
     <div class="col-md-3">
         <h4>{% static_placeholder "footer_column1_title" or %}{% trans "About" %}{% endstatic_placeholder %}</h4>
@@ -12,6 +12,12 @@
     </div>
     <div class="col-md-3">
         <h4>{% static_placeholder "footer_column3_title" or %}{% trans "Latest News" %}{% endstatic_placeholder %}</h4>
+        {% get_recent_news as recent_news %}
+        <ul class="list-unstyled">
+            {% for news in recent_news %}
+            <li><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></li>
+            {% endfor %}
+        </ul>
         <hr class="visible-xs visible-sm" />
     </div>
     <div class="col-md-3">
