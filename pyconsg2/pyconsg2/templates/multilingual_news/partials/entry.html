@@ -8,11 +8,15 @@
     {% render_placeholder news_entry.content %}
 {% else %}
     {% if news_entry.excerpt.cmsplugin_set.all %}
-        {% render_placeholder news_entry.excerpt  %}
+        {% block_anyfilter django.template.defaultfilters.striptags %}
+            {% render_placeholder news_entry.excerpt %}
+        {% endblockanyfilter %}
     {% else %}
-        {% block_truncatewords_html %}
-            {% render_placeholder news_entry.content %}
-        {% endblocktruncatewordshtml %}
+        {% block_anyfilter django.template.defaultfilters.truncatewords_html 15 %}
+            {% block_anyfilter django.template.defaultfilters.striptags %}
+                {% render_placeholder news_entry.content %}
+            {% endblockanyfilter %}
+        {% endblockanyfilter %}
     {% endif %}
 {% endif %}
 <hr />
