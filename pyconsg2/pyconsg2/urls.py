@@ -25,8 +25,8 @@ urlpatterns = patterns('',
     url(r'^jsi18n/(?P<packages>\S+?)/$',
         'django.views.i18n.javascript_catalog'
     ),
-    url(r'^robots\.txt$', TextPlainView.as_view(template_name='robots.txt')),
-    url(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico')),
+    url(r'^robots\.txt', TextPlainView.as_view(template_name='robots.txt')),
+    url(r'^favicon\.ico', RedirectView.as_view(url='/static/favicon.ico')),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
