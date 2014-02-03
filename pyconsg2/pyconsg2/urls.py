@@ -5,7 +5,7 @@ from django.conf.urls.i18n import patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, TemplateView
 
 from django_libs.views import RapidPrototypingView
 
@@ -14,8 +14,19 @@ from pyconsg2.views import AdminStacksView
 
 admin.autodiscover()
 
+
+class TextPlainView(TemplateView):
+  def render_to_response(self, context, **kwargs):
+    return super(TextPlainView, self).render_to_response(
+      context, content_type='text/plain', **kwargs)
+
+
 urlpatterns = patterns('',
-    url(r'^jsi18n/(?P<packages>\S+?)/$', 'django.views.i18n.javascript_catalog'),
+    url(r'^jsi18n/(?P<packages>\S+?)/$',
+        'django.views.i18n.javascript_catalog'
+    ),
+    url(r'^robots\.txt$', TextPlainView.as_view(template_name='robots.txt')),
+    url(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico')),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
