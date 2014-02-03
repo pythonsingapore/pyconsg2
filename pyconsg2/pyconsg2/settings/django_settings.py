@@ -80,9 +80,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
     'symposion.reviews.context_processors.reviews',
+    'pyconsg2.context_processors.pyconsg_context_processor',
 )
 
 MIDDLEWARE_CLASSES = (
+    'django_libs.middleware.CustomBrokenLinkEmailsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

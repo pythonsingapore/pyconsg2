@@ -1,21 +1,56 @@
 {% extends "base.html" %}
-{% load cms_tags static %}
+{% load cms_tags libs_tags static %}
 
 {% block main_header %}
 <div class="home-header">
     <div class="container">
         <div class="col-md-6">
             <div class="header-box">
-                {% static_placeholder "home_header1" %}
-            </div>
-            <div class="header-box">
-                {% static_placeholder "home_header2" %}
+                {% placeholder header1 %}
             </div>
         </div>
     </div>
 </div>
 {% endblock %}
 
-{% block main %}
-{% placeholder default_content %}
+{% block main_container %}
+    <div class="container" style="margin-top:1em;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-box">
+                    <div class="row">
+                        <div class="col-md-8 countdown-content">
+                            {% placeholder timer_box_content %}
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    {% days_until conference.start_date as days_until_ %}
+                                    <p><span class="countdown">{{ days_until_ }}</span><br /> days</p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    {% hours_until conference.start_date as hours_until_ %}
+                                    <p><span class="countdown">{{ hours_until_ }}</span><br /> hours</p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    {% minutes_until conference.start_date as minutes_until_ %}
+                                    <p><span class="countdown">{{ minutes_until_ }}</span><br /> minutes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-box">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a class="btn btn-primary btn-lg" href="">Create user account</a>
+                        </div>
+                        <div class="col-md-9">
+                            {% placeholder default_content %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
