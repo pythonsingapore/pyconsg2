@@ -6055,6 +6055,10 @@ body {
   font-family: "entypo";
   font-size: 28px;
 }
+.container-box h1:first-child,
+.container-box h2:first-child {
+  margin-top: 0px;
+}
 .countdown {
   font-weight: bold;
   font-size: 42px;
