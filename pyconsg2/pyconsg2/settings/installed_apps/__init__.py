@@ -30,6 +30,7 @@ EXTERNAL_APPS = [
     'cmsplugin_filer_file',
     'cmsplugin_filer_folder',
     'cmsplugin_filer_image',
+    'cmsplugin_template_placeholder',
     'filer',
     'menus',
     'mptt',
