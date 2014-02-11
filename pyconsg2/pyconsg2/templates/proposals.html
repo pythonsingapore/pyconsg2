@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load cms_tags pyconsg2_tags %}
+
+{% block main_container %}
+    <div class="container" style="margin-top:1em;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-box">
+                    {% placeholder_as content1 as content1_template %}
+                    {% include "partials/magic_placeholder.html" with template=content1_template %}
+                </div>
+                <div class="container-box">
+                    {% placeholder_as content2 as content1_template %}
+                    {% include "partials/magic_placeholder.html" with template=content2_template %}
+                </div>
+                <div class="container-box">
+                    {% placeholder_as content3 as content3_template %}
+                    {% include "partials/magic_placeholder.html" with template=content3_template %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
