@@ -38,10 +38,14 @@ class Proposal(ProposalBase):
 
 
 class TalkProposal(Proposal):
+    proposal_type = 'Talk'
+
     class Meta:
         verbose_name = 'talk proposal'
 
 
 class TutorialProposal(Proposal):
+    proposal_type = 'Tutorial'
+
     class Meta:
         verbose_name = 'tutorial proposal'
