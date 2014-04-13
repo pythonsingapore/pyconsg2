@@ -5,6 +5,7 @@
         <th>#</th>
         <th>{% trans "Speaker / Title" %}</th>
         <th>{% trans "Category" %}</th>
+        <th>{% trans "Status" %}</th>
         <th><i class="glyphicon glyphicon-comment-alt"></i></th>
         <th>{% trans "+1" %}</th>
         <th>{% trans "+0" %}</th>
@@ -25,6 +26,7 @@
                     </a>
                 </td>
                 <td>{{ proposal.proposal_type }}</td>
+                <td>{{ proposal.result.status }}</td>
                 <td>{{ proposal.comment_count }}</td>
                 <td>{{ proposal.plus_one }}</td>
                 <td>{{ proposal.plus_zero }}</td>
