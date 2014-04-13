@@ -38,7 +38,13 @@
     <dd>{{ proposal.speaker.biography|safe }}&nbsp;</dd>
     
     <dt>{% trans "Speaker Photo" %}</dt>
-    <dd><a href="{{ proposal.speaker.photo.url }}" target="_blank"><img src="{% thumbnail proposal.speaker.photo 128x128 crop upscale %}" /></a></dd>
+    <dd>
+        {% if proposal.speaker.photo %}
+            <a href="{{ proposal.speaker.photo.url }}" target="_blank"><img src="{% thumbnail proposal.speaker.photo 128x128 crop upscale %}" /></a>
+        {% else %}
+            <span class="alert-danger">No photo uploaded</span>
+        {% endif %}
+    </dd>
  
     <dt>{% trans "Documents" %}</dt>
     <dd>
