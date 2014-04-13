@@ -13,13 +13,14 @@ django-filer==0.9.5
 django-libs==1.45
 django==1.6.1
 django-paypal-express-checkout==1.5
+django-impersonate==0.8.1
 
 
 # =============================================================================
 # django-cms related packages
 # =============================================================================
 django-mptt==0.6
--e git+https://github.com/divio/django-cms@042f4953f6d2db66fd15e4cb748ab4b279f57947#egg=cms
+-e git+https://github.com/divio/django-cms@f90804a29ba93cc6575ed1a72338a30e48dea25f#egg=cms
 cmsplugin-filer==0.9.5
 cmsplugin-template-placeholder==0.1
 django-multilingual-news==1.3

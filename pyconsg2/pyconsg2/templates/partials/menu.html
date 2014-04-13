@@ -21,6 +21,7 @@
                             <li class=""><a href="{% url "dashboard" %}">{% trans "Dashboard" %}</a></li>
                             {% if request.user.is_superuser %}
                                 <li class=""><a href="{% url "admin:index" %}">{% trans "Django admin" %}</a></li>
+                                <li class=""><a href="{% url "impersonate-search" %}">{% trans "Impersonate user" %}</a></li>
                             {% endif %}
                             <li><a href="{% url "account_logout" %}">{% trans "Log out" %}</a></li>
                         </ul>

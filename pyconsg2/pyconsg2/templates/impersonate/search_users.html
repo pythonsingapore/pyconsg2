@@ -1,0 +1,25 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h1>Search a user</h1>
+    <form action="{% url 'impersonate-search' %}" method="GET" style="margin-bottom:1em;">
+        <input type="text" name="q" value="{% if query %}{{ query }}{% endif %}">
+        {{redirect_field}}
+        <input type="submit" value="Search">
+    </form>
+
+    {% if page.object_list %}
+        <div>{% include "impersonate/partials/impersonate_users_table.html" %}</div>
+    {% endif %}
+
+    {% if page.has_previous %}
+        <p><a href="?page={{ page.previous_page_number }}&q={{ query|urlencode }}">Previous Page</a> &nbsp; </p>
+    {% endif %}
+
+    {% if page.has_next %}
+        <p><a href="?page={{ page.next_page_number }}&q={{ query|urlencode }}">Next Page</a> &nbsp; </p>
+    {% endif %}
+    <p><hr /></p>
+    <a href="/">Back to site</a>
+{% endblock %}

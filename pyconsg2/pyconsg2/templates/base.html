@@ -25,7 +25,13 @@
     {% block markitup_media %}{% markitup_media %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
-    {% cms_toolbar %}
+    {% if request.user.is_superuser %}
+        {% include "partials/cms_toolbar.html" %}
+    {% endif %}
+
+    {% if request.user.is_impersonate %}
+        {% include "impersonate/partials/impersonate_bar.html" %}
+    {% endif %}
 
     {% include "partials/menu.html" %}
 

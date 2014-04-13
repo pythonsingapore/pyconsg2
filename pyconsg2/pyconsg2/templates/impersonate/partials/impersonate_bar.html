@@ -1,0 +1,4 @@
+{% load future %}
+<div style="background:yellow;height:2em;text-align:center;position:fixed;top:0px;width:100%;z-index:9999;">
+    <a href="{% url "impersonate-stop" %}">Stop impersonating {{ request.user.email }}</a>
+</div>

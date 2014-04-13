@@ -26,7 +26,6 @@ EXTERNAL_APPS = [
     # django-cms apps
     'djangocms_text_ckeditor',  # must come before cms
     'cms',
-    'cms.stacks',
     'cmsplugin_filer_file',
     'cmsplugin_filer_folder',
     'cmsplugin_filer_image',
@@ -69,6 +68,7 @@ from .cms import *  # NOQA
 from .debug_toolbar import *  # NOQA
 from .djangocms_text_ckeditor import *  # NOQA
 from .easy_thumbnails import *  # NOQA
+from .impersonate import *  # NOQA
 from .markitup import *  # NOQA
 from .paypal_express_checkout import *  # NOQA
 from .symposion import *  # NOQA

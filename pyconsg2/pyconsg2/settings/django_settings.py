@@ -19,7 +19,7 @@ TIME_ZONE = 'UTC'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 LANGUAGES = [
     ('en', 'English'),
@@ -99,6 +99,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
     # 'simple_translation.middleware.MultilingualGenericsMiddleware',
+    'impersonate.middleware.ImpersonateMiddleware',
     'django_libs.middleware.ErrorMiddleware',
 )
 
