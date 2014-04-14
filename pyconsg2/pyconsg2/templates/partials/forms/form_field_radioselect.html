@@ -1,4 +1,5 @@
 {% load libs_tags %}
+{% load pyconsg2_tags %}
 
 <div class="form-group {% if field.errors %}has-error {% endif %}">
     <label for="{{ field.id_for_label }}" class="col-md-{{ label_col }} control-label">
@@ -10,10 +11,13 @@
     </label>
 
     <div class="col-md-{{ input_col }}">
-        <div class="radio">
-            <label>
-                {{ field }}
-            </label>
-        </div>
+        {% for choice in field.field.choices %}
+            <div class="radio">
+                <label>
+                    <input type="radio" name="{{ field.name }}" id="id_{{ field.name }}{{ forloop.count }}" value="{{ choice.0 }}" {% if choice.0 == field.value %}checked="checked"{% endif %} />
+                    {{ choice.1 }}
+                </label>
+            </div>
+        {% endfor %}
     </div>
 </div>

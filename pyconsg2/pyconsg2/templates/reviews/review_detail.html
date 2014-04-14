@@ -114,6 +114,7 @@
                         {% include "partials/forms/form.html" with form=review_form label_col=2 input_col=8 %}
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-6">
+                                <p class="alert-danger">Make sure to enter a comment!</p>
                                 <input type="submit" class="btn btn-primary" name="vote_submit" value="{% trans "Submit Review" %}" />
                             </div>
                         </div>
