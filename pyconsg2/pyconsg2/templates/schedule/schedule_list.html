@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load cache i18n %}
+{% load pyconsg2_tags %}
 
 {% block head_title %}{% trans "Presentation Listing" %}{% endblock %}
 
@@ -22,29 +23,38 @@
     </style>
 {% endblock %}
 
-{% block main %}
-    <h2>
-        {% blocktrans with section_name=schedule.section.name %}
-        Accepted {{ schedule_name }}
-        {% endblocktrans %}
-    </h2>
-    {% cache 600 "schedule-list" schedule.section.name %}
-        {% for presentation in presentations %}
-            <div class="row">
-                <div class="span8 presentation well">
-                    <h3><a href="{% url schedule_presentation_detail presentation.pk %}">{{ presentation.title }}</a></h3>
-                    <h4>{{ presentation.speakers|join:", " }}</h4>
-                    {{ presentation.description }}
-                    {% if presentation.slot %}
-                        <h4>
-                            {{ presentation.slot.day.date|date:"l" }}
-                            {{ presentation.slot.start}}&ndash;{{ presentation.slot.end }}
-                            in
-                            {{ presentation.slot.rooms|join:", " }}
-                        </h4>
-                    {% endif %}
-                </div>
+{% block main_container_box %}
+    <div class="container-box">
+        <div class="row" style="padding-top:1em;">
+            <div class="col-md-12">
+                <h2>
+                    {% blocktrans with section_name=schedule.section.name %}
+                    Accepted tutorials
+                    {% endblocktrans %}
+                </h2>
             </div>
+        </div>
+    </div>
+
+    <div class="container-box">
+        {% for presentation in presentations %}
+            {% if presentation.proposal.proposal_type == 'Tutorial' %}
+                <div class="row">
+                    <div class="col-md-12 presentation well">
+                        <h3><a href="{% url "schedule_presentation_detail" presentation.pk %}">{{ presentation.title }}</a></h3>
+                        <h4>{{ presentation.speakers|join:", " }}</h4>
+                        {{ presentation.description }}
+                        {% if presentation.slot %}
+                            <h4>
+                                {{ presentation.slot.day.date|date:"l" }}
+                                {{ presentation.slot.start}}&ndash;{{ presentation.slot.end }}
+                                in
+                                {{ presentation.slot.rooms|join:", " }}
+                            </h4>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
         {% endfor %}
-    {% endcache %}
+    </div>
 {% endblock %}

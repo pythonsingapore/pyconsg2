@@ -3,37 +3,47 @@
 
 {% block head_title %}{{ speaker.name }}{% endblock %}
 
-{% block main %}
-    <div class="row">
-        <div class="md-col-2">
-            {% if speaker.photo %}
-                <img src="{% thumbnail speaker.photo '128x128' %}" alt="{{ speaker.name }}" />
-            {% else %}
-                &nbsp;
-            {% endif %}
+{% block main_container_box %}
+    <div class="container-box">
+        <div class="row" style="padding-top:1em;">
+            <div class="col-md-12">
+                <h2 style="margin-top:0px;">Speaker profile of {{ speaker.name }}</h2>
+            </div>
         </div>
-        <div class="md-col-6">
-            {% if speaker.user == request.user or request.user.is_staff %}
-                <a class="btn btn-primary pull-right" href="{% url "speaker_edit" speaker.pk %}">{% trans "Edit" %}</a>
-            {% endif %}
+    </div>
 
-            <h1>{{ speaker.name }}</h1>
-            <div class="bio">{{ speaker.biography|safe }}</div>
-
-            <h2>Presentations</h2>
-            {% for presentation in presentations %}
-                <h3><a href="{% url "schedule_presentation_detail" presentation.pk %}">{{ presentation.title }}</a></h3>
-                {% if presentation.slot %}
-                    <p>
-                        {{ presentation.slot.day.date|date:"l" }}
-                        {{ presentation.slot.start}}&ndash;{{ presentation.slot.end }}
-                        in
-                        {{ presentation.slot.rooms|join:", " }}
-                    </p>
+    <div class="container-box">
+        <div class="row">
+            <div class="col-md-3">
+                {% if speaker.photo %}
+                    <img src="{% thumbnail speaker.photo '128x128' %}" alt="{{ speaker.name }}" />
+                {% else %}
+                    &nbsp;
                 {% endif %}
-            {% empty %}
-            <p>{% trans "No presentations. This page is only visible to staff until there is a presentation." %}<p>
-            {% endfor %}
+            </div>
+            <div class="col-md-9">
+                {% if speaker.user == request.user or request.user.is_staff %}
+                    <a class="btn btn-primary pull-right" href="{% url "speaker_edit" speaker.pk %}">{% trans "Edit" %}</a>
+                {% endif %}
+
+                <h1>{{ speaker.name }}</h1>
+                <div class="bio">{{ speaker.biography|safe }}</div>
+
+                <h2>Presentations</h2>
+                {% for presentation in presentations %}
+                    <h3><a href="{% url "schedule_presentation_detail" presentation.pk %}">{{ presentation.title }}</a></h3>
+                    {% if presentation.slot %}
+                        <p>
+                            {{ presentation.slot.day.date|date:"l" }}
+                            {{ presentation.slot.start}}&ndash;{{ presentation.slot.end }}
+                            in
+                            {{ presentation.slot.rooms|join:", " }}
+                        </p>
+                    {% endif %}
+                {% empty %}
+                <p>{% trans "No presentations. This page is only visible to staff until there is a presentation." %}<p>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
