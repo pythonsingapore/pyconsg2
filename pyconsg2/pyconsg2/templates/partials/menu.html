@@ -27,7 +27,7 @@
                         </ul>
                     </li>
                 {% else %}
-                    <li><a class="font-navbar" href="{% url "account_signup" %}">{% trans "Sign up" %}</a></li>
+                    <li><a href="{% url "account_signup" %}">{% trans "Sign up" %}</a></li>
                     <li><a href="{% url "account_login" %}">{% trans "Log in" %}</a></li>
                 {% endif %}
             </ul>
