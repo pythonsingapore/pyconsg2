@@ -12,7 +12,7 @@ django-filer==0.9.5
 
 django-libs==1.45
 django==1.6.1
-django-paypal-express-checkout==1.5
+django-paypal-express-checkout==1.7
 django-impersonate==0.8.1
 
 

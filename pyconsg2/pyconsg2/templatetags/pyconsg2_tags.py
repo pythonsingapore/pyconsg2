@@ -23,7 +23,7 @@ def get_static_placeholders():
 @register.assignment_tag
 def get_early_bird_count(ticket_amount):
     count = ticket_amount - PurchasedItem.objects.filter(
-        transaction__status='completed',
+        transaction__status='Completed',
         item__identifier__in=['conference-early', 'conference-student-early', ],
     ).count()
     if count < 0:
