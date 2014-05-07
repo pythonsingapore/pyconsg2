@@ -15,6 +15,12 @@ from paypal_express_checkout.forms import SetExpressCheckoutFormMixin
 from .models import CheckoutChoices, FOOD_CHOICES, TSHIRT_CHOICES
 
 
+# Change those to the non-early versions when early bird phase ends
+CURRENT_CONFERENCE_ITEM = 'conference-early'
+CURRENT_CONFERENCE_STUDENT_ITEM = 'conference-student-early'
+CURRENT_TUTORIAL_ITEM = 'tutorial-early'
+
+
 class CheckoutChoicesForm(forms.ModelForm):
     class Meta:
         model = CheckoutChoices
@@ -70,10 +76,12 @@ class PyconsgGroupSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
     def __init__(self, *args, **kwargs):
         super(PyconsgGroupSetExpressCheckoutForm, self).__init__(
             *args, **kwargs)
-        self.conference_item = Item.objects.get(identifier='conference')
+        self.conference_item = Item.objects.get(
+            identifier=CURRENT_CONFERENCE_ITEM)
         self.student_item = Item.objects.get(
-            identifier='conference-student')
-        self.tutorial_item = Item.objects.get(identifier='tutorial')
+            identifier=CURRENT_CONFERENCE_STUDENT_ITEM)
+        self.tutorial_item = Item.objects.get(
+            identifier=CURRENT_TUTORIAL_ITEM)
 
     def clean(self):
         data = self.cleaned_data
@@ -96,15 +104,16 @@ class PyconsgGroupSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
         result = []
         amount_conference_tickets = data.get('amount_conference_tickets')
         if amount_conference_tickets:
-            result.append((self.conference_item, amount_conference_tickets))
+            result.append((
+                self.conference_item, amount_conference_tickets, None))
 
         amount_student_tickets = data.get('amount_student_tickets')
         if amount_student_tickets:
-            result.append((self.student_item, amount_student_tickets))
+            result.append((self.student_item, amount_student_tickets, None))
 
         amount_tutorials = data.get('amount_tutorials')
         if amount_tutorials:
-            result.append((self.tutorial_item, amount_tutorials))
+            result.append((self.tutorial_item, amount_tutorials, None))
         return result
 
 
@@ -156,10 +165,12 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
 
     def __init__(self, *args, **kwargs):
         super(PyconsgSetExpressCheckoutForm, self).__init__(*args, **kwargs)
-        self.conference_item = Item.objects.get(identifier='conference')
+        self.conference_item = Item.objects.get(
+            identifier=CURRENT_CONFERENCE_ITEM)
         self.student_item = Item.objects.get(
-            identifier='conference-student')
-        self.tutorial_item = Item.objects.get(identifier='tutorial')
+            identifier=CURRENT_CONFERENCE_STUDENT_ITEM)
+        self.tutorial_item = Item.objects.get(
+            identifier=CURRENT_TUTORIAL_ITEM)
 
     def clean(self):
         data = self.cleaned_data
@@ -173,7 +184,7 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
 
     def get_items_and_quantities(self):
         """
-        Returns the items and quantities.
+        Returns the items, quantities and content types.
 
         Should return a list of tuples.
 
@@ -181,16 +192,16 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
         data = self.cleaned_data
         result = []
         if data['conference_ticket'] and not data['student_rate']:
-            result.append((self.conference_item, 1))
+            result.append((self.conference_item, 1, None))
         if data['conference_ticket'] and data['student_rate']:
-            result.append((self.student_item, 1))
+            result.append((self.student_item, 1, None))
         tutorial_amount = 0
         if data['tutorial_morning']:
             tutorial_amount += 1
         if data['tutorial_afternoon']:
             tutorial_amount += 1
         if tutorial_amount:
-            result.append((self.tutorial_item, tutorial_amount))
+            result.append((self.tutorial_item, tutorial_amount, None))
         return result
 
     def post_transaction_save(self, transaction, item_quantity_list):

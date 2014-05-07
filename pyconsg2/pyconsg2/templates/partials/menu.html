@@ -1,4 +1,4 @@
-{% load i18n menu_tags static %}
+{% load cms_tags i18n menu_tags static %}
 
 <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
     <div class="container">
@@ -21,6 +21,7 @@
                             <li class=""><a href="{% url "dashboard" %}">{% trans "Dashboard" %}</a></li>
                             {% if request.user.is_superuser %}
                                 <li class=""><a href="{% url "admin:index" %}">{% trans "Django admin" %}</a></li>
+                                <li class=""><a href="{% page_url "static_placeholders" %}">{% trans "Static placeholder admin" %}</a></li>
                                 <li class=""><a href="{% url "impersonate-search" %}">{% trans "Impersonate user" %}</a></li>
                             {% endif %}
                             <li><a href="{% url "account_logout" %}">{% trans "Log out" %}</a></li>

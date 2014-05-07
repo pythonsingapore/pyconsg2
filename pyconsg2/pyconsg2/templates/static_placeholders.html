@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load cms_tags pyconsg2_tags %}
+
+{% block main_container_box %}
+    {% get_static_placeholders as placeholders %}
+    {% for ph in placeholders %}
+        <div class="container-box">
+            <pre>{{ ph.code }}</pre>
+            {% static_placeholder ph.code %}
+        </div>
+    {% endfor %}
+{% endblock %}
