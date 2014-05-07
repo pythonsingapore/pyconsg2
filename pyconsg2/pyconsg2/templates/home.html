@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cms_tags libs_tags static %}
+{% load cms_tags libs_tags pyconsg2_tags static %}
 
 {% block main_header %}
 <div class="home-header">
@@ -45,6 +45,8 @@
                     <div class="row" style="margin: 1em 0px;">
                         <div class="col-md-12 text-center">
                             <a href="/checkout/" class="btn btn-primary btn-lg">Get your ticket now!</a>
+                            {% get_early_bird_count 200 as early_bird_count %}
+                            <p class="text-muted" style="margin-top: 1em;">Quick, only {{ early_bird_count }} early bird tickets left</p>
                         </div>
                     </div>
                 </div>
