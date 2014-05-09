@@ -4,5 +4,6 @@ CMS_TEMPLATES = (
     ('home.html', 'Home Template'),
     ('proposals.html', 'Proposals Template'),
     ('sponsorship.html', 'Sponsorship Template'),
+    ('venue.html', 'Venue Template'),
     ('static_placeholders.html', 'Static Placeholders Admin Template'),
 )
