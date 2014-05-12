@@ -25,9 +25,7 @@
     {% block markitup_media %}{% markitup_media %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
-    {% if request.user.is_superuser %}
-        {% include "partials/cms_toolbar.html" %}
-    {% endif %}
+    {% cms_toolbar %}
 
     {% if request.user.is_impersonate %}
         {% include "impersonate/partials/impersonate_bar.html" %}

@@ -7,3 +7,5 @@ CMS_TEMPLATES = (
     ('venue.html', 'Venue Template'),
     ('static_placeholders.html', 'Static Placeholders Admin Template'),
 )
+# CMS_PAGE_CACHE = False
+# CMS_PLUGIN_CACHE = False
