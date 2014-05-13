@@ -60,16 +60,19 @@ class CheckoutChoicesForm(forms.ModelForm):
 class PyconsgGroupSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
     amount_conference_tickets = forms.IntegerField(
         label=_('Conference tickets'),
+        min_value=1,
         required=False,
     )
 
     amount_student_tickets = forms.IntegerField(
         label=_('Conference tickets (student rate)'),
+        min_value=1,
         required=False,
     )
 
     amount_tutorials = forms.IntegerField(
         label=_('Tutorial tickets'),
+        min_value=1,
         required=False,
     )
 
