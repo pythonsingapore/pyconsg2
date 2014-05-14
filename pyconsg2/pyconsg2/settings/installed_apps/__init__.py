@@ -34,6 +34,9 @@ EXTERNAL_APPS = [
     'menus',
     'mptt',
     'multilingual_news',
+    'people',
+    'document_library',
+    'multilingual_tags',
     'sekizai',
 
     # external symposion related

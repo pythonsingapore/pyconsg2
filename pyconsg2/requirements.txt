@@ -24,7 +24,10 @@ django-mptt==0.6
 django-cms==3.0.1
 cmsplugin-filer==0.9.5
 cmsplugin-template-placeholder==0.1
-django-multilingual-news==1.3
+django-multilingual-news==2.0.2
+django-document-library==1.0
+django-people==1.0
+django-multilingual-tags==0.4
 djangocms-admin-style==0.1.4
 djangocms-text-ckeditor==2.1.4
 
