@@ -1,14 +1,17 @@
-{% load i18n %}
-<form role="form "id="slotEditForm" class="modal-form" method="POST" action="{% url schedule_slot_edit slug slot.pk %}">
-    <div class="modal-header">
-        <a class="close" data-dismiss="modal">&times;</a>
-        <h3>{% trans "Edit Slot" %}</h3>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">&times;</a>
+            <h3>Edit Slot</h3>
+        </div>
+        <div class="modal-body" style="height:350px">
+            <form role="form "id="slotEditForm" class="modal-form" method="POST" action="{% url "schedule_slot_edit" slug slot.pk %}">
+                {% csrf_token %}
+                {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
     </div>
-    <div class="modal-body" style="height:350px">
-        {% csrf_token %}
-        {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
-    </div>
-</form>
+</div>

@@ -14,9 +14,11 @@
 
     {% comment %} We need it up here in order for the Markdown fields to work {% endcomment %}
     <script src="{% static "js/libs/jquery-1.9.1.js" %}"></script>
+    {% block extra_jquery %}{% endblock %}
     <script src="{% static "js/libs/jquery-ui-1.10.3.custom.min.js" %}"></script>
     <script src="{% static "js/libs/bootstrap.min.js" %}"></script>
     <script src="{% static "js/libs/bootstrap-datetimepicker.min.js" %}"></script>
+    <script src="{% static "js/libs/bootbox.min.js" %}"></script>
     <script src="{% static "js/libs/bootstrap-modal.js" %}"></script>
     <script src="{% static "js/libs/bootstrap-modalmanager.js" %}"></script>
 
