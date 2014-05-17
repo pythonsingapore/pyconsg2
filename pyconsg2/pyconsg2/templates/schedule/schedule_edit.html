@@ -19,7 +19,10 @@
         <h2>{{ timetable.day.date }}</h2>
         {% include "schedule/_edit_grid.html" %}
     {% endfor %}
-    <div class="modal fade hide in" id="slotEditModal"></div>
+{% endblock %}
+
+{% block extra_modals %}
+    <div id="slotEditModal" class="modal fade" tabindex="-1"></div>
 {% endblock %}
 
 {% block extrajs %}
@@ -27,11 +30,12 @@
     <script type="text/javascript">
         $(function() {
             $("a.edit-slot").click(function(e) {
-                $("#slotEditModal").load($(this).data("action"), function() {
-                    $("#id_presentation").chosen();
-                    $("#slotEditModal").modal("show");
-                });
                 e.preventDefault();
+                var url = $(this).attr('data-action');
+                var $modal_container = $('#slotEditModal');
+                $modal_container.load(url, function() {
+                    $modal_container.modal('show');
+                });
             });
         });
     </script>

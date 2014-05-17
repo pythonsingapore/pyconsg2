@@ -21,6 +21,7 @@
     <script src="{% static "js/libs/bootbox.min.js" %}"></script>
     <script src="{% static "js/libs/bootstrap-modal.js" %}"></script>
     <script src="{% static "js/libs/bootstrap-modalmanager.js" %}"></script>
+    <script src="{% static "django_libs/js/modals.js" %}"></script>
 
     {% comment %} Should be compressed {% endcomment %}
     <script src="{% static "js/general.js" %}"></script>
@@ -65,10 +66,8 @@
         </footer>
     {% endblock %}
 
-    <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
-
-    {% comment %}Libs that will change and should be compressed{% endcomment %}
-    <script src="{% static "django_libs/js/modals.js" %}"></script>
+    <div id="ajax-modal" class="modal fade" tabindex="-1"></div>
+    {% block extra_modals %}{% endblock %}
 
     {% comment %}Further initialisations on sub pages. Should not be compressed{% endcomment %}
     {% block extrajs %}{% endblock %}
