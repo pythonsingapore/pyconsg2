@@ -1,18 +1,18 @@
 <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Edit slot</h4>
+    <form role="form "id="slotEditForm" method="POST" action="{% url "schedule_slot_edit" slug slot.pk %}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Edit slot</h4>
+            </div>
+            <div class="modal-body">
+                    {% csrf_token %}
+                    {% include "partials/forms/form.html" %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
         </div>
-        <div class="modal-body">
-            <form role="form "id="slotEditForm" class="modal-form" method="POST" action="{% url "schedule_slot_edit" slug slot.pk %}">
-                {% csrf_token %}
-                {% include "partials/forms/form.html" with label_col=2 input_col=6 %}
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-    </div>
+    </form>
 </div>

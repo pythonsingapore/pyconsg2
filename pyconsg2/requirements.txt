@@ -35,7 +35,7 @@ djangocms-text-ckeditor==2.1.4
 # =============================================================================
 # symposion related packages
 # =============================================================================
--e git+https://github.com/mbrochh/symposion@5c07d3e9454b2c8454058ef7598010855a540053#egg=symposion
+-e git+https://github.com/mbrochh/symposion@bf4b682e8af7ef2b6fc6c292c257e7c13e3e55e5#egg=symposion
 Pillow==2.3.0
 django-markitup==2.1
 django-model-utils==2.0
