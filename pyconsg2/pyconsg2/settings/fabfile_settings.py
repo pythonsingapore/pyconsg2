@@ -19,6 +19,7 @@ VENV_NAME = PROJECT_NAME
 DB_ROLE = PROJECT_NAME
 DB_NAME = PROJECT_NAME
 DB_DUMP_FILENAME = '{0}.dump'.format(PROJECT_NAME)
+MEDIA_DUMP_FILENAME = '{0}_media.tar.gz'.format(PROJECT_NAME)
 
 TEST_SETTINGS_PATH = 'pyconsg2.settings.test_settings'
 

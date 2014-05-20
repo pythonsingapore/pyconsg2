@@ -1,0 +1,21 @@
+{% load static thumbnail %}
+<div class="row well">
+    <div class="col-md-3">
+        <div class="text-center" style="padding-top: 20px;">
+            {% include "partials/avatar.html" with photo=presentation.speaker.photo name=presentation.speaker %}
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h3><a href="{% url "schedule_presentation_detail" presentation.pk %}">{{ presentation.title }}</a></h3>
+        <h4>{{ presentation.speakers|join:", " }}</h4>
+        {{ presentation.description }}
+        {% if presentation.slot %}
+            <h4>
+                {{ presentation.slot.day.date|date:"l" }}
+                {{ presentation.slot.start}}&ndash;{{ presentation.slot.end }}
+                in
+                {{ presentation.slot.rooms|join:", " }}
+            </h4>
+        {% endif %}
+    </div>
+</div>

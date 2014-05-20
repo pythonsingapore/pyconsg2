@@ -3,6 +3,7 @@
 *.sql
 *.sqlite
 *.wpr
+*_media.tar.gz
 .ropeproject
 .vagrant
 coverage/

@@ -4,29 +4,34 @@
 {% block head_title %}{% trans "Presentation" %}: {{ presentation.title }}{% endblock %}
 
 {% block main %}
-    {% if presentation.slot %}
-        <h4>
-            {{ presentation.slot.day.date|date:"l" }}
-            {{ presentation.slot.start}}&ndash;{{ presentation.slot.end }}
-        </h4>
-    {% endif %}
-    <h2>{{ presentation.title }}</h2>
+    <div class="row">
+        <div class="col-md-3 text-center">
+            {% include "partials/avatar.html" with photo=presentation.speaker.photo name=presentation.speaker %}
 
-    <h4>
-        {% for speaker in presentation.speakers %}
-            <a href="{% url "speaker_profile" speaker.pk %}">{{ speaker }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
-    </h4>
+            <h4>
+                {% for speaker in presentation.speakers %}
+                    <a href="{% url "speaker_profile" speaker.pk %}">{{ speaker }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+            </h4>
 
-    <dl class="dl-horizontal">
-        <dt>{% trans "Audience level" %}:</dt>
-        <dd style="margin-bottom: 0;">{{ presentation.proposal.get_audience_level_display }}</dd>
-    </dl>
+            <h5>
+                {% trans "Audience level" %}:</br>
+                {{ presentation.proposal.get_audience_level_display }}
+            </h5>
 
-    <h3>{% trans "Description" %}</h3>
 
-    <div class="description">{{ presentation.description }}</div>
-
-    <h3>{% trans "Abstract" %}</h3>
-
-    <div class="abstract">{{ presentation.abstract|safe }}</div>
+            {% if presentation.slot %}
+                <h5>
+                    {{ presentation.slot.day.date|date:"l" }}</br>
+                    {{ presentation.slot.start}}&ndash;{{ presentation.slot.end }}
+                </h5>
+            {% endif %}
+        </div>
+        <div class="col-md-9">
+            <h2>{{ presentation.title }}</h2>
+            <h3>{% trans "Description" %}</h3>
+            <div class="description">{{ presentation.description }}</div>
+            <h3>{% trans "Abstract" %}</h3>
+            <div class="abstract">{{ presentation.abstract|safe }}</div>
+        </div>
+    </div>
 {% endblock %}
