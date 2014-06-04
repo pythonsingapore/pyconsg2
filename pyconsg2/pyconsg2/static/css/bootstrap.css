@@ -6138,6 +6138,13 @@ h1 {
 .navbar li.selected {
   background: #207cca;
 }
+.sponsor {
+  margin-right: 0.5em;
+}
+.sponsor img {
+  border: 6px solid #EEE;
+  margin-bottom: 1em;
+}
 .bs-footer {
   background: url('../img/bg1.jpg');
   padding-top: 2em;

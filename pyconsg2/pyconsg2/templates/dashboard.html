@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n proposal_tags review_tags teams_tags %}
+{% load i18n proposal_tags pyconsg2_tags review_tags teams_tags %}
 
 {% block head_title %}Dashboard{% endblock %}
 
@@ -17,7 +17,7 @@
     <div class="container-box dashboard-checkout-choices">
 
         <h3 style="margin-top:0px;"><i class="glyphicon glyphicon-list-alt" style="margin-right:0.5em;"></i>{% trans "Conference settings" %}</h3>
-        {% if not user.checkout_choices %}
+        {% if not user.checkout_choices.transaction.status == "Completed" %}
             <p>You have not bought a conference ticket, yet :-(<p>
             <a class="btn btn-primary" href="{% url "paypal_checkout" %}">Get your ticket now</a>.
         {% else %}

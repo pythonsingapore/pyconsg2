@@ -3,6 +3,7 @@ from django import template
 
 from cms.models.static_placeholder import StaticPlaceholder
 from paypal_express_checkout.models import PurchasedItem
+from paypal_express_checkout.constants import PAYMENT_STATUS
 
 
 register = template.Library()
@@ -29,3 +30,14 @@ def get_early_bird_count(ticket_amount):
     if count < 0:
         count = 0
     return count
+
+
+@register.assignment_tag
+def get_checkout_choices(user):
+    """Returns completed checkout choices for the given user."""
+    choices = user.checkout_choices.filter(
+        has_conference_ticket=True,
+        transaction__status=PAYMENT_STATUS['completed'])
+    if choices:
+        return choices[0]
+    return None
