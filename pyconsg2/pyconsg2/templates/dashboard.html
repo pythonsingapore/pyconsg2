@@ -120,6 +120,39 @@
         {% endif %}
     </div>
 
+    {% get_tutorials request.user as tutorials %}
+    {% if tutorials %}
+        <div class="container-box">
+            <div class="row" style="padding-top:1em;">
+                <div class="col-md-12">
+                    <h3 style="margin-top:0px;"><i class="glyphicon glyphicon-user" style="margin-right:0.5em;"></i>{% trans "Your tutorial attendees" %}</h3>
+                    {% for tutorial in tutorials %}
+                        {% get_tutorial_attendees tutorial as attendees %}
+                        <h4>{{ tutorial.title }}</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>First name</th>
+                                    <th>Last name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for attendee in attendees %}
+                                    <tr>
+                                        <td>{{ attendee.user.email }}</td>
+                                        <td>{{ attendee.user.first_name }}</td>
+                                        <td>{{ attendee.user.last_name }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="container-box">
         <div class="row" style="padding-top:1em;">
             <div class="col-md-6">

@@ -1,9 +1,13 @@
 """Templatetags for the pyconsg2 project."""
 from django import template
+from django.db.models import Q
 
 from cms.models.static_placeholder import StaticPlaceholder
 from paypal_express_checkout.models import PurchasedItem
 from paypal_express_checkout.constants import PAYMENT_STATUS
+from symposion.schedule.models import Presentation
+
+from paypal_pyconsg.models import CheckoutChoices
 
 
 register = template.Library()
@@ -41,3 +45,18 @@ def get_checkout_choices(user):
     if choices:
         return choices[0]
     return None
+
+
+@register.assignment_tag
+def get_tutorials(user):
+    """Returns all accepted tutorials for the given user."""
+    return Presentation.objects.filter(
+        speaker__user=user, proposal_base__kind__slug='tutorial')
+
+
+@register.assignment_tag
+def get_tutorial_attendees(tutorial):
+    """Returns completed CheckoutChoices that have the given tutorial."""
+    return CheckoutChoices.objects.filter(
+        transaction__status='Completed').filter(
+        Q(tutorial_morning=tutorial) | Q(tutorial_afternoon=tutorial))
