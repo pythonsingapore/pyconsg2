@@ -1,5 +1,10 @@
 """Admin classes for the ``paypal_pyconsg`` app."""
+import datetime
+
 from django.contrib import admin
+from django.contrib.admin.filters import RelatedFieldListFilter
+
+from symposion.schedule.models import Presentation
 
 from .models import CheckoutChoices
 
@@ -14,7 +19,8 @@ class CheckoutChoicesAdmin(admin.ModelAdmin):
         'tutorial_afternoon', 'tshirt_size', 'food_choice', ]
     list_filter = [
         'transaction__status', 'has_conference_ticket', 'is_student',
-        'food_choice', 'tshirt_size', ]
+        'food_choice', 'tshirt_size', 'tutorial_morning',
+        'tutorial_afternoon']
     search_fields = [
         'id', 'user__email', 'user__first_name', 'user__last_name',
         'transaction__transaction_id', 'tutorial_morning__title',
