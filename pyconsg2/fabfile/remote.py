@@ -16,4 +16,4 @@ def run_update_presentations():
 
     """
     with cd(settings.FAB_SETTING('SERVER_PROJECT_ROOT')):
-        run_workon('python2.7 manage.py update_presentations --noinput')
+        run_workon('python2.7 manage.py update_presentations')
