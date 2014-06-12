@@ -56,8 +56,9 @@ class GroupRegistrationsForm(forms.Form):
         except User.DoesNotExist:
             pass
         if user is None:
+            email_short = self.cleaned_data.get('email')[:30]
             user = User.objects.create(
-                username=self.cleaned_data.get('email'),
+                username=email_short,
                 first_name=self.cleaned_data.get('first_name'),
                 last_name=self.cleaned_data.get('last_name'),
                 email=self.cleaned_data.get('email'),
