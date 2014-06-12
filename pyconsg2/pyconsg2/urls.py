@@ -67,6 +67,7 @@ urlpatterns += patterns(
     url(r'^checkout/', include('paypal_express_checkout.urls')),
     url(r'^dashboard/checkout-choices/', include('paypal_pyconsg.urls')),
     url(r'^impersonate/', include('impersonate.urls')),
+    url(r'^group-registrations/', include('group_registrations.urls')),
 
     url(r'^', include('pyconsg2.symposion_urls')),
     url(r'^', include('cms.urls')),

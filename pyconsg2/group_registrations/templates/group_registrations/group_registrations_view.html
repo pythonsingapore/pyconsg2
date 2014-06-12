@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Group Registrations Admin Form</h1>
+<form role="form" method="post" action=".">
+    {% csrf_token %}
+    {% for field in form %}
+        {% include "partials/forms/form_field.html" %}
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
