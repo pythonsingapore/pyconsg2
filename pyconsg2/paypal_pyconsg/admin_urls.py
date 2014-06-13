@@ -12,4 +12,7 @@ urlpatterns = patterns(
     url(r'payments/$',
         views.PaymentsAndCheckoutChoicesView.as_view(),
         name='payments_and_choices'),
+    url(r'reception/$',
+        views.ConferenceReceptionView.as_view(),
+        name='reception'),
 )

@@ -114,3 +114,26 @@ class AttendeeOverviewView(TemplateView):
             'tutorials_afternoon': tutorials_afternoon,
         })
         return ctx
+
+
+class ConferenceReceptionView(TemplateView):
+    template_name = 'paypal_pyconsg/conference_reception_view.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            raise Http404
+        return super(ConferenceReceptionView, self).dispatch(
+            request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        ctx = super(ConferenceReceptionView, self).get_context_data(
+            **kwargs)
+        choices = models.CheckoutChoices.objects.filter(
+            transaction__status='Completed').select_related(
+                'user', 'transaction', 'tutorial_morning',
+                'tutorial_afternoon')
+        ctx.update({
+            'choices': choices,
+        })
+        return ctx

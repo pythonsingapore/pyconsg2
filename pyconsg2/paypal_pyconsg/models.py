@@ -86,8 +86,27 @@ class CheckoutChoices(models.Model):
         null=True, blank=True,
     )
 
+    is_registered = models.BooleanField(
+        default=False,
+        verbose_name=_('Is registered'),
+        blank=True,
+    )
+
     def get_food_choice(self):
         for choice in FOOD_CHOICES:
             if choice[0] == self.food_choice:
                 return choice[1]
         return ''
+
+    def has_conference_ticket_yesno(self):
+        return self.has_conference_ticket and 'Yes' or 'No'
+
+    def tutorial_morning_yesno(self):
+        if self.tutorial_morning:
+            return 'Yes'
+        return 'No'
+
+    def tutorial_afternoon_yesno(self):
+        if self.tutorial_afternoon:
+            return 'Yes'
+        return 'No'

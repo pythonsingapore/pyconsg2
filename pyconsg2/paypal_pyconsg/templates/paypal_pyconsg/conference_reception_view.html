@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extrahead %}
+<link href="{% static "paypal_pyconsg/css/dataTables.bootstrap.css" %}" rel="stylesheet" />
+{% endblock %}
+
+{% block main %}
+<h1>Conference Registration</h1>
+<p>Notes:</p>
+<ul>
+    <li>Speaker Terry Yin will bring a helper, "Kinwah Lai" to assist during the tutorial</li>
+</ul>
+<hr />
+<small>
+<table class="table table-condensed table-striped" data-id="attendees">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Transation ID</th>
+            <th>Conference</th>
+            <th>Tutorial morning</th>
+            <th>Tutorial afternoon</th>
+            <th>Registered</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for choice in choices %}
+            <tr>
+                <td>{{ choice.user.email }}</td>
+                <td>{{ choice.user.first_name }}</td>
+                <td>{{ choice.user.last_name }}</td>
+                <td>{{ choice.transaction.transaction_id }}</td>
+                <td>{{ choice.has_conference_ticket_yesno }}</td>
+                <td>{{ choice.tutorial_morning_yesno }}</td>
+                <td>{{ choice.tutorial_afternoon_yesno }}</td>
+                <td>{{ choice.is_registered }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</small>
+{% endblock %}
+
+{% block extrajs %}
+<script src="{% static "js/libs/jquery.dataTables.min.js" %}"></script>
+<script src="{% static "js/libs/dataTables.bootstrap.js" %}"></script>
+<script>
+$(document).ready(function() {
+    $('[data-id="attendees"]').DataTable({
+        ordering: true,
+        paging: false
+    });
+});
+</script>
+{% endblock %}
