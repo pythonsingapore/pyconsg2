@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Attendee Overview</h1>
+<h2>Ticket Overview</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Conference Tickets (Total)</th>
+            <td>{{ conference_tickets }}</td>
+        </tr>
+        <tr>
+            <th>Conference Tickets (Students)</th>
+            <td>{{ conference_tickets_students }}</td>
+        </tr>
+        <tr>
+            <th>Tutorial Morning Tickets (Total)</th>
+            <td>{{ tutorial_morning_tickets }}</td>
+        </tr>
+        <tr>
+            <th>Tutorial Morning Tickets (Student)</th>
+            <td>{{ tutorial_morning_tickets_students }}</td>
+        </tr>
+        <tr>
+            <th>Tutorial Afternoon Tickets (Total)</th>
+            <td>{{ tutorial_afternoon_tickets }}</td>
+        </tr>
+        <tr>
+            <th>Tutorial Afternoon Tickets (Student)</th>
+            <td>{{ tutorial_afternoon_tickets_students }}</td>
+        </tr>
+        <tr>
+            <th>Tutorial Total Tickets (Total)</th>
+            <td>{{ tutorial_total_tickets }}</td>
+        </tr>
+        <tr>
+            <th>Tutorial Total Tickets (Students)</th>
+            <td>{{ tutorial_total_tickets_students }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Preferences Overview</h2>
+<table class="table">
+    <tbody>
+        {% for size in tshirt_sizes %}
+            <tr>
+                <th>T-Shirt size {{ size.tshirt_size }}</th>
+                <td>{{ size.size_count }}</td>
+            </tr>
+        {% endfor %}
+        {% for pref in food_preferences %}
+            <tr>
+                <th>Food choice {{ pref.display_value }}</th>
+                <td>{{ pref.choice_count }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Tutorials Overview</h2>
+<table class="table">
+    <tbody>
+        {% for tut in tutorials_morning %}
+            <tr>
+                <th>{{ tut.tutorial_morning__title }}</th>
+                <td>{{ tut.tut_count }}</td>
+            </tr>
+        {% endfor %}
+        {% for tut in tutorials_afternoon %}
+            <tr>
+                <th>{{ tut.tutorial_afternoon__title }}</th>
+                <td>{{ tut.tut_count }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
