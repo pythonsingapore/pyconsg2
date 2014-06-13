@@ -22,6 +22,8 @@
                             {% if request.user.is_superuser %}
                                 <li class=""><a href="{% url "admin:index" %}">{% trans "Django admin" %}</a></li>
                                 <li class=""><a href="{% page_url "static_placeholders" %}">{% trans "Static placeholder admin" %}</a></li>
+                                <li class=""><a href="{% url "group_registrations" %}">{% trans "Group registrations form" %}</a></li>
+                                <li class=""><a href="{% url "payments_and_choices" %}">{% trans "Payments overview" %}</a></li>
                                 <li class=""><a href="{% url "impersonate-search" %}">{% trans "Impersonate user" %}</a></li>
                             {% endif %}
                             <li><a href="{% url "account_logout" %}">{% trans "Log out" %}</a></li>

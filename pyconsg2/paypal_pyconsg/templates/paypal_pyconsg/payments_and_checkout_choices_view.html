@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Payments Overview</h1>
+<p>Showing {{ transactions.count }} completed transactions. Each transactin should have at least one CheckoutChoice. If a transaction has 0 CheckoutChoices, it could be that the person has made two purchases (1 time conference ticket, another time tutorial tickets). After each purchase the system generates a new CheckoutChoice and during a cleanup we might have deleted one of the two because each user is only supposed to have one CheckoutChoice object. In this case, make sure that the remaining CheckoutChoice has the correct settings and hook the other transaction to a dummy checkout choice with a dummy user.</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Value</th>
+            <th>CheckoutChoices</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.transaction_id }}</td>
+            <td>{{ transaction.date|date:"Y-m-d h:m" }}</td>
+            <td>{{ transaction.value }}</td>
+            <td>{{ transaction.checkout_choices.count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

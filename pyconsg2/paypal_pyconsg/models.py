@@ -45,6 +45,7 @@ class CheckoutChoices(models.Model):
     transaction = models.ForeignKey(
         'paypal_express_checkout.PaymentTransaction',
         verbose_name=_('Transaction'),
+        related_name='checkout_choices',
     )
 
     is_student = models.BooleanField(

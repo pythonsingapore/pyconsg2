@@ -6,7 +6,7 @@ from .views import CheckoutChoicesView
 
 urlpatterns = patterns(
     '',
-    url(r'^$',
+    url(r'$',
         CheckoutChoicesView.as_view(),
         name='checkout_choices'),
 )

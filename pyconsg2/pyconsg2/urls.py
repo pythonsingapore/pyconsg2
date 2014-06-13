@@ -65,6 +65,7 @@ urlpatterns += patterns(
     #    TemplateView.as_view(template_name='checkout_closed.html'),
     #    name='paypal_checkout'),
     url(r'^checkout/', include('paypal_express_checkout.urls')),
+    url(r'^paypal/', include('paypal_pyconsg.admin_urls')),
     url(r'^dashboard/checkout-choices/', include('paypal_pyconsg.urls')),
     url(r'^impersonate/', include('impersonate.urls')),
     url(r'^group-registrations/', include('group_registrations.urls')),
