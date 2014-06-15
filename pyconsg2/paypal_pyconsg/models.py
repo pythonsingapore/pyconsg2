@@ -98,6 +98,9 @@ class CheckoutChoices(models.Model):
                 return choice[1]
         return ''
 
+    def is_student_yesno(self):
+        return self.is_student and 'Yes' or 'No'
+
     def has_conference_ticket_yesno(self):
         return self.has_conference_ticket and 'Yes' or 'No'
 
