@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cache i18n cms_tags %}
+{% load i18n cms_tags %}
 
 {% block head_title %}{% trans "Conference Schedule" %}{% endblock %}
 
@@ -10,12 +10,10 @@
     {% static_placeholder "schedule_top" %}
     
     {% for section in sections %}
-        {% cache 600 "schedule-table" section.schedule.section %}
-            {% for timetable in section.days %}
-                <h3>{{ section.schedule.section.name }} — {{ timetable.day.date }}</h3>
-                {% include "schedule/_grid.html" %}
-            {% endfor %}
-        {% endcache %}
+        {% for timetable in section.days %}
+            <h3>{{ section.schedule.section.name }} — {{ timetable.day.date }}</h3>
+            {% include "schedule/_grid.html" %}
+        {% endfor %}
     {% endfor %}
     
     {% static_placeholder "schedule_bottom" %}
