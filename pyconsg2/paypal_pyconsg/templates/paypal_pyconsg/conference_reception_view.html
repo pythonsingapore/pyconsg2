@@ -30,7 +30,7 @@
     </thead>
     <tbody>
         {% for choice in choices %}
-            <tr>
+        <tr {% if choice.is_registered %}class="success"{% endif %}>
                 <td>{{ choice.user.email }}</td>
                 <td>{{ choice.user.first_name }}</td>
                 <td>{{ choice.user.last_name }}</td>
@@ -40,7 +40,17 @@
                 <td>{{ choice.has_conference_ticket_yesno }}</td>
                 <td>{{ choice.tutorial_morning_yesno }}</td>
                 <td>{{ choice.tutorial_afternoon_yesno }}</td>
-                <td>{{ choice.is_registered }}</td>
+                <td>
+                    <form method="post" action=".">
+                        {% csrf_token %}
+                        <input type="hidden" name="choice_pk" value="{{ choice.pk }}" />
+                        {% if choice.is_registered %}
+                            <input class="btn btn-danger btn-xs" type="submit" name="btn-unregister" value="Un-register" />
+                        {% else %}
+                            <input class="btn btn-success btn-xs" type="submit" name="btn-register" value="Register" />
+                        {% endif %}
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </tbody>

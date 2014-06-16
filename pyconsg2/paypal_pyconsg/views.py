@@ -1,9 +1,10 @@
 """Views for the ``paypal_pyconsg`` app."""
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 from django.http import Http404
+from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
 from django.views.generic import FormView, TemplateView
-from django.db.models import Count
 
 from paypal_express_checkout.models import PaymentTransaction
 
@@ -137,3 +138,14 @@ class ConferenceReceptionView(TemplateView):
             'choices': choices,
         })
         return ctx
+
+    def post(self, request, *args, **kwargs):
+        choice_pk = int(request.POST.get('choice_pk'))
+        choice = models.CheckoutChoices.objects.get(pk=choice_pk)
+        if 'btn-register' in request.POST:
+            register = True
+        else:
+            register = False
+        choice.is_registered = register
+        choice.save()
+        return redirect('reception')
