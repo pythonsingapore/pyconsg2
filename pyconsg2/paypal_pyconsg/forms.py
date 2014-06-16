@@ -24,8 +24,6 @@ CURRENT_CONFERENCE_STUDENT_ITEM = 'conference-student'
 CURRENT_TUTORIAL_ITEM = 'tutorial'
 
 
-
-
 class CheckoutChoicesForm(forms.ModelForm):
     class Meta:
         model = CheckoutChoices
@@ -50,7 +48,6 @@ class CheckoutChoicesForm(forms.ModelForm):
         empty_label=None,
         required=False,
     )
-
 
     def __init__(self, user, *args, **kwargs):
         kwargs.update({'instance': user.checkout_choices, })
@@ -123,6 +120,19 @@ class PyconsgGroupSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
         if amount_tutorials:
             result.append((self.tutorial_item, amount_tutorials, None))
         return result
+
+
+class PyconsgGroupEarlyBirdSetExpressCheckoutForm(
+        PyconsgGroupSetExpressCheckoutForm):
+    def __init__(self, *args, **kwargs):
+        super(PyconsgGroupSetExpressCheckoutForm, self).__init__(
+            *args, **kwargs)
+        self.conference_item = Item.objects.get(
+            identifier='conference-early')
+        self.student_item = Item.objects.get(
+            identifier='conference-student-early')
+        self.tutorial_item = Item.objects.get(
+            identifier='tutorial-early')
 
 
 class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):

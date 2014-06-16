@@ -3,7 +3,7 @@ from django.conf.urls import patterns, url
 
 from paypal_express_checkout.views import SetExpressCheckoutView
 
-from .forms import PyconsgGroupSetExpressCheckoutForm
+from . import forms
 
 
 urlpatterns = patterns(
@@ -11,7 +11,14 @@ urlpatterns = patterns(
     url(
         r'^$',
         SetExpressCheckoutView.as_view(
-            form_class=PyconsgGroupSetExpressCheckoutForm,
+            form_class=forms.PyconsgGroupSetExpressCheckoutForm,
+            template_name='paypal_express_checkout/group_set_checkout.html'),
+        name='paypal_group_checkout'
+    ),
+    url(
+        r'^early/$',
+        SetExpressCheckoutView.as_view(
+            form_class=forms.PyconsgGroupEarlyBirdSetExpressCheckoutForm,
             template_name='paypal_express_checkout/group_set_checkout.html'),
         name='paypal_group_checkout'
     ),
