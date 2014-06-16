@@ -134,8 +134,13 @@ class ConferenceReceptionView(TemplateView):
             transaction__status='Completed').select_related(
             'user', 'user__speaker_profile__presentations', 'transaction',
             'tutorial_morning', 'tutorial_afternoon')
+        speakers = choices.filter(
+            user__speaker_profile__presentations__isnull=False).distinct()
+        missing_speakers = speakers.filter(is_registered=False)
         ctx.update({
             'choices': choices,
+            'speakers': speakers,
+            'missing_speakers': missing_speakers,
         })
         return ctx
 

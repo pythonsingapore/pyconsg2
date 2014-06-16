@@ -6,56 +6,93 @@
 {% endblock %}
 
 {% block main %}
-<h1>Conference Registration</h1>
-<p>Notes:</p>
-<ul>
-    <li>Speaker Terry Yin will bring a helper, "Kinwah Lai" to assist during the tutorial</li>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#registration" data-toggle="tab">Registration</a></li>
+    <li><a href="#speakers" data-toggle="tab">Missing Speakers ({{ missing_speakers.count }})</a></li>
 </ul>
-<hr />
-<small>
-<table class="table table-condensed table-striped" data-id="attendees">
-    <thead>
-        <tr>
-            <th>Email</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Transation ID</th>
-            <th>Student</th>
-            <th>Speaker</th>
-            <th>Conference</th>
-            <th>Tutorial morning</th>
-            <th>Tutorial afternoon</th>
-            <th>Registered</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for choice in choices %}
-        <tr {% if choice.is_registered %}class="success"{% endif %}>
-                <td>{{ choice.user.email }}</td>
-                <td>{{ choice.user.first_name }}</td>
-                <td>{{ choice.user.last_name }}</td>
-                <td>{{ choice.transaction.transaction_id }}</td>
-                <td>{{ choice.is_student_yesno }}</td>
-                <td>{{ choice.is_speaker_yesno }}</td>
-                <td>{{ choice.has_conference_ticket_yesno }}</td>
-                <td>{{ choice.tutorial_morning_yesno }}</td>
-                <td>{{ choice.tutorial_afternoon_yesno }}</td>
-                <td>
-                    <form method="post" action=".">
-                        {% csrf_token %}
-                        <input type="hidden" name="choice_pk" value="{{ choice.pk }}" />
-                        {% if choice.is_registered %}
-                            <input class="btn btn-danger btn-xs" type="submit" name="btn-unregister" value="Un-register" />
-                        {% else %}
-                            <input class="btn btn-success btn-xs" type="submit" name="btn-register" value="Register" />
-                        {% endif %}
-                    </form>
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-</small>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="registration">
+        <h1>Conference Registration</h1>
+        <p>Notes:</p>
+        <ul>
+            <li>Speaker Terry Yin will bring a helper, "Kinwah Lai" to assist during the tutorial</li>
+        </ul>
+        <hr />
+        <small>
+        <table class="table table-condensed table-striped" data-id="attendees">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Transation ID</th>
+                    <th>Student</th>
+                    <th>Speaker</th>
+                    <th>Conference</th>
+                    <th>Tutorial morning</th>
+                    <th>Tutorial afternoon</th>
+                    <th>Registered</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for choice in choices %}
+                <tr {% if choice.is_registered %}class="success"{% endif %}>
+                        <td>{{ choice.user.email }}</td>
+                        <td>{{ choice.user.first_name }}</td>
+                        <td>{{ choice.user.last_name }}</td>
+                        <td>{{ choice.transaction.transaction_id }}</td>
+                        <td>{{ choice.is_student_yesno }}</td>
+                        <td>{{ choice.is_speaker_yesno }}</td>
+                        <td>{{ choice.has_conference_ticket_yesno }}</td>
+                        <td>{{ choice.tutorial_morning_yesno }}</td>
+                        <td>{{ choice.tutorial_afternoon_yesno }}</td>
+                        <td>
+                            <form method="post" action=".">
+                                {% csrf_token %}
+                                <input type="hidden" name="choice_pk" value="{{ choice.pk }}" />
+                                {% if choice.is_registered %}
+                                    <input class="btn btn-danger btn-xs" type="submit" name="btn-unregister" value="Un-register" />
+                                {% else %}
+                                    <input class="btn btn-success btn-xs" type="submit" name="btn-register" value="Register" />
+                                {% endif %}
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </small>
+    </div>
+
+
+    <div class="tab-pane active" id="speakers">
+        <h1>Missing speakers</h1>
+        <p>Notes:</p>
+        <ul>
+            {% if missing_speakers %}
+                <li>We expect {{ speakers.count }} speakers to register. Currently, {{ missing_speakers.count }} speakers are still missing.</li>
+                <li>
+                    Missing speakers are:
+                    <ul>
+                        {% for speaker in missing_speakers %}
+                            <li>
+                                {{ speaker.user.first_name }} {{ speaker.user.last_name }} ({{ speaker.user.email }})
+                                <ul>
+                                    {% for presentation in speaker.user.speaker_profile.presentations.all %}
+                                    <li>{{ presentation.title }} ({{ presentation.slot.day }} - {{ presentation.slot.start }})</li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+                <li>Yay! All speakers are regsitered!</li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
 {% endblock %}
 
 {% block extrajs %}
