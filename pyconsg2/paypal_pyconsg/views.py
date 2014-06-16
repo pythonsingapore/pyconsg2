@@ -131,8 +131,8 @@ class ConferenceReceptionView(TemplateView):
             **kwargs)
         choices = models.CheckoutChoices.objects.filter(
             transaction__status='Completed').select_related(
-                'user', 'transaction', 'tutorial_morning',
-                'tutorial_afternoon')
+            'user', 'user__speaker_profile__presentations', 'transaction',
+            'tutorial_morning', 'tutorial_afternoon')
         ctx.update({
             'choices': choices,
         })

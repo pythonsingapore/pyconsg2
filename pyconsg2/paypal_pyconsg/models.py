@@ -1,4 +1,5 @@
 """Models for the PayPal integration of the ``pyconsg`` project."""
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -97,6 +98,15 @@ class CheckoutChoices(models.Model):
             if choice[0] == self.food_choice:
                 return choice[1]
         return ''
+
+    def is_speaker_yesno(self):
+        try:
+            self.user.speaker_profile
+        except ObjectDoesNotExist:
+            return 'No'
+        if self.user.speaker_profile.presentations.all():
+            return 'Yes'
+        return 'No'
 
     def is_student_yesno(self):
         return self.is_student and 'Yes' or 'No'
