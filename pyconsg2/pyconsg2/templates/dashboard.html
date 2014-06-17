@@ -22,6 +22,19 @@
             <a class="btn btn-primary" href="{% url "paypal_checkout" %}">Get your ticket now</a>.
         {% else %}
             <p>Below are the choices you made during checkout. Feel free to change them if you change your mind. Please note that changes will no longer be possible one week before the conference.</p>
+            <div>
+                <label>Ticket type:</label> 
+                {% if user.checkout_choices.has_conference_ticket %}
+                    <span>You have a conference ticket for Thursday & Friday.</span>
+                {% else %}
+                    <span>You don't have a conference ticket for Thursday & Friday.</span>
+                {% endif %}
+                {% if user.checkout_choices.tutorial_morning or user.checkout_choices.tutorial_afternoont %}
+                    <span>You have one or two tutorial tickets for Wednesday.</span>
+                {% else %}
+                    <span>You don't have tutorial tickets for Wednesday.</span>
+                {% endif %}
+            </div>
             {% if user.checkout_choices.tutorial_morning %}
                 <div><label>Tutorial (morning):</label> <span>{{ user.checkout_choices.tutorial_morning }}</span></div>
             {% endif %}
