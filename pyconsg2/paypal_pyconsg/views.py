@@ -137,10 +137,19 @@ class ConferenceReceptionView(TemplateView):
         speakers = choices.filter(
             user__speaker_profile__presentations__isnull=False).distinct()
         missing_speakers = speakers.filter(is_registered=False)
+        missing_tutorial_morning = choices.filter(
+            is_registered=False, tutorial_morning__isnull=False).count()
+        missing_tutorial_afternoon = choices.filter(
+            is_registered=False, tutorial_afternoon__isnull=False).count()
+        missing_conference = choices.filter(
+            is_registered=False, has_conference_ticket=True).count()
         ctx.update({
             'choices': choices,
             'speakers': speakers,
             'missing_speakers': missing_speakers,
+            'missing_tutorial_morning': missing_tutorial_morning,
+            'missing_tutorial_afternoon': missing_tutorial_afternoon,
+            'missing_conference': missing_conference,
         })
         return ctx
 
