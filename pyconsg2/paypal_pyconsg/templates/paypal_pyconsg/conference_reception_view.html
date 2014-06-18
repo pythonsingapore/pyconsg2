@@ -52,7 +52,7 @@
                         <td>{{ choice.is_student_yesno }}</td>
                         <td>{{ choice.is_speaker_yesno }}</td>
                         <td>{{ choice.has_conference_ticket_yesno }}</td>
-                        <td>{{ choice.tshirt_size }}</td>
+                        <td>{% if choice.has_conference_ticket %}{{ choice.tshirt_size }}{% else %}---{% endif %}</td>
                         <td>{{ choice.tutorial_morning_yesno }}</td>
                         <td>{{ choice.tutorial_afternoon_yesno }}</td>
                         <td>
