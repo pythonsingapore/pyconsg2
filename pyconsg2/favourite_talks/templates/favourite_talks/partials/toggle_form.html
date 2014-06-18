@@ -1,0 +1,18 @@
+{% load favourite_talks_tags %}
+{% if request.user.checkout_choices.has_conference_ticket %}
+{% is_favourite request.user presentation as is_favoured %}
+<form method="post" action="{% url "toggle_favourite_view" %}">
+    {% csrf_token %}
+    <input type="hidden" name="presentation" value="{{ presentation.pk }}" />
+    <button
+        type="submit"
+        data-toggle="tooltip"
+        {% if is_favoured %}
+        title="Un-star this talk"
+        {% else %}
+        title="Mark this talk as favourite"
+        {% endif %}>
+        <span class="glyphicon {% if is_favoured %}glyphicon-star{% else %}glyphicon-star-empty{% endif %}"></span>
+    </button>
+</form>
+{% endif %}

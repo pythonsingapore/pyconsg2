@@ -60,6 +60,7 @@ EXTERNAL_APPS = [
 ]
 
 INTERNAL_APPS = [
+    'favourite_talks',
     'group_registrations',
     'pyconsg2',
     'proposals_pyconsg',

@@ -74,6 +74,11 @@
     {% block extra_modals %}{% endblock %}
 
     {% comment %}Further initialisations on sub pages. Should not be compressed{% endcomment %}
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
     {% block extrajs %}{% endblock %}
     {% render_block "js" %}
 </body>

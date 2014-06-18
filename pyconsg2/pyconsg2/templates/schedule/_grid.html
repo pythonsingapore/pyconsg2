@@ -22,6 +22,9 @@
                                 <span class="speaker">
                                     {{ slot.content.speakers|join:", " }}
                                 </span>
+                                {% if slot.kind.label == "talk" %}
+                                    {% include "favourite_talks/partials/toggle_form.html" with presentation=slot.content %}
+                                {% endif %}
                             {% endif %}
                         {% else %}
                             {% if slot.content_override.raw %}
