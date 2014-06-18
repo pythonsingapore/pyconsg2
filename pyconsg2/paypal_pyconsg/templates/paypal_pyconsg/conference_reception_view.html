@@ -31,6 +31,7 @@
         <table class="table table-condensed table-striped" data-id="attendees">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Email</th>
                     <th>First name</th>
                     <th>Last name</th>
@@ -46,6 +47,7 @@
             <tbody>
                 {% for choice in choices %}
                 <tr {% if choice.is_registered %}class="success"{% endif %}>
+                        <td><a href="{% url "admin:paypal_pyconsg_checkoutchoices_change" choice.pk %}">{{ choice.pk }}</a></td>
                         <td>{{ choice.user.email }}</td>
                         <td>{{ choice.user.first_name }}</td>
                         <td>{{ choice.user.last_name }}</td>
