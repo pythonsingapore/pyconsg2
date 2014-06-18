@@ -19,7 +19,7 @@
         <h3 style="margin-top:0px;"><i class="glyphicon glyphicon-list-alt" style="margin-right:0.5em;"></i>{% trans "Conference settings" %}</h3>
         {% if not user.checkout_choices.transaction.status == "Completed" %}
             <p>You have not bought a conference ticket, yet :-(<p>
-            <a class="btn btn-primary" href="{% url "paypal_checkout" %}">Get your ticket now</a>.
+            {# <a class="btn btn-primary" href="{% url "paypal_checkout" %}">Get your ticket now</a>. #}
         {% else %}
             <p>Below are the choices you made during checkout. Feel free to change them if you change your mind. Please note that changes will no longer be possible one week before the conference.</p>
             <div>
