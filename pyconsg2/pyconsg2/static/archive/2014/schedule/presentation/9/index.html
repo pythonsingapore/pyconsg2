@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Presentation: Data Matching and Big Data Deduping in Python - pycon.sg</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../../static/css/bootstrap.css%3Fv2.css" rel="stylesheet" media="screen">
+    <link href="../../../static/css/libs/bootstrap-modal.css" rel="stylesheet" media="screen">
+    <link href="../../../static/css/libs/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="../../../static/css/libs/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+    
+    
+
+
+    
+    <script src="../../../static/js/libs/jquery-1.9.1.js"></script>
+    
+    <script src="../../../static/js/libs/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="../../../static/js/libs/bootstrap.min.js"></script>
+    <script src="../../../static/js/libs/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../../static/js/libs/bootbox.min.js"></script>
+    <script src="../../../static/js/libs/bootstrap-modal.js"></script>
+    <script src="../../../static/js/libs/bootstrap-modalmanager.js"></script>
+    <script src="../../../static/django_libs/js/modals.js"></script>
+
+    
+    <script src="../../../static/js/general.js"></script>
+    <link href="../../../static/markitup/skins/simple/style.css" type="text/css" media="screen" rel="stylesheet" />
+<link href="../../../static/markitup/sets/markdown/style.css" type="text/css" media="screen" rel="stylesheet" />
+
+
+<script type="text/javascript" src="../../../static/markitup/ajax_csrf.js"></script>
+<script type="text/javascript" src="../../../static/markitup/jquery.markitup.js"></script>
+<script type="text/javascript" src="../../../static/markitup/sets/markdown/set.js"></script>
+
+
+</head>
+<body class="">
+    
+
+    
+
+    
+
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="../../../index.html" class="navbar-brand"><img src="../../../static/img/pyconsg-logo.png" style="width:200px;" /></a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                
+
+<li class="selected">
+	
+	    <a href="../../../index.html">Home</a>
+    
+</li>
+
+<li class="sibling">
+	
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="index.html#">Event <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+
+<li class="">
+	
+	    <a href="../../index.html">Schedule</a>
+    
+</li>
+
+<li class="">
+	
+	    <a href="../../list/index.html">Talks &amp; Tutorials</a>
+    
+</li>
+
+
+            </ul>
+        </li>
+    
+</li>
+
+<li class="sibling">
+	
+	    <a href="../../../news/index.html">News</a>
+    
+</li>
+
+<li class="sibling">
+	
+	    <a href="../../../proposals/index.html">Proposals</a>
+    
+</li>
+
+<li class="sibling">
+	
+	    <a href="../../../sponsorship/index.html">Sponsorship</a>
+    
+</li>
+
+<li class="sibling">
+	
+	    <a href="../../../venue/index.html">Venue</a>
+    
+</li>
+
+
+                
+                    <li><a href="../../../accounts/signup/index.html">Sign up</a></li>
+                    <li><a href="../../../accounts/login/index.html">Log in</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <div style="padding-top: 60px;"></div>
+
+    <div class="wrap"> 
+        
+
+        
+            <div class="container" style="margin-top:1em;">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                            <div class="container-box">
+                                
+    <div class="row">
+        <div class="col-md-3 text-center">
+            
+
+    <img src="../../../media/speaker_photos/Screen_Shot_2014-03-06_at_5.39.03_am.png.140x140_q85_crop_upscale.png" alt="Nikit Saraf" class="img-circle">
+
+
+
+            <h4>
+                
+                    <a href="../../../speaker/profile/7/index.html">Nikit Saraf</a>
+            </h4>
+
+            <h5>
+                Audience level:</br>
+                Experienced
+            </h5>
+
+
+            
+                <h5>
+                    Friday</br>
+                    11:20 a.m.&ndash;12:05 p.m.
+                </h5>
+            
+        </div>
+        <div class="col-md-9">
+            <h2>Data Matching and Big Data Deduping in Python</h2>
+            <h3>Description</h3>
+            <div class="description"><p>Till now, using real-world-data is difficult. Apart from encoding and missing value, multiple records which mean the same thing is one of the biggest headache. This talk will demonstrate two tools “Dedupe” and “Dedoop” to handle task of Data Matching and Deduplication in Python  at the scale of millions and billions of records respectively.</p></div>
+            <h3>Abstract</h3>
+            <div class="abstract"><p>One of the widely postulated theory is “Most of the time spent working with real world data is not spent on the analysis, but in preparing the data”, I believe any Data guy would agree. There are numerous problems, which crop up while cleansing any dataset, and the prominent and recurring problem is duplicates (It is duplicate, so it has to be recurring). The problem of matching data and information from multiple databases or sources is also a prominent problem encountered in large decision support applications in large commercial and government organizations. This problems has many many different names deduplication, record linkage, entity resolution, coreference, reference reconciliation, record alignment.</p>
+<p>Accurate, Scalable and Fast entity resolution has huge practical implications in a wide variety of commercial, scientific and civic domains. Despite the long history of work on Data Matching, there is still a surprising diversity of approaches, and lack of guiding theory. Meanwhile, in the age of big data, the need for high quality entity resolution is growing, as we are inundated with more and more data, all of which needs to be integrated, aligned and matched, before further utility can be extracted.</p>
+<p>This talk will present the key ideas implemented behind “Dedupe” an open source python library that quickly deduplicates and matches records at the scale of millions of records on the laptop. The aim is to show how “Dedupe” achieves speed by “Blocking” records, to save from O(n2) comparisons, achieves accuracy, by using better string comparators and clustering algorithms suited for this problem etc. The attendees would also gain understanding of the tradeoffs between the speed and accuracy.</p>
+<p>But what about a billion records ? In such a scenario, it is imminent to parallelise the whole process, to achieve greater speed. So, enter MapReduce based Entity Resolution. Attendees would also walk away with the understanding of how the Deduplication procedure may be parallelised by distributing the task independently to the map and reduce stages. There would also be a demo of the same using “Dedoop” an open source Efficient Deduplication tool for Hadoop on Amazon EC2 Machines  </p>
+<p>The Presentation is multifaceted, its outline/timeline would be:</p>
+<ul>
+<li>Introduction</li>
+<li>Current Real World Data Problems</li>
+<li>Why the Problem is hard ?</li>
+</ul>
+<p>(5 mins)</p>
+<ul>
+<li>Current Industry Workflow</li>
+<li>What is Deduplication and Data Matching ?</li>
+<li>“Dedupe” - Scalable Library for Data Matching in Python</li>
+</ul>
+<p>(5 mins)</p>
+<ul>
+<li>Scale Data Matching to millions of Records on your Laptop - DEMO</li>
+</ul>
+<p>(5 mins)</p>
+<ul>
+<li>What about Billions of Records ?</li>
+<li>MapReduce based Entity Resolution</li>
+<li>“Dedoop” - Efficient Deduplication with Hadoop</li>
+</ul>
+<p>(5 mins)</p>
+<ul>
+<li>Demo of Deduplication of on a products dataset on Amazon EC2 Machine using dedoop</li>
+</ul>
+<p>(5 mins)</p>
+<ul>
+<li>The Road Ahead</li>
+<li>Any questions ?</li>
+</ul>
+<p>(5 mins)</p></div>
+        </div>
+    </div>
+
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="container" style="margin-top:1em;">
+            
+<div class="row" style="margin-bottom:2em;">
+    <div class="col-md-12 text-center">
+        <h1 class="text-center" style="margin-bottom:1em;">Sponsored by:</h1>
+        <a class="sponsor" href="http://www.sp.edu.sg/wps/portal/vp-spws"><img src="../../../static/img/sponsor-sp.jpg" alt="Plantinum Sponsor: Singapore Polytechnic"></a>
+        <a class="sponsor" href="http://www.heroku.com"><img src="../../../static/img/sponsor-heroku.jpg" alt="Platinum Sponsor: Heroku"></a>
+        <a class="sponsor" href="http://www.odd-e.com/"><img src="../../../static/img/sponsor-odde.jpg" alt="Gold Sponsor: Odd-e"></a>
+        <a class="sponsor" href="https://www.zopim.com/"><img src="../../../static/img/sponsor-zopim.jpg" alt="Gold Sponsor: Zopim"></a>
+        <a class="sponsor" href="http://www.oracle.com/"><img src="../../../static/img/sponsor-oracle.jpg" alt="Silver Sponsor: Oracle"></a>
+        <a class="sponsor" href="http://continuum.io/"><img src="../../../static/img/sponsor-continuum.jpg" alt="Silver Sponsor: Continuum Analytics"></a>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    
+        <footer class="bs-footer clearfix">
+            <div class="container">
+                
+                    
+<div class="row">
+    <div class="col-md-3">
+        <h4>About</h4>
+        <p>PyCon SG is a conference about the programming language <a href="http://python.org">Python</a>.</p>
+
+<p>It is a community effort driven by the members of the Python User Group Singapore.</p>
+        <hr class="visible-xs visible-sm" />
+    </div>
+    <div class="col-md-3">
+        <h4>When & Where</h4>
+        <p><strong>When</strong>: June 18-20 2014.</p>
+
+<p><strong>Where</strong>:<br>
+Singapore Polytechnic<br>
+500 Dover Road<br>
+Singapore 139651</p>
+
+        <hr class="visible-xs visible-sm" />
+    </div>
+    <div class="col-md-3">
+        <h4>Latest News</h4>
+        
+        <ul class="list-unstyled">
+            
+            <li><a href="../../../news/2014/6/21/slides/index.html">PyCon SG 2014 Slides and Pictures</a></li>
+            
+            <li><a href="../../../news/2014/5/13/early-bird/index.html">Early bird sales ending soon</a></li>
+            
+            <li><a href="../../../news/2014/3/22/keynote-speakers/index.html">Kenneth Reitz &amp; David Cramer to be Keynote Speakers at PyCon Singapore 2014</a></li>
+            
+        </ul>
+        <hr class="visible-xs visible-sm" />
+    </div>
+    <div class="col-md-3">
+        <h4>Get social</h4>
+        <ul class="list-unstyled">
+	<li class="topTwitter"><a href="https://twitter.com/pyconsg">Twitter</a></li>
+	<li class="topFacebook"><a href="https://www.facebook.com/groups/pythonsg/">Facebook</a></li>
+	<li class="topMail"><a href="https://groups.google.com/forum/#%21forum/pythonsg">Mailing List</a></li>
+	<li class="topMail"><a href="mailto:conference@pycon.sg">Email</a></li>
+</ul>
+    </div>
+</div>
+
+                
+            </div>
+        </footer>
+    
+
+    <div id="ajax-modal" class="modal fade" tabindex="-1"></div>
+    
+
+    
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    
+    
+
+</body>
+</html>
