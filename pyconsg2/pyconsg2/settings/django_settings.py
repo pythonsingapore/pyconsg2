@@ -84,6 +84,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'influxdb_metrics.middleware.InfluxDBRequestMiddleware',
     'django_libs.middleware.CustomBrokenLinkEmailsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -83,6 +83,7 @@ EMAIL_PORT = 587
 # ==========================
 # Webfaction Server Settings
 # ==========================
+# MAILER_EMAIL_BACKEND = 'influxdb_metrics.email.InfluxDbEmailBackend'
 # FROM_EMAIL = "noreply@pyconsg2.webfactional.com"
 # EMAIL_SUBJECT_PREFIX = '[pyconsg2] '
 
@@ -101,7 +102,7 @@ SERVER_EMAIL = FROM_EMAIL
 EMAIL_USE_TLS = True
 
 
-=============================================================================
+# =============================================================================
 # PAYPAL SETTINGS
 # =============================================================================
 
@@ -118,3 +119,15 @@ EMAIL_USE_TLS = True
 # PAYPAL_USER = 'username'
 # PAYPAL_PWD = 'password'
 # PAYPAL_SIGNATURE = 'signature'
+
+# =============================================================================
+# INFLUXDB SETTINGS
+# =============================================================================
+INFLUXDB_DISABLED = True
+INFLUXDB_SERIES_PREFIX = 'yourname.'
+
+INFLUXDB_HOST = 'your.influxdbhost.com'
+INFLUXDB_PORT = '8086'
+INFLUXDB_USER = 'pyconsg2'
+INFLUXDB_PASSWORD = ''
+INFLUXDB_DATABASE = 'pyconsg2'

@@ -57,6 +57,8 @@ EXTERNAL_APPS = [
     'symposion.teams',
     'symposion.reviews',
     'symposion.schedule',
+
+    'influxdb_metrics',
 ]
 
 INTERNAL_APPS = [
