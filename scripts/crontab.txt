@@ -9,4 +9,4 @@ MAILTO=yourmail@example.com
 
 * * * * * cd /home/pyconsg/webapps/pyconsg2_django/pyconsg2/ && /home/pyconsg/Envs/pyconsg2/bin/python /home/pyconsg/webapps/pyconsg2_django/pyconsg2/manage.py influxdb_get_usage_per_minute pyconsg pyconsg ~/memcached.sock > $HOME/mylogs/cron/influxdb-get-usage-per-minute.log 2>&1
 0 */1 * * * cd /home/pyconsg/webapps/pyconsg2_django/pyconsg2/ && /home/pyconsg/Envs/pyconsg2/bin/python /home/pyconsg/webapps/pyconsg2_django/pyconsg2/manage.py influxdb_get_disk_usage $HOME > $HOME/mylogs/cron/influxdb-get-disk-usage.log 2>&1
-1 */1 * * * cd /home/pyconsg/webapps/pyconsg2_django/pyconsg2/ && /home/pyconsg/Envs/pyconsg2/bin/python /home/pyconsg/webapps/pyconsg2_django/pyconsg2/manage.py influxdb_get_postgresqp_size pyconsg2 pyconsg2 > $HOME/mylogs/cron/influxdb-get-postgresql-size.log 2>&1
+1 */1 * * * cd /home/pyconsg/webapps/pyconsg2_django/pyconsg2/ && /home/pyconsg/Envs/pyconsg2/bin/python /home/pyconsg/webapps/pyconsg2_django/pyconsg2/manage.py influxdb_get_postgresql_size pyconsg2 pyconsg2 > $HOME/mylogs/cron/influxdb-get-postgresql-size.log 2>&1
