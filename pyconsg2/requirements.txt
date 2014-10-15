@@ -14,7 +14,7 @@ django-libs==1.53
 django==1.6.1
 django-paypal-express-checkout==1.7
 django-impersonate==0.8.1
-django-influxdb-metrics==0.3
+django-influxdb-metrics==0.3.1
 
 
 # =============================================================================
