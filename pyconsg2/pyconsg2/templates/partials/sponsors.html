@@ -1,10 +1,11 @@
-{% load static %}
+{% load sponsorship_tags static thumbnail %}
 <div class="row" style="margin-bottom:2em;">
     <div class="col-md-12 text-center">
         <h1 class="text-center" style="margin-bottom:1em;">Sponsored by:</h1>
         <p>We are looking for sponsors! If you can help making PyCon SG a success, please message us at <a href="mailto:conference@pycon.sg">conference@pycon.sg</a></p>
+        <a class="sponsor" href="https://bitmazk.com/"><img src="{% static "img/sponsor-bitmazk.jpg" %}" alt="Silver Sponsor: Bitmazk"></a>
+        <a class="sponsor" href="https://carousell.com/"><img src="{% static "img/sponsor-carousell.jpg" %}" alt="Silver Sponsor: Carousell"></a>
         {% comment %}
-        <a class="sponsor" href="http://www.sp.edu.sg/wps/portal/vp-spws"><img src="{% static "img/sponsor-sp.jpg" %}" alt="Plantinum Sponsor: Singapore Polytechnic"></a>
         <a class="sponsor" href="http://www.heroku.com"><img src="{% static "img/sponsor-heroku.jpg" %}" alt="Platinum Sponsor: Heroku"></a>
         <a class="sponsor" href="http://www.odd-e.com/"><img src="{% static "img/sponsor-odde.jpg" %}" alt="Gold Sponsor: Odd-e"></a>
         <a class="sponsor" href="https://www.zopim.com/"><img src="{% static "img/sponsor-zopim.jpg" %}" alt="Gold Sponsor: Zopim"></a>
