@@ -4,7 +4,7 @@
 {% block main %}
     <h1>{% static_placeholder "set_checkout_title" or %}Your PyCon Singapore 2014 Ticket" {% endstatic_placeholder %}</h1>
 
-    <div class="row">
+    <div class="row" style="margin-top:2em;">
         <div class="col-md-6">
             <form class="form-horizontal" method="post" action=".">
                 {% csrf_token %}
