@@ -139,16 +139,12 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
     student_rate = forms.BooleanField(
         label=_('I am a student'),
         initial=False,
-        widget=forms.CheckboxInput(
-            attrs={'style': 'width: 2em; float: left; margin-right: 1em;', }),
         required=False,
     )
 
     conference_ticket = forms.BooleanField(
         label=_('Conference ticket'),
         initial=True,
-        widget=forms.CheckboxInput(
-            attrs={'style': 'width: 2em; float: left; margin-right: 1em;', }),
         required=False,
     )
 

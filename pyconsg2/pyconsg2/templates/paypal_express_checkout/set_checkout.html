@@ -4,9 +4,9 @@
 {% block main %}
     <h1>{% static_placeholder "set_checkout_title" or %}Your PyCon Singapore 2014 Ticket" {% endstatic_placeholder %}</h1>
 
-    <div class="row" style="margin-top:2em;">
-        <div class="col-md-6">
-            <form class="form-horizontal" method="post" action=".">
+    <form class="form-horizontal" method="post" action=".">
+        <div class="row" style="margin-top:2em;">
+            <div class="col-md-6">
                 {% csrf_token %}
                 {% for hidden in form.hidden_fields %}
                     {{ hidden }}
@@ -21,20 +21,27 @@
                 {% include "partials/forms/form_field.html" with field=form.student_rate label_col=4 input_col=8 %}
 
                 <div class="form-group {% if form.conference_ticket.errors %}has-error {% endif %}">
-                    <label for="{{ form.conference_ticket.id_for_label }}" class="col-md-4 control-label">
-                        {{ form.conference_ticket.label }}
-                    </label>
-
-                    <div class="col-md-8">
+                    <div class="col-sm-offset-4 col-sm-8">
                         <div class="checkbox">
-                            {% add_form_widget_attr form.conference_ticket 'style' 'margin:0px;margin-left:-26px;' as field_ %}
-                            {{ field_ }} <span id="conferencePrice">S${{ form.conference_item.value }}</span><span id="conferencePriceStudent" style="display:none;">S${{ form.student_item.value }}</span>
+                            <label>
+                            {{ form.conference_ticket }} Conference Ticket (<span id="conferencePrice">S${{ form.conference_item.value }}</span><span id="conferencePriceStudent" style="display:none;">S${{ form.student_item.value }}</span>)
+                            </label>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-6">
+                {% static_placeholder "checkout_content_right_conference" or %}
+                    <p>The <strong>conference ticket</strong> entitles you to attend the main conference on June XX-XY.</p>
+                    <p>If you buy a conference ticket at <strong>student rate</strong> you need to show evidence of student ID at the conference registration.</p>
+                {% endstatic_placeholder %}
+            </div>
+        </div>
 
-                <hr />
+        <hr />
 
+        <div class="row" style="margin-top:2em;">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="inputEmail">{% trans "Tutorial price:" %}</label>
                     <div class="col-md-8" style="padding-top:7px;">
@@ -45,9 +52,19 @@
 
                 {% include "partials/forms/form_field.html" with field=form.tutorial_morning label_col=4 input_col=8 %}
                 {% include "partials/forms/form_field.html" with field=form.tutorial_afternoon label_col=4 input_col=8 %}
+            </div>
+            <div class="col-md-6">
+                {% static_placeholder "checkout_content_right_tutorials" or %}
+                    <p>You can also attend up to two <strong>tutorials</strong> on June XX (one in the morning and one in the afternoon). Check out the <a href='/schedule/list/' target='_blank'>Conference Talk List</a> to find out more about the tutorials.</p>
+                    <p>Please note that your tutorial of choice might be canceled if we don't get enough participants. In that case you can chose another tutorial.</p>
+                {% endstatic_placeholder %}
+            </div>
+        </div>
 
-                <hr />
+        <hr />
 
+        <div class="row" style="margin-top:2em;">
+            <div class="col-md-6">
                 {% include "partials/forms/form_field.html" with field=form.tshirt_size label_col=4 input_col=8 %}
                 {% include "partials/forms/form_field.html" with field=form.food_choice label_col=4 input_col=8 %}
 
@@ -56,15 +73,11 @@
                         <input class="btn btn-primary" id="payPalButton" type="submit" name="METHOD" value="{% trans "Checkout with PayPal" %}" />
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
 
         <div class="col-md-6">
-            {% static_placeholder "checkout_content_right" or %}
-                <p>The <strong>conference ticket</strong> entitles you to attend the main conference on June 19-20.</p>
-                <p>You can also attend up to two <strong>tutorials</strong> on June 18 (one in the morning and one in the afternoon). Check out the <a href='/schedule/list/' target='_blank'>Conference Talk List</a> to find out more about the tutorials.</p>
-                <p>Please note that your tutorial of choice might be canceled if we don't get enough participants. In that case you can chose another tutorial.</p>
-                <p>If you buy a conference ticket at <strong>student rate</strong> you need to show evidence of student ID at the conference registration.</p>
+            {% static_placeholder "checkout_content_right_food" or %}
                 <p>If you would like to make a <strong>group registration</strong> please contact us at <a href='mailto:conference@pycon.sg'>conference@pycon.sg</a>.</p>
                 <p>Please note that we will serve <strong>halal</strong> food.</p>
             {% endstatic_placeholder %}
