@@ -116,6 +116,15 @@ EMAIL_USE_TLS = True
 #     'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token='
 # )
 
+
+# In order to get these credentials do the following:
+# 1. Login at developer.paypal.com with your PayPal account
+# 2. Go to Dashboard > Sandbox > Accounts and create a new account
+# 2.1. use some email like yourmail-facilitator@gmail.com
+# 3. Login at sandbox.paypal.com with this new account
+# 4. Go to Profile > My Selling Tools > API Access
+# Chose option 2 and copy & paste username, password and signature
+
 # PAYPAL_USER = 'username'
 # PAYPAL_PWD = 'password'
 # PAYPAL_SIGNATURE = 'signature'
