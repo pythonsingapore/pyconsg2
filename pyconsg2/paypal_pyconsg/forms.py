@@ -5,6 +5,7 @@ Forms for the ``paypal_express_checkout`` app in the ``pyconsg`` context.
 import datetime
 
 from django import forms
+from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import ugettext_lazy as _
 
 from symposion.schedule.models import Presentation
@@ -188,6 +189,18 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
 
     def clean(self):
         data = self.cleaned_data
+        try:
+            choices = self.user.checkout_choices
+        except ObjectDoesNotExist:
+            choices = None
+        if choices:
+            if choices.has_conference_ticket:
+                if data.get('conference_ticket'):
+                    raise forms.ValidationError(
+                        'You have already purchased a conference ticket.'
+                        ' If you would like to purchase another ticket on'
+                        ' behalf of someone else, please create a new account'
+                        ' for that person.')
         if (not data.get('conference_ticket')
                 and not data.get('tutorial_morning')
                 and not data.get('tutorial_afternoon')):
