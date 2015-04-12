@@ -193,12 +193,28 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
             choices = self.user.checkout_choices
         except ObjectDoesNotExist:
             choices = None
+        if choices and choices.transaction.status != 'Completed':
+            choices = None
         if choices:
             if choices.has_conference_ticket:
                 if data.get('conference_ticket'):
                     raise forms.ValidationError(
                         'You have already purchased a conference ticket.'
                         ' If you would like to purchase another ticket on'
+                        ' behalf of someone else, please create a new account'
+                        ' for that person.')
+            if choices.tutorial_morning:
+                if data.get('tutorial_morning'):
+                    raise forms.ValidationError(
+                        'You have already purchased a morning tutorial.'
+                        ' If you would like to purchase another one on'
+                        ' behalf of someone else, please create a new account'
+                        ' for that person.')
+            if choices.tutorial_afternoon:
+                if data.get('tutorial_afternoon'):
+                    raise forms.ValidationError(
+                        'You have already purchased an afternoon tutorial.'
+                        ' If you would like to purchase another one on'
                         ' behalf of someone else, please create a new account'
                         ' for that person.')
         if (not data.get('conference_ticket')
