@@ -6,6 +6,7 @@
 {% block body_class %}auth{% endblock %}
 
 {% block main_container_box %}
+    {% get_all_checkout_choices user as checkout_choices %}
     <div class="container-box">
         <div class="row" style="padding-top:1em;">
             <div class="col-md-12">
@@ -17,35 +18,42 @@
     <div class="container-box dashboard-checkout-choices">
 
         <h3 style="margin-top:0px;"><i class="glyphicon glyphicon-list-alt" style="margin-right:0.5em;"></i>{% trans "Conference settings" %}</h3>
-        {% if not user.checkout_choices.transaction.status == "Completed" %}
+        {% has_conference_ticket user checkout_choices as has_conference_ticket_ %}
+        {% has_tutorial_morning user checkout_choices as has_tutorial_morning_ %}
+        {% has_tutorial_afternoon user checkout_choices as has_tutorial_afternoon_ %}
+        {% if not has_conference_ticket_ %}
             <p>You have not bought a conference ticket, yet :-(<p>
             {# <a class="btn btn-primary" href="{% url "paypal_checkout" %}">Get your ticket now</a>. #}
         {% else %}
             <p>Below are the choices you made during checkout. Feel free to change them if you change your mind. Please note that changes will no longer be possible one week before the conference.</p>
             <div>
-                <label>Ticket type:</label> 
-                {% if user.checkout_choices.has_conference_ticket %}
+                <label>Ticket type:</label>
+                {% if has_conference_ticket_ %}
                     <span>You have a conference ticket for Thursday & Friday.</span>
                 {% else %}
                     <span>You don't have a conference ticket for Thursday & Friday.</span>
                 {% endif %}
-                {% if user.checkout_choices.tutorial_morning or user.checkout_choices.tutorial_afternoont %}
-                    <span>You have tutorial tickets for Wednesday.</span>
+                {% if has_tutorial_morning_ or has_tutorial_afternoon_ %}
+                    <span>You have tutorial ticket(s) for Wednesday.</span>
                 {% else %}
                     <span>You don't have tutorial tickets for Wednesday.</span>
                 {% endif %}
             </div>
-            {% if user.checkout_choices.tutorial_morning %}
-                <div><label>Tutorial (morning):</label> <span>{{ user.checkout_choices.tutorial_morning }}</span></div>
+            {% if has_tutorial_morning_ %}
+                {% get_tutorial_morning user checkout_choices as tutorial_morning %}
+                <div><label>Tutorial (morning):</label> <span>{{ tutorial_morning }}</span></div>
             {% endif %}
-            {% if user.checkout_choices.tutorial_afternoon %}
-                <div><label>Tutorial (afternoon):</label> <span>{{ user.checkout_choices.tutorial_afternoon }}</span></div>
+            {% if has_tutorial_afternoon_ %}
+                {% get_tutorial_afternoon user checkout_choices as tutorial_afternoon %}
+                <div><label>Tutorial (afternoon):</label> <span>{{ tutorial_afternoon }}</span></div>
             {% endif %}
-            {% if user.checkout_choices.tshirt_size %}
-                <div><label>T-Shirt size:</label> <span>{{ user.checkout_choices.tshirt_size }}</span></div>
+            {% get_tshirt_size user checkout_choices as tshirt_size %}
+            {% if tshirt_size %}
+                <div><label>T-Shirt size:</label> <span>{{ tshirt_size }}</span></div>
             {% endif %}
-            {% if user.checkout_choices.food_choice %}
-                <div><label>Food preference:</label> <span>{{ user.checkout_choices.get_food_choice }}</span></div>
+            {% get_food_choice user checkout_choices as food_choice %}
+            {% if food_choice %}
+                <div><label>Food preference:</label> <span>{{ food_choice }}</span></div>
             {% endif %}
             <a class="btn btn-primary" style="margin-top: 1em;" href="{% url "checkout_choices" %}">Edit choices</a>
         {% endif %}

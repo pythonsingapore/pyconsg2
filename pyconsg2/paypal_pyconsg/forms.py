@@ -5,7 +5,6 @@ Forms for the ``paypal_express_checkout`` app in the ``pyconsg`` context.
 import datetime
 
 from django import forms
-from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import ugettext_lazy as _
 
 from symposion.schedule.models import Presentation
@@ -25,9 +24,8 @@ CURRENT_TUTORIAL_ITEM = 'tutorial-early'
 # CURRENT_TUTORIAL_ITEM = 'tutorial'
 
 
-class CheckoutChoicesForm(forms.ModelForm):
+class CheckoutChoicesForm(forms.Form):
     class Meta:
-        model = CheckoutChoices
         fields = (
             'tutorial_morning', 'tutorial_afternoon', 'tshirt_size',
             'food_choice')
@@ -50,14 +48,53 @@ class CheckoutChoicesForm(forms.ModelForm):
         required=False,
     )
 
-    def __init__(self, user, *args, **kwargs):
-        kwargs.update({'instance': user.checkout_choices, })
-        super(CheckoutChoicesForm, self).__init__(*args, **kwargs)
-        if not user.checkout_choices.tutorial_morning:
-            self.fields.pop('tutorial_morning')
+    tshirt_size = forms.ChoiceField(
+        choices=TSHIRT_CHOICES, required=True,
+    )
 
-        if not user.checkout_choices.tutorial_afternoon:
+    food_choice = forms.ChoiceField(
+        choices=FOOD_CHOICES, required=False,
+    )
+
+    def __init__(self, user, *args, **kwargs):
+        super(CheckoutChoicesForm, self).__init__(*args, **kwargs)
+        self.choices = CheckoutChoices.objects.get_for_user(user)
+
+        tutorial_morning = CheckoutChoices.objects.get_tutorial_morning(
+            user, self.choices)
+        if not tutorial_morning:
+            self.fields.pop('tutorial_morning')
+        else:
+            self.initial['tutorial_morning'] = tutorial_morning
+
+        tutorial_afternoon = CheckoutChoices.objects.get_tutorial_afternoon(
+            user, self.choices)
+        if not tutorial_afternoon:
             self.fields.pop('tutorial_afternoon')
+        else:
+            self.initial['tutorial_afternoon'] = tutorial_afternoon
+
+        tshirt_size = CheckoutChoices.objects.get_tshirt_size(
+            user, self.choices)
+        self.initial['tshirt_size'] = tshirt_size
+
+        food_choice = CheckoutChoices.objects.get_tshirt_size(
+            user, self.choices)
+        self.initial['food_choice'] = food_choice
+
+    def save(self, *args, **kwargs):
+        """
+        Saves the choices into the user's latest ``CheckoutChoices`` object.
+
+        """
+        choices = self.choices[0]
+        choices.tutorial_morning = self.cleaned_data.get('tutorial_morning')
+        choices.tutorial_afternoon = self.cleaned_data.get(
+            'tutorial_afternoon')
+        choices.tshirt_size = self.cleaned_data.get('tshirt_size')
+        choices.food_choice = self.cleaned_data.get('food_choice')
+        choices.save()
+        return choices
 
 
 class PyconsgGroupSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
@@ -189,28 +226,26 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
 
     def clean(self):
         data = self.cleaned_data
-        try:
-            choices = self.user.checkout_choices
-        except ObjectDoesNotExist:
-            choices = None
-        if choices and choices.transaction.status != 'Completed':
-            choices = None
+        choices = CheckoutChoices.objects.get_for_user(self.user)
         if choices:
-            if choices.has_conference_ticket:
+            if CheckoutChoices.objects.has_conference_ticket(
+                    self.user, choices):
                 if data.get('conference_ticket'):
                     raise forms.ValidationError(
                         'You have already purchased a conference ticket.'
                         ' If you would like to purchase another ticket on'
                         ' behalf of someone else, please create a new account'
                         ' for that person.')
-            if choices.tutorial_morning:
+            if CheckoutChoices.objects.has_tutorial_morning(
+                    self.user, choices):
                 if data.get('tutorial_morning'):
                     raise forms.ValidationError(
                         'You have already purchased a morning tutorial.'
                         ' If you would like to purchase another one on'
                         ' behalf of someone else, please create a new account'
                         ' for that person.')
-            if choices.tutorial_afternoon:
+            if CheckoutChoices.objects.has_tutorial_afternoon(
+                    self.user, choices):
                 if data.get('tutorial_afternoon'):
                     raise forms.ValidationError(
                         'You have already purchased an afternoon tutorial.'
@@ -248,15 +283,15 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
         return result
 
     def post_transaction_save(self, transaction, item_quantity_list):
-        CheckoutChoices.objects.filter(user=self.user).delete()
         choices = CheckoutChoices.objects.create(
             user=self.user, transaction=transaction)
         choices.is_student = self.cleaned_data.get('student_rate')
         choices.has_conference_ticket = self.cleaned_data.get(
             'conference_ticket')
-        choices.tutorial_morning = self.cleaned_data.get('tutorial_morning')
+        choices.tutorial_morning = self.cleaned_data.get(
+            'tutorial_morning')
         choices.tutorial_afternoon = self.cleaned_data.get(
             'tutorial_afternoon')
         choices.tshirt_size = self.cleaned_data.get('tshirt_size')
-        choices.food_Choice = self.cleaned_data.get('food_choice')
+        choices.food_choice = self.cleaned_data.get('food_choice')
         choices.save()

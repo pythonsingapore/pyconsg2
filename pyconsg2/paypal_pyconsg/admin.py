@@ -1,10 +1,5 @@
 """Admin classes for the ``paypal_pyconsg`` app."""
-import datetime
-
 from django.contrib import admin
-from django.contrib.admin.filters import RelatedFieldListFilter
-
-from symposion.schedule.models import Presentation
 
 from .models import CheckoutChoices
 
@@ -32,7 +27,6 @@ class CheckoutChoicesAdmin(admin.ModelAdmin):
 
     def has_conference_ticket_yesno(self, obj):
         return obj.has_conference_ticket and 'yes' or 'no'
-
 
     def user__email(self, obj):
         return obj.user.email

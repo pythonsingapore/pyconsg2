@@ -48,6 +48,55 @@ def get_checkout_choices(user):
 
 
 @register.assignment_tag
+def get_all_checkout_choices(user):
+    """Returns completed checkout choices for the given user."""
+    return user.checkout_choices.filter(
+        transaction__status=PAYMENT_STATUS['completed'])
+
+
+@register.assignment_tag
+def get_tshirt_size(user, choices):
+    """Returns tshirt size from the latest checkout choice"""
+    return CheckoutChoices.objects.get_tshirt_size(user, choices)
+
+
+@register.assignment_tag
+def get_food_choice(user, choices):
+    """Returns food choice from the latest checkout choice"""
+    return CheckoutChoices.objects.get_food_choice(user, choices)
+
+
+@register.assignment_tag
+def has_conference_ticket(user, choices):
+    """Returns ``True`` if the user has a conference ticket."""
+    return CheckoutChoices.objects.has_conference_ticket(user, choices)
+
+
+@register.assignment_tag
+def get_tutorial_morning(user, choices):
+    """Returns a morning tutorial if present"""
+    return CheckoutChoices.objects.get_tutorial_morning(user, choices)
+
+
+@register.assignment_tag
+def has_tutorial_morning(user, choices):
+    """Returns ``True`` if the user has a morning tutorial."""
+    return CheckoutChoices.objects.has_tutorial_morning(user, choices)
+
+
+@register.assignment_tag
+def get_tutorial_afternoon(user, choices):
+    """Returns a afternoon tutorial if present"""
+    return CheckoutChoices.objects.get_tutorial_afternoon(user, choices)
+
+
+@register.assignment_tag
+def has_tutorial_afternoon(user, choices):
+    """Returns ``True`` if the user has an afternoontutorial."""
+    return CheckoutChoices.objects.has_tutorial_afternoon(user, choices)
+
+
+@register.assignment_tag
 def get_tutorials(user):
     """Returns all accepted tutorials for the given user."""
     return Presentation.objects.filter(

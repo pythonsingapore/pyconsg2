@@ -22,6 +22,60 @@ TSHIRT_CHOICES = (
 )
 
 
+class CheckoutChoicesManager(models.Manager):
+    """Manager for the ``CheckoutChoices`` models."""
+    def get_for_user(self, user):
+        return CheckoutChoices.objects.filter(
+            user=user, transaction__status='Completed').order_by('-id')
+
+    def get_tshirt_size(self, user, choices):
+        """Returns the tshirt size of the latest checkout choice."""
+        for choice in choices.order_by('-id'):
+            return choice.tshirt_size
+        return None
+
+    def get_food_choice(self, user, choices):
+        """Returns the food choice of the latest checkout choice."""
+        for choice in choices.order_by('-id'):
+            return choice.food_choice
+        return None
+
+    def get_tutorial_afternoon(self, user, choices):
+        """Returns the afternoon tutorial, if present"""
+        for choice in choices.order_by('-id'):
+            if choice.tutorial_afternoon:
+                return choice.tutorial_afternoon
+        return None
+
+    def get_tutorial_morning(self, user, choices):
+        """Returns the morning tutorial, if present"""
+        for choice in choices.order_by('-id'):
+            if choice.tutorial_morning:
+                return choice.tutorial_morning
+        return None
+
+    def has_conference_ticket(self, user, choices):
+        """Returns ``True`` if the given user has a conference ticket."""
+        for choice in choices.order_by('-id'):
+            if choice.has_conference_ticket:
+                return True
+        return False
+
+    def has_tutorial_morning(self, user, choices):
+        """Returns ``True`` if the given user has a morning tutorial."""
+        for choice in choices:
+            if choice.tutorial_morning:
+                return True
+        return False
+
+    def has_tutorial_afternoon(self, user, choices):
+        """Returns ``True`` if the given user has an afternoon tutorial."""
+        for choice in choices:
+            if choice.tutorial_afternoon:
+                return True
+        return False
+
+
 class CheckoutChoices(models.Model):
     """
     Model to save the choices the user made during checkout.
@@ -37,7 +91,7 @@ class CheckoutChoices(models.Model):
     :tshirt_size: The t-shirt size the user selected.
 
     """
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         'auth.User',
         verbose_name=_('User'),
         related_name='checkout_choices',
@@ -92,6 +146,8 @@ class CheckoutChoices(models.Model):
         verbose_name=_('Is registered'),
         blank=True,
     )
+
+    objects = CheckoutChoicesManager()
 
     def get_food_choice(self):
         for choice in FOOD_CHOICES:
