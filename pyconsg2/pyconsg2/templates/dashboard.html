@@ -21,7 +21,7 @@
         {% has_conference_ticket user checkout_choices as has_conference_ticket_ %}
         {% has_tutorial_morning user checkout_choices as has_tutorial_morning_ %}
         {% has_tutorial_afternoon user checkout_choices as has_tutorial_afternoon_ %}
-        {% if not has_conference_ticket_ %}
+        {% if not has_conference_ticket_ and not has_tutorial_morning_ and not has_tutorial_afternoon_ %}
             <p>You have not bought a conference ticket, yet :-(<p>
             {# <a class="btn btn-primary" href="{% url "paypal_checkout" %}">Get your ticket now</a>. #}
         {% else %}
