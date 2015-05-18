@@ -19,6 +19,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Profile" %} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li class=""><a href="{% url "dashboard" %}">{% trans "Dashboard" %}</a></li>
+                            <li class=""><a href="{% url "account_password" %}">{% trans "Change Password" %}</a></li>
                             {% if request.user.is_superuser %}
                                 <li class="divider"></li>
                                 <li class=""><a href="{% url "admin:index" %}">{% trans "Django admin" %}</a></li>
