@@ -16,12 +16,12 @@ from .models import CheckoutChoices, FOOD_CHOICES, TSHIRT_CHOICES
 
 
 # Change those to the non-early versions when early bird phase ends
-CURRENT_CONFERENCE_ITEM = 'conference-early'
-CURRENT_CONFERENCE_STUDENT_ITEM = 'conference-student-early'
-CURRENT_TUTORIAL_ITEM = 'tutorial-early'
-# CURRENT_CONFERENCE_ITEM = 'conference'
-# CURRENT_CONFERENCE_STUDENT_ITEM = 'conference-student'
-# CURRENT_TUTORIAL_ITEM = 'tutorial'
+# CURRENT_CONFERENCE_ITEM = 'conference-early'
+# CURRENT_CONFERENCE_STUDENT_ITEM = 'conference-student-early'
+# CURRENT_TUTORIAL_ITEM = 'tutorial-early'
+CURRENT_CONFERENCE_ITEM = 'conference'
+CURRENT_CONFERENCE_STUDENT_ITEM = 'conference-student'
+CURRENT_TUTORIAL_ITEM = 'tutorial'
 
 
 class CheckoutChoicesForm(forms.Form):
