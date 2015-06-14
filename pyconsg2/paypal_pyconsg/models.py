@@ -147,6 +147,11 @@ class CheckoutChoices(models.Model):
         blank=True,
     )
 
+    notes = models.TextField(
+        verbose_name=_('Notes'),
+        blank=True,
+    )
+
     objects = CheckoutChoicesManager()
 
     def get_food_choice(self):

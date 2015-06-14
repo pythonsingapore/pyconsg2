@@ -40,6 +40,7 @@
                     <th>T-shirt</th>
                     <th>Tutorial morning</th>
                     <th>Tutorial afternoon</th>
+                    <th>Notes</th>
                     <th>Registered</th>
                 </tr>
             </thead>
@@ -56,6 +57,7 @@
                         <td>{% if choice.has_conference_ticket %}{{ choice.tshirt_size }}{% else %}---{% endif %}</td>
                         <td>{{ choice.tutorial_morning_yesno }}</td>
                         <td>{{ choice.tutorial_afternoon_yesno }}</td>
+                        <td>{% if choice.notes %}<span class="glyphicon glyphicon-info-sign" style="cursor: pointer;" data-toggle="popover" data-content="Test"></span>{% endif %}</td>
                         <td>
                             <form method="post" action=".">
                                 {% csrf_token %}
@@ -113,6 +115,8 @@ $(document).ready(function() {
         ordering: true,
         paging: false
     });
+
+    $('[data-toggle="popover"]').popover({trigger: 'click focus'});
 });
 </script>
 {% endblock %}
