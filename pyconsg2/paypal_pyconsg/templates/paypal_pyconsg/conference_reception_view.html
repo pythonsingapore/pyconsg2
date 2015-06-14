@@ -47,7 +47,7 @@
                 {% for choice in choices %}
                 <tr {% if choice.is_registered %}class="success"{% endif %}>
                         <td><a href="{% url "admin:paypal_pyconsg_checkoutchoices_change" choice.pk %}">{{ choice.pk }}</a></td>
-                        <td>{{ choice.user.email }} {% if choice.notes %}<span class="glyphicon glyphicon-info-sign" style="cursor: pointer;" data-toggle="popover" data-content="Test"></span>{% endif %}</td>
+                        <td>{{ choice.user.email }} {% if choice.notes %}<span class="glyphicon glyphicon-info-sign" style="cursor: pointer;" data-toggle="popover" data-content="{{ choice.notes }}"></span>{% endif %}</td>
                         <td>{{ choice.user.first_name }}</td>
                         <td>{{ choice.user.last_name }}</td>
                         <td>{{ choice.is_student_yesno }}</td>
