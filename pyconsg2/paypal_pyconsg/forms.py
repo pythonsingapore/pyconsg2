@@ -33,6 +33,7 @@ class CheckoutChoicesForm(forms.Form):
     tutorial_morning = forms.ModelChoiceField(
         label=_('Tutorial (morning)'),
         queryset=Presentation.objects.filter(
+            available_for_purchase=True,
             proposal_base__kind__slug='tutorial',
             slot__start__lte=datetime.time(13, 0)),
         empty_label=None,
@@ -42,6 +43,7 @@ class CheckoutChoicesForm(forms.Form):
     tutorial_afternoon = forms.ModelChoiceField(
         label=_('Tutorial (afternoon)'),
         queryset=Presentation.objects.filter(
+            available_for_purchase=True,
             proposal_base__kind__slug='tutorial',
             slot__start__gt=datetime.time(13, 0)),
         empty_label=None,
@@ -189,6 +191,7 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
     tutorial_morning = forms.ModelChoiceField(
         label=_('Tutorial (morning)'),
         queryset=Presentation.objects.filter(
+            available_for_purchase=True,
             proposal_base__kind__slug='tutorial',
             slot__start__lte=datetime.time(13, 0)),
         required=False,
@@ -197,6 +200,7 @@ class PyconsgSetExpressCheckoutForm(SetExpressCheckoutFormMixin):
     tutorial_afternoon = forms.ModelChoiceField(
         label=_('Tutorial (afternoon)'),
         queryset=Presentation.objects.filter(
+            available_for_purchase=True,
             proposal_base__kind__slug='tutorial',
             slot__start__gt=datetime.time(13, 0)),
         required=False,
