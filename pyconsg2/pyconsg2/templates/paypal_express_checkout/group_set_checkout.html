@@ -6,6 +6,20 @@
 
     <div class="row">
         <div class="col-md-6">
+            <p>
+                We are sorry, online ticket sales have been closed as of
+                Tuesday, June 16th. Tutorial tickets for Wednesday cannot
+                be purchased any more.
+            </p>
+            <p>
+                If you would like to visit the conference on short notice, you
+                can approach us at the registration counter near the Auditurium
+                and bring the conference ticket fees of S$240 in cash. Please
+                bring the exact amount as we will not have unlimited amounts of
+                change available.
+            </p>
+
+            {% comment %}}
             <form class="form-horizontal" method="post" action=".">
                 {% csrf_token %}
 
@@ -26,8 +40,10 @@
                     </div>
                 </div>
             </form>
+            {% endcomment %}
         </div>
         <div class="col-md-6">
+            {% comment %}}
             {% static_placeholder "group_checkout_content_right" or %}
             <p>{% trans "<strong>Conference tickets</strong> entitle your group members to attend the main conference on June 19-20." %}</p>
             <p>{% trans "Anyone can also attend up to two <strong>tutorials</strong> on June 18 (one in the morning and one in the afternoon). Check out the <a href='/schedule/list/' target='_blank'>Conference Talk List</a> to find out more about the tutorials." %}</p>
@@ -37,6 +53,7 @@
             <p>{% trans "The list should include the following information about each attendee: full name, email, desired tutorials, t-shirt size, food preference (vegetarian or vegan). Please don't hesitate to contact us if you have any questions." %}</p>
             <p>{% trans "Please note that we will serve <strong>halal</strong> food." %}</p>
             {% endstatic_placeholder %}
+            {% endcomment %}
         </div>
     </div>
 {% endblock %}
