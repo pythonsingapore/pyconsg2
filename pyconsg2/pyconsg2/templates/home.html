@@ -44,8 +44,8 @@
 
                     <div class="row" style="margin: 1em 0px;">
                         <div class="col-md-12 text-center">
-                            <a href="/checkout/" class="btn btn-primary btn-lg">Get your ticket now!</a>
                             {% comment %}
+                                <a href="/checkout/" class="btn btn-primary btn-lg">Get your ticket now!</a>
                                 {% get_early_bird_count 100 as early_bird_count %}
                                 <p class="text-muted" style="margin-top: 1em;">We have {{ early_bird_count }} early-bird tickets left</p>
                                 {# <p class="text-muted" style="margin-top: 1em;">Early bird sales has been extended to Wednesday, June 4th!</p> #}
@@ -58,10 +58,10 @@
 
         <h1 class="text-center">{% placeholder headline2 %}</h1>
 
+        {% comment %}
         <div class="row">
             <div class="col-md-12">
                 <div class="container-box">
-                    {% comment %}{% placeholder keynote_speakers %}{% endcomment %}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="text-center"><img src="{% static "img/andrew.jpg" %}" style="width:200px !important;"/></div>
@@ -73,48 +73,15 @@
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="container-box">
-                    {% comment %}{% placeholder keynote_speakers %}{% endcomment %}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="text-center"><img src="{% static "img/lynn.jpg" %}" style="width:200px !important;"/></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div style="margin-top:1em;">{% placeholder keynote_speaker2 %}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="container-box">
-                    {% comment %}{% placeholder keynote_speakers %}{% endcomment %}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="text-center"><img src="{% static "img/jessica.png" %}" style="width:200px !important;"/></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div style="margin-top:1em;">{% placeholder keynote_speaker3 %}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endcomment %}
 
         <div class="row">
             <div class="col-md-12">
                 <div class="container-box">
                     <div class="row">
-                        <div class="col-md-3">
-                            <a class="btn btn-primary btn-lg" href="{% url "account_signup" %}">Create user account</a>
-                        </div>
-                        <div class="col-md-9">
-                            {% placeholder default_content %}
+                        <div class="col-md-12 text-center">
+                          {% placeholder default_content %}
+                          <a class="btn btn-primary btn-lg" href="{% url "account_signup" %}">Create a user account now!</a>
                         </div>
                     </div>
                 </div>
