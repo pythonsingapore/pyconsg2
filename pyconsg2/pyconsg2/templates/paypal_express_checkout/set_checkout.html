@@ -2,6 +2,7 @@
 {% load cms_tags i18n libs_tags %}
 
 {% block main %}
+    {% comment %}
     <h1>{% static_placeholder "set_checkout_title" or %}Your PyCon Singapore 2015 Ticket" {% endstatic_placeholder %}</h1>
 
     <p>
@@ -16,8 +17,8 @@
         bring the exact amount as we will not have unlimited amounts of
         change available.
     </p>
+    {% endcomment %}
 
-{% comment %}
     <form class="form-horizontal" method="post" action=".">
         <div class="row" style="margin-top:2em;">
             <div class="col-md-6">
@@ -97,7 +98,6 @@
             {% endstatic_placeholder %}
         </div>
     </div>
-    {% endcomment %}
 {% endblock %}
 
 {% block extrajs %}

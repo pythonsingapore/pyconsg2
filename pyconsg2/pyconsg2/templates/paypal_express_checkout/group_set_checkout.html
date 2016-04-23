@@ -2,10 +2,11 @@
 {% load cms_tags i18n %}
 
 {% block main %}
-    <h1>{% static_placeholder "group_checkout_title" or %}PyCon Singapore 2015 - Group Registration{% endstatic_placeholder%}</h1>
+    <h1>{% static_placeholder "group_checkout_title" or %}PyCon Singapore 2016 - Group Registration{% endstatic_placeholder%}</h1>
 
     <div class="row">
         <div class="col-md-6">
+            {% comment %}}
             <p>
                 We are sorry, online ticket sales have been closed as of
                 Tuesday, June 16th. Tutorial tickets for Wednesday cannot
@@ -18,8 +19,8 @@
                 bring the exact amount as we will not have unlimited amounts of
                 change available.
             </p>
+            {% endcomment %}
 
-            {% comment %}}
             <form class="form-horizontal" method="post" action=".">
                 {% csrf_token %}
 
@@ -40,10 +41,8 @@
                     </div>
                 </div>
             </form>
-            {% endcomment %}
         </div>
         <div class="col-md-6">
-            {% comment %}}
             {% static_placeholder "group_checkout_content_right" or %}
             <p>{% trans "<strong>Conference tickets</strong> entitle your group members to attend the main conference on June 19-20." %}</p>
             <p>{% trans "Anyone can also attend up to two <strong>tutorials</strong> on June 18 (one in the morning and one in the afternoon). Check out the <a href='/schedule/list/' target='_blank'>Conference Talk List</a> to find out more about the tutorials." %}</p>
@@ -53,7 +52,6 @@
             <p>{% trans "The list should include the following information about each attendee: full name, email, desired tutorials, t-shirt size, food preference (vegetarian or vegan). Please don't hesitate to contact us if you have any questions." %}</p>
             <p>{% trans "Please note that we will serve <strong>halal</strong> food." %}</p>
             {% endstatic_placeholder %}
-            {% endcomment %}
         </div>
     </div>
 {% endblock %}
