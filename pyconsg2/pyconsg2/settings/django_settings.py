@@ -3,6 +3,7 @@ import os
 
 from .base_settings import DJANGO_PROJECT_ROOT
 
+BASE_URL = 'https://pycon.sg'
 
 AUTHENTICATION_BACKENDS = [
     'account.auth_backends.UsernameAuthenticationBackend',

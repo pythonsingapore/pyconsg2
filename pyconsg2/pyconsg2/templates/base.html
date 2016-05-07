@@ -10,7 +10,7 @@
     <link href="{% static "css/libs/bootstrap-datetimepicker.min.css" %}" rel="stylesheet" media="screen">
     <link href="{% static "css/libs/jquery-ui-1.10.3.custom.min.css" %}" rel="stylesheet" />
     {% block extrahead %}
-      <meta property="og:image" content="{% static "img/header.jpg" %}" />
+      <meta property="og:image" content="{{ BASE_URL }}{% static "img/header.jpg" %}" />
     {% endblock %}
     {% render_block "css" %}
 

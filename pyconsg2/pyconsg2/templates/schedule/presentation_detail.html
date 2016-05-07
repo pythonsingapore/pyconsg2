@@ -4,9 +4,9 @@
 {% block head_title %}{% trans "Presentation" %}: {{ presentation.title }}{% endblock %}
 {% block extrahead %}
 {% if presentation.speaker.photo %}
-  <meta property="og:image" content="{{ presentation.speaker.photo.url }}" />
+  <meta property="og:image" content="{{ BASE_URL }}{% static presentation.speaker.photo.url %}" />
 {% else %}
-  <meta property="og:image" content="{% static "img/header.jpg" %}" />
+  <meta property="og:image" content="{{ BASE_URL }}{% static "img/header.jpg" %}" />
 {% endif %}
 {% endblock %}
 
