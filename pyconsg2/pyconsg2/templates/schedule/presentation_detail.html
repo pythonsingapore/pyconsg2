@@ -1,7 +1,14 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block head_title %}{% trans "Presentation" %}: {{ presentation.title }}{% endblock %}
+{% block extrahead %}
+{% if presentation.speaker.photo %}
+  <meta property="og:image" content="{{ presentation.speaker.photo.url }}" />
+{% else %}
+  <meta property="og:image" content="{% static "img/header.jpg" %}" />
+{% endif %}
+{% endblock %}
 
 {% block main %}
     <div class="row">
