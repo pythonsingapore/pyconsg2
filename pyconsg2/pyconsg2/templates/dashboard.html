@@ -55,6 +55,16 @@
             {% if food_choice %}
                 <div><label>Food preference:</label> <span>{{ food_choice }}</span></div>
             {% endif %}
+
+            {% if checkout_choices.0.wifi_ssid %}
+                <div><label>WIFI SSID:</label> <span>{{ checkout_choices.0.wifi_ssid }}</span></div>
+            {% endif %}
+            {% if checkout_choices.0.wifi_username %}
+                <div><label>WIFI Username:</label> <span>{{ checkout_choices.0.wifi_username }}</span></div>
+            {% endif %}
+            {% if checkout_choices.0.wifi_password %}
+                <div><label>WIFI Password:</label> <span>{{ checkout_choices.0.wifi_password }}</span></div>
+            {% endif %}
             <a class="btn btn-primary" style="margin-top: 1em;" href="{% url "checkout_choices" %}">Edit choices</a>
         {% endif %}
     </div>

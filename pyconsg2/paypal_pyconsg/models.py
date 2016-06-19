@@ -141,6 +141,24 @@ class CheckoutChoices(models.Model):
         null=True, blank=True,
     )
 
+    wifi_username = models.CharField(
+        max_length=265,
+        verbose_name=_('WIFI username'),
+        blank=True,
+    )
+
+    wifi_password = models.CharField(
+        max_length=265,
+        verbose_name=_('WIFI password'),
+        blank=True,
+    )
+
+    wifi_ssid = models.CharField(
+        max_length=265,
+        verbose_name=_('WIFI SSID'),
+        blank=True,
+    )
+
     is_registered = models.BooleanField(
         default=False,
         verbose_name=_('Is registered'),
