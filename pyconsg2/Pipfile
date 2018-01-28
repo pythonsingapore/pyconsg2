@@ -1,0 +1,58 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+"beautifulsoup4" = "==4.3.2"
+mailer = {git = "https://github.com/pinax/django-mailer", editable = true, ref = "44641b814660a9deef907ad9049d571cb1709901"}
+south = "==0.8.4"
+django-filer = "==0.9.5"
+hvad = {git = "https://github.com/KristianOellegaard/django-hvad", editable = true, ref = "0e2101f15404eaf9611cd6cf843bfc424117b227"}
+django-libs = "==1.53"
+Django = "==1.6.1"
+django-paypal-express-checkout = "==1.7"
+django-impersonate = "==0.8.1"
+django-influxdb-metrics = "==0.3.1"
+django-mptt = "==0.6"
+django-cms = "==3.0.1"
+cmsplugin-filer = "==0.9.5"
+cmsplugin-template-placeholder = "==0.1"
+django-multilingual-news = "==2.0.2"
+django-document-library = "==1.0"
+django-people = "==1.0"
+django-multilingual-tags = "==0.4"
+djangocms-admin-style = "==0.1.4"
+djangocms-text-ckeditor = "==2.1.4"
+symposion = {git = "https://github.com/mbrochh/symposion", editable = true, ref = "774e8a4b7efe92d440cda485df9db96279148f9c"}
+Pillow = "==2.3.0"
+django-markitup = "==2.1"
+django-model-utils = "==2.0"
+reversion = {git = "https://github.com/etianen/django-reversion", editable = true, ref = "f3d20edf96adbb15a1970d3826d6ce8a82021048"}
+django-taggit = "==0.11.2"
+django-timezones = "==0.2"
+django-user-accounts = "==1.0b7"
+easy-thumbnails = "==1.4"
+Markdown = "==2.3.1"
+metron = "==1.3.1"
+Fabric = "==1.8.1"
+sphinx = "==1.2"
+coverage = "==3.7.1"
+django-coverage = "==1.2.4"
+django-debug-toolbar = "==1.0.1"
+django-development-fabfile = "==2.7.3"
+django-extensions = "==1.3.1"
+django-nose = "==1.2"
+factory_boy = "==2.3.0"
+"flake8" = "==2.1.0"
+ipdb = "==0.8"
+ipython = "==1.1.0"
+mock = "==1.0.1"
+"psycopg2" = "==2.5.2"
+
+
+[dev-packages]
+
